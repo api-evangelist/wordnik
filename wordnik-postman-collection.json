@@ -1,0 +1,1546 @@
+{
+    "id": "5095ee9a88775c034b10522d88c9b23b",
+    "name": "Wordnik",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "029be6b83e89aa9258cef24beb033287",
+            "name": "Returns usage statistics for the API account.",
+            "url": "httpsapi.wordnik.com\/v4\/account.json\/apiTokenStatus",
+            "description": "Returns usage statistics for the api account..",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "api_key",
+                    "description": "Wordnik authentication token",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "7628739309270e5a43598769e647007c",
+            "name": "Authenticates a User",
+            "url": "httpsapi.wordnik.com\/v4\/account.json\/authenticate\/{username}",
+            "description": "Authenticates a user.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "username",
+                    "description": "A confirmed Wordnik username",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "password",
+                    "description": "The user's password",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "ac78e62f6539e577a66407d815357772",
+            "name": "Authenticates a user",
+            "url": "httpsapi.wordnik.com\/v4\/account.json\/authenticate\/{username}",
+            "description": "Authenticates a user.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "username",
+                    "description": "A confirmed Wordnik username",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "body",
+                    "description": "The user's password",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "7dc5052e65fafc9c0be02117b84e1cd2",
+            "name": "Returns the logged-in User",
+            "url": "httpsapi.wordnik.com\/v4\/account.json\/user",
+            "description": "Requires a valid auth_token to be set.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "auth_token",
+                    "description": "The auth token of the logged-in user, obtained by calling \/account.{format}\/authenticate\/{username} (described above)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "0846b01000f87803c4fb852c826f3d4a",
+            "name": "Fetches WordList objects for the logged-in user.",
+            "url": "httpsapi.wordnik.com\/v4\/account.json\/wordLists",
+            "description": "Fetches wordlist objects for the logged-in user..",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "auth_token",
+                    "description": "The auth token of the logged-in user, obtained by calling \/account.{format}\/authenticate\/{username} (described above)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "skip",
+                    "description": "Results to skip",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Maximum number of results to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "19f3a458f5316628671daf5eb9e6577a",
+            "name": "Given a word as a string, returns the WordObject that represents it",
+            "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}",
+            "description": "Given a word as a string, returns the wordobject that represents it.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "word",
+                    "description": "String value of WordObject to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "useCanonical",
+                    "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "includeSuggestions",
+                    "description": "Return suggestions (for correct spelling, case variants, etc.)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "2e7010c3d6d44e692710d22d5c093da5",
+            "name": "Fetches audio metadata for a word.",
+            "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/audio",
+            "description": "The metadata includes a time-expiring fileUrl which allows reading the audio file directly from the API.  Currently only audio pronunciations from the American Heritage Dictionary in mp3 format are supported.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "word",
+                    "description": "String value of WordObject to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "useCanonical",
+                    "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Maximum number of results to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "d666369900ced26896ed5285d4275025",
+            "name": "Return definitions for a word",
+            "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/definitions",
+            "description": "Return definitions for a word.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "word",
+                    "description": "String value of WordObject to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Maximum number of results to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "partOfSpeech",
+                    "description": "CSV list of part-of-speech types",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "includeRelated",
+                    "description": "Return related words with definitions",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sourceDictionaries",
+                    "description": "Source dictionary to return definitions from.  If 'all' is received, results are returned from all sources. If multiple values are received (e.g. 'century,wiktionary'), results are returned from the first specified dictionary that has definitions. If left blank, results are returned from the first dictionary that has definitions. By default, dictionaries are searched in this order: ahd, wiktionary, webster, century, wordnet",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "useCanonical",
+                    "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "includeTags",
+                    "description": "Return a closed set of XML tags in response",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "e807c0d3350a6c06146fa5aac1bf3823",
+            "name": "Fetches etymology data",
+            "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/etymologies",
+            "description": "Fetches etymology data.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "word",
+                    "description": "String value of WordObject to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "useCanonical",
+                    "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "b084be978db4bca92e8603797ab38850",
+            "name": "Returns examples for a word",
+            "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/examples",
+            "description": "Returns examples for a word.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "word",
+                    "description": "String value of WordObject to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "includeDuplicates",
+                    "description": "Show duplicate examples from different sources",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "useCanonical",
+                    "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "skip",
+                    "description": "Results to skip",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Maximum number of results to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "dc631c98715c2537d2075f2a45d95874",
+            "name": "Returns word usage over time",
+            "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/frequency",
+            "description": "Returns word usage over time.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "word",
+                    "description": "String value of WordObject to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "useCanonical",
+                    "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "startYear",
+                    "description": "Starting Year",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "endYear",
+                    "description": "Ending Year",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "c946e30890317d7074b9eee0bf8a61d5",
+            "name": "Returns syllable information for a word",
+            "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/hyphenation",
+            "description": "Returns syllable information for a word.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "word",
+                    "description": "String value of WordObject to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "useCanonical",
+                    "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sourceDictionary",
+                    "description": "Get from a single dictionary. Valid options: ahd, century, wiktionary, webster, and wordnet.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Maximum number of results to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "044004e230af2a67ec9ba8ce2f0f5ae0",
+            "name": "Fetches bi-gram phrases for a word",
+            "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/phrases",
+            "description": "Fetches bi-gram phrases for a word.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "word",
+                    "description": "String value of WordObject to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Maximum number of results to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "wlmi",
+                    "description": "Minimum WLMI for the phrase",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "useCanonical",
+                    "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "2937b237a9f0cb3d11f5f95159a1c877",
+            "name": "Returns text pronunciations for a given word",
+            "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/pronunciations",
+            "description": "Returns text pronunciations for a given word.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "word",
+                    "description": "String value of WordObject to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "useCanonical",
+                    "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sourceDictionary",
+                    "description": "Get from a single dictionary. Valid options: ahd, century, wiktionary, webster, and wordnet.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "typeFormat",
+                    "description": "Text pronunciation type",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Maximum number of results to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "fc3e62e686a6bfbd51e14afd5f687991",
+            "name": "Given a word as a string, returns relationships from the Word Graph",
+            "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/relatedWords",
+            "description": "Given a word as a string, returns relationships from the word graph.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "word",
+                    "description": "String value of WordObject to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "useCanonical",
+                    "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "relationshipTypes",
+                    "description": "Limits the total results per type of relationship type",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limitPerRelationshipType",
+                    "description": "Restrict to the supplied relationship types",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "b1a6ea5bef159ce8433408116b653c6f",
+            "name": "Returns a top example for a word",
+            "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/topExample",
+            "description": "Returns a top example for a word.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "word",
+                    "description": "String value of WordObject to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "useCanonical",
+                    "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested.",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "0510ac921c3a77b92faaa65572669ac8",
+            "name": "Deletes an existing WordList",
+            "url": "httpsapi.wordnik.com\/v4\/wordList.json\/{permalink}",
+            "description": "Deletes an existing wordlist.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "permalink",
+                    "description": "ID of WordList to delete",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "auth_token",
+                    "description": "The auth token of the logged-in user, obtained by calling \/account.{format}\/authenticate\/{username} (described above)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "fb867b69771ef77920357f4ac801be4c",
+            "name": "Fetches a WordList by ID",
+            "url": "httpsapi.wordnik.com\/v4\/wordList.json\/{permalink}",
+            "description": "Fetches a wordlist by id.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "permalink",
+                    "description": "ID of WordList to delete",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "auth_token",
+                    "description": "The auth token of the logged-in user, obtained by calling \/account.{format}\/authenticate\/{username} (described above)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "18319b38fdb2f88f4fec7a6796537ac7",
+            "name": "Updates an existing WordList",
+            "url": "httpsapi.wordnik.com\/v4\/wordList.json\/{permalink}",
+            "description": "Updates an existing wordlist.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "put",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "permalink",
+                    "description": "ID of WordList to delete",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "body",
+                    "description": "The user's password",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "auth_token",
+                    "description": "The auth token of the logged-in user, obtained by calling \/account.{format}\/authenticate\/{username} (described above)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "1e01780c476adcd72fe89a7c8f3b4879",
+            "name": "Removes words from a WordList",
+            "url": "httpsapi.wordnik.com\/v4\/wordList.json\/{permalink}\/deleteWords",
+            "description": "Removes words from a wordlist.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "permalink",
+                    "description": "ID of WordList to delete",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "body",
+                    "description": "The user's password",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "auth_token",
+                    "description": "The auth token of the logged-in user, obtained by calling \/account.{format}\/authenticate\/{username} (described above)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "914194249515755a4b501b8c23982e81",
+            "name": "Fetches words in a WordList",
+            "url": "httpsapi.wordnik.com\/v4\/wordList.json\/{permalink}\/words",
+            "description": "Fetches words in a wordlist.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "permalink",
+                    "description": "ID of WordList to delete",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sortBy",
+                    "description": "Field to sort by",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sortOrder",
+                    "description": "Direction to sort",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "skip",
+                    "description": "Results to skip",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Maximum number of results to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "auth_token",
+                    "description": "The auth token of the logged-in user, obtained by calling \/account.{format}\/authenticate\/{username} (described above)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "0697b5be6d00ef34a1ec69e82a6938a1",
+            "name": "Adds words to a WordList",
+            "url": "httpsapi.wordnik.com\/v4\/wordList.json\/{permalink}\/words",
+            "description": "Adds words to a wordlist.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "permalink",
+                    "description": "ID of WordList to delete",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "body",
+                    "description": "The user's password",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "auth_token",
+                    "description": "The auth token of the logged-in user, obtained by calling \/account.{format}\/authenticate\/{username} (described above)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "5ba65cad6972d867eff2703b65f1ff42",
+            "name": "Creates a WordList.",
+            "url": "httpsapi.wordnik.com\/v4\/wordLists.json",
+            "description": "Creates a wordlist..",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "body",
+                    "description": "The user's password",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "auth_token",
+                    "description": "The auth token of the logged-in user, obtained by calling \/account.{format}\/authenticate\/{username} (described above)",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "52f0cded48b2346a2ddd64515cfd6900",
+            "name": "Returns a single random WordObject",
+            "url": "httpsapi.wordnik.com\/v4\/words.json\/randomWord",
+            "description": "Returns a single random wordobject.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "hasDictionaryDef",
+                    "description": "Only return words with dictionary definitions",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "includePartOfSpeech",
+                    "description": "CSV part-of-speech values to include",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "excludePartOfSpeech",
+                    "description": "CSV part-of-speech values to exclude",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "minCorpusCount",
+                    "description": "Minimum corpus frequency for terms",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maxCorpusCount",
+                    "description": "Maximum corpus frequency for terms",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "minDictionaryCount",
+                    "description": "Minimum dictionary count",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maxDictionaryCount",
+                    "description": "Maximum dictionary count",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "minLength",
+                    "description": "Minimum word length",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maxLength",
+                    "description": "Maximum word length",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "7fc1763100999204eef0acfb81b50f5f",
+            "name": "Returns an array of random WordObjects",
+            "url": "httpsapi.wordnik.com\/v4\/words.json\/randomWords",
+            "description": "Returns an array of random wordobjects.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "hasDictionaryDef",
+                    "description": "Only return words with dictionary definitions",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "includePartOfSpeech",
+                    "description": "CSV part-of-speech values to include",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "excludePartOfSpeech",
+                    "description": "CSV part-of-speech values to exclude",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "minCorpusCount",
+                    "description": "Minimum corpus frequency for terms",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maxCorpusCount",
+                    "description": "Maximum corpus frequency for terms",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "minDictionaryCount",
+                    "description": "Minimum dictionary count",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maxDictionaryCount",
+                    "description": "Maximum dictionary count",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "minLength",
+                    "description": "Minimum word length",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maxLength",
+                    "description": "Maximum word length",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sortBy",
+                    "description": "Field to sort by",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sortOrder",
+                    "description": "Direction to sort",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Maximum number of results to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "6f0069fe7cc34b98bc5c74996becd4e6",
+            "name": "Reverse dictionary search",
+            "url": "httpsapi.wordnik.com\/v4\/words.json\/reverseDictionary",
+            "description": "Reverse dictionary search.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "query",
+                    "description": "Search term",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "findSenseForWord",
+                    "description": "Restricts words and finds closest sense",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "includeSourceDictionaries",
+                    "description": "Only include these comma-delimited source dictionaries",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "excludeSourceDictionaries",
+                    "description": "Exclude these comma-delimited source dictionaries",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "includePartOfSpeech",
+                    "description": "CSV part-of-speech values to include",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "excludePartOfSpeech",
+                    "description": "CSV part-of-speech values to exclude",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "minCorpusCount",
+                    "description": "Minimum corpus frequency for terms",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maxCorpusCount",
+                    "description": "Maximum corpus frequency for terms",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "minLength",
+                    "description": "Minimum word length",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maxLength",
+                    "description": "Maximum word length",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "expandTerms",
+                    "description": "Expand terms",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "includeTags",
+                    "description": "Return a closed set of XML tags in response",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sortBy",
+                    "description": "Field to sort by",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "sortOrder",
+                    "description": "Direction to sort",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "skip",
+                    "description": "Results to skip",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Maximum number of results to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "b005385f899fda3dd6736d85e6f27ed7",
+            "name": "Searches words",
+            "url": "httpsapi.wordnik.com\/v4\/words.json\/search\/{query}",
+            "description": "Searches words.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "query",
+                    "description": "Search query",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "caseSensitive",
+                    "description": "Search case sensitive",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "includePartOfSpeech",
+                    "description": "CSV part-of-speech values to include",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "excludePartOfSpeech",
+                    "description": "CSV part-of-speech values to exclude",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "minCorpusCount",
+                    "description": "Minimum corpus frequency for terms",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maxCorpusCount",
+                    "description": "Maximum corpus frequency for terms",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "minDictionaryCount",
+                    "description": "Minimum dictionary count",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maxDictionaryCount",
+                    "description": "Maximum dictionary count",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "minLength",
+                    "description": "Minimum word length",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "maxLength",
+                    "description": "Maximum word length",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "skip",
+                    "description": "Results to skip",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "Maximum number of results to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        },
+        {
+            "id": "40db8e89fb29fa9987080dd713d1133e",
+            "name": "Returns a specific WordOfTheDay",
+            "url": "httpsapi.wordnik.com\/v4\/words.json\/wordOfTheDay",
+            "description": "Returns a specific wordoftheday.",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "date",
+                    "description": "Fetches by date in yyyy-MM-dd",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "rawModeData": ""
+        }
+    ]
+}
