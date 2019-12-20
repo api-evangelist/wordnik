@@ -1,0 +1,136 @@
+{
+    "id": "adfce8f8f8c8e87da7c5339153a5558c",
+    "name": "Swagger Petstore (Simple)",
+    "description": null,
+    "auth": null,
+    "events": null,
+    "variables": [],
+    "order": [],
+    "folders_order": [],
+    "folders": [],
+    "requests": [
+        {
+            "id": "2439a5b86185017d921dd072d1aa7e00",
+            "name": "",
+            "url": "http:\/\/petstore.swagger.wordnik.com\/api\/pets",
+            "description": "Returns all pets from the system that the user has access to",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "tags",
+                    "description": "tags to filter by",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                },
+                {
+                    "key": "limit",
+                    "description": "maximum number of results to return",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "adfce8f8f8c8e87da7c5339153a5558c",
+            "rawModeData": ""
+        },
+        {
+            "id": "50a15957ce13168a56bc8430f356537b",
+            "name": "",
+            "url": "http:\/\/petstore.swagger.wordnik.com\/api\/pets",
+            "description": "Creates a new pet in the store.  Duplicates are allowed",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "post",
+            "pathVariableData": [],
+            "queryParams": [],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "adfce8f8f8c8e87da7c5339153a5558c",
+            "rawModeData": ""
+        },
+        {
+            "id": "f0aa922783f01731506df808af26ac6c",
+            "name": "",
+            "url": "http:\/\/petstore.swagger.wordnik.com\/api\/pets\/{id}",
+            "description": "Returns a user based on a single ID, if the user does not have access to the pet",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "get",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "ID of pet to fetch",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "adfce8f8f8c8e87da7c5339153a5558c",
+            "rawModeData": ""
+        },
+        {
+            "id": "3c11dc827be6b575654c419dee1b2889",
+            "name": "",
+            "url": "http:\/\/petstore.swagger.wordnik.com\/api\/pets\/{id}",
+            "description": "deletes a single pet based on the ID supplied",
+            "data": [],
+            "dataMode": "raw",
+            "headerData": null,
+            "method": "delete",
+            "pathVariableData": [],
+            "queryParams": [
+                {
+                    "key": "id",
+                    "description": "ID of pet to fetch",
+                    "value": "",
+                    "equals": true,
+                    "enabled": true
+                }
+            ],
+            "auth": null,
+            "events": null,
+            "folder": null,
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "responses": [],
+            "currentHelper": null,
+            "helperAttributes": null,
+            "collectionId": "adfce8f8f8c8e87da7c5339153a5558c",
+            "rawModeData": ""
+        }
+    ]
+}
