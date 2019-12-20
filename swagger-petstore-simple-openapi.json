@@ -1,0 +1,164 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Swagger Petstore (Simple)",
+        "description": "A sample API that uses a petstore as an example to demonstrate features in the swagger-2.0 specification",
+        "termsOfService": "http:\/\/helloreverb.com\/terms\/"
+    },
+    "servers": [
+        "http:\/\/petstore.swagger.wordnik.com\/api"
+    ],
+    "paths": {
+        "\/pets": {
+            "get": {
+                "summary": "",
+                "description": "Returns all pets from the system that the user has access to",
+                "operationId": "FindPets",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "tags",
+                        "in": "query",
+                        "description": "tags to filter by"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "maximum number of results to return"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "pet response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/pet"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "",
+                "description": "Creates a new pet in the store.  Duplicates are allowed",
+                "operationId": "AddPet",
+                "deprecated": 0,
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "pet response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/pet"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/pets\/{id}": {
+            "get": {
+                "summary": "",
+                "description": "Returns a user based on a single ID, if the user does not have access to the pet",
+                "operationId": "FindPetById",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of pet to fetch"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "pet response",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/pet"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "",
+                "description": "deletes a single pet based on the ID supplied",
+                "operationId": "DeletePet",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of pet to fetch"
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "pet deleted"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "pet": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "tag": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "newPet": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "tag": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "errorModel": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "message": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "tags": {
+                "type": "array"
+            }
+        }
+    }
+}
