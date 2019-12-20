@@ -1,0 +1,2136 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "4.0",
+        "title": "The Wordnik Public API",
+        "description": "",
+        "termsOfService": "http:\/\/exmple.com\/license\/"
+    },
+    "servers": [
+        "http:\/\/api.wordnik.com\/v4"
+    ],
+    "paths": {
+        "\/account.json\/apiTokenStatus": {
+            "get": {
+                "summary": "Returns usage statistics for the API account.",
+                "description": "",
+                "operationId": "GetApiTokenStatus",
+                "deprecated": 0,
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/account.json\/authenticate\/{username}": {
+            "get": {
+                "summary": "Authenticates a User",
+                "description": "",
+                "operationId": "Authenticate",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "description": "A confirmed Wordnik username"
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "The user's password"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Authenticates a user",
+                "description": "",
+                "operationId": "AuthenticatePost",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "path",
+                        "description": "A confirmed Wordnik username"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/account.json\/user": {
+            "get": {
+                "summary": "Returns the logged-in User",
+                "description": "Requires a valid auth_token to be set.",
+                "operationId": "GetLoggedInUser",
+                "deprecated": 0,
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/account.json\/wordLists": {
+            "get": {
+                "summary": "Fetches WordList objects for the logged-in user.",
+                "description": "",
+                "operationId": "GetWordListsForLoggedInUser",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "Results to skip"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of results to return"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/word.json\/{word}": {
+            "get": {
+                "summary": "Given a word as a string, returns the WordObject that represents it",
+                "description": "",
+                "operationId": "GetWord",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "description": "String value of WordObject to return"
+                    },
+                    {
+                        "name": "useCanonical",
+                        "in": "query",
+                        "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+                    },
+                    {
+                        "name": "includeSuggestions",
+                        "in": "query",
+                        "description": "Return suggestions (for correct spelling, case variants, etc.)"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/word.json\/{word}\/audio": {
+            "get": {
+                "summary": "Fetches audio metadata for a word.",
+                "description": "The metadata includes a time-expiring fileUrl which allows reading the audio file directly from the API.  Currently only audio pronunciations from the American Heritage Dictionary in mp3 format are supported.",
+                "operationId": "GetAudio",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "description": "String value of WordObject to return"
+                    },
+                    {
+                        "name": "useCanonical",
+                        "in": "query",
+                        "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of results to return"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/word.json\/{word}\/definitions": {
+            "get": {
+                "summary": "Return definitions for a word",
+                "description": "",
+                "operationId": "GetDefinitions",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "description": "String value of WordObject to return"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of results to return"
+                    },
+                    {
+                        "name": "partOfSpeech",
+                        "in": "query",
+                        "description": "CSV list of part-of-speech types"
+                    },
+                    {
+                        "name": "includeRelated",
+                        "in": "query",
+                        "description": "Return related words with definitions"
+                    },
+                    {
+                        "name": "sourceDictionaries",
+                        "in": "query",
+                        "description": "Source dictionary to return definitions from.  If 'all' is received, results are returned from all sources. If multiple values are received (e.g. 'century,wiktionary'), results are returned from the first specified dictionary that has definitions. If left blank, results are returned from the first dictionary that has definitions. By default, dictionaries are searched in this order: ahd, wiktionary, webster, century, wordnet"
+                    },
+                    {
+                        "name": "useCanonical",
+                        "in": "query",
+                        "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+                    },
+                    {
+                        "name": "includeTags",
+                        "in": "query",
+                        "description": "Return a closed set of XML tags in response"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/word.json\/{word}\/etymologies": {
+            "get": {
+                "summary": "Fetches etymology data",
+                "description": "",
+                "operationId": "GetEtymologies",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "description": "String value of WordObject to return"
+                    },
+                    {
+                        "name": "useCanonical",
+                        "in": "query",
+                        "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/word.json\/{word}\/examples": {
+            "get": {
+                "summary": "Returns examples for a word",
+                "description": "",
+                "operationId": "GetExamples",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "description": "String value of WordObject to return"
+                    },
+                    {
+                        "name": "includeDuplicates",
+                        "in": "query",
+                        "description": "Show duplicate examples from different sources"
+                    },
+                    {
+                        "name": "useCanonical",
+                        "in": "query",
+                        "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "Results to skip"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of results to return"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/word.json\/{word}\/frequency": {
+            "get": {
+                "summary": "Returns word usage over time",
+                "description": "",
+                "operationId": "GetWordFrequency",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "description": "String value of WordObject to return"
+                    },
+                    {
+                        "name": "useCanonical",
+                        "in": "query",
+                        "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+                    },
+                    {
+                        "name": "startYear",
+                        "in": "query",
+                        "description": "Starting Year"
+                    },
+                    {
+                        "name": "endYear",
+                        "in": "query",
+                        "description": "Ending Year"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/word.json\/{word}\/hyphenation": {
+            "get": {
+                "summary": "Returns syllable information for a word",
+                "description": "",
+                "operationId": "GetHyphenation",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "description": "String value of WordObject to return"
+                    },
+                    {
+                        "name": "useCanonical",
+                        "in": "query",
+                        "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+                    },
+                    {
+                        "name": "sourceDictionary",
+                        "in": "query",
+                        "description": "Get from a single dictionary. Valid options: ahd, century, wiktionary, webster, and wordnet."
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of results to return"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/word.json\/{word}\/phrases": {
+            "get": {
+                "summary": "Fetches bi-gram phrases for a word",
+                "description": "",
+                "operationId": "GetPhrases",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "description": "String value of WordObject to return"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of results to return"
+                    },
+                    {
+                        "name": "wlmi",
+                        "in": "query",
+                        "description": "Minimum WLMI for the phrase"
+                    },
+                    {
+                        "name": "useCanonical",
+                        "in": "query",
+                        "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/word.json\/{word}\/pronunciations": {
+            "get": {
+                "summary": "Returns text pronunciations for a given word",
+                "description": "",
+                "operationId": "GetTextPronunciations",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "description": "String value of WordObject to return"
+                    },
+                    {
+                        "name": "useCanonical",
+                        "in": "query",
+                        "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+                    },
+                    {
+                        "name": "sourceDictionary",
+                        "in": "query",
+                        "description": "Get from a single dictionary. Valid options: ahd, century, wiktionary, webster, and wordnet."
+                    },
+                    {
+                        "name": "typeFormat",
+                        "in": "query",
+                        "description": "Text pronunciation type"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of results to return"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/word.json\/{word}\/relatedWords": {
+            "get": {
+                "summary": "Given a word as a string, returns relationships from the Word Graph",
+                "description": "",
+                "operationId": "GetRelatedWords",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "description": "String value of WordObject to return"
+                    },
+                    {
+                        "name": "useCanonical",
+                        "in": "query",
+                        "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+                    },
+                    {
+                        "name": "relationshipTypes",
+                        "in": "query",
+                        "description": "Limits the total results per type of relationship type"
+                    },
+                    {
+                        "name": "limitPerRelationshipType",
+                        "in": "query",
+                        "description": "Restrict to the supplied relationship types"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/word.json\/{word}\/topExample": {
+            "get": {
+                "summary": "Returns a top example for a word",
+                "description": "",
+                "operationId": "GetTopExample",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "word",
+                        "in": "path",
+                        "description": "String value of WordObject to return"
+                    },
+                    {
+                        "name": "useCanonical",
+                        "in": "query",
+                        "description": "If true will try to return the correct word root ('cats' -> 'cat'). If false returns exactly what was requested."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/wordList.json\/{permalink}": {
+            "get": {
+                "summary": "Fetches a WordList by ID",
+                "description": "",
+                "operationId": "GetWordListByPermalink",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "permalink",
+                        "in": "path",
+                        "description": "permalink of WordList to fetch"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "summary": "Updates an existing WordList",
+                "description": "",
+                "operationId": "UpdateWordList",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "permalink",
+                        "in": "path",
+                        "description": "permalink of WordList to fetch"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Deletes an existing WordList",
+                "description": "",
+                "operationId": "DeleteWordList",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "permalink",
+                        "in": "path",
+                        "description": "permalink of WordList to fetch"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/wordList.json\/{permalink}\/deleteWords": {
+            "post": {
+                "summary": "Removes words from a WordList",
+                "description": "",
+                "operationId": "DeleteWordsFromWordList",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "permalink",
+                        "in": "path",
+                        "description": "permalink of WordList to fetch"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/wordList.json\/{permalink}\/words": {
+            "get": {
+                "summary": "Fetches words in a WordList",
+                "description": "",
+                "operationId": "GetWordListWords",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "permalink",
+                        "in": "path",
+                        "description": "permalink of WordList to fetch"
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Field to sort by"
+                    },
+                    {
+                        "name": "sortOrder",
+                        "in": "query",
+                        "description": "Direction to sort"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "Results to skip"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of results to return"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "summary": "Adds words to a WordList",
+                "description": "",
+                "operationId": "AddWordsToWordList",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "permalink",
+                        "in": "path",
+                        "description": "permalink of WordList to fetch"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/wordLists.json": {
+            "post": {
+                "summary": "Creates a WordList.",
+                "description": "",
+                "operationId": "CreateWordList",
+                "deprecated": 0,
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/words.json\/randomWord": {
+            "get": {
+                "summary": "Returns a single random WordObject",
+                "description": "",
+                "operationId": "GetRandomWord",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "hasDictionaryDef",
+                        "in": "query",
+                        "description": "Only return words with dictionary definitions"
+                    },
+                    {
+                        "name": "includePartOfSpeech",
+                        "in": "query",
+                        "description": "CSV part-of-speech values to include"
+                    },
+                    {
+                        "name": "excludePartOfSpeech",
+                        "in": "query",
+                        "description": "CSV part-of-speech values to exclude"
+                    },
+                    {
+                        "name": "minCorpusCount",
+                        "in": "query",
+                        "description": "Minimum corpus frequency for terms"
+                    },
+                    {
+                        "name": "maxCorpusCount",
+                        "in": "query",
+                        "description": "Maximum corpus frequency for terms"
+                    },
+                    {
+                        "name": "minDictionaryCount",
+                        "in": "query",
+                        "description": "Minimum dictionary count"
+                    },
+                    {
+                        "name": "maxDictionaryCount",
+                        "in": "query",
+                        "description": "Maximum dictionary count"
+                    },
+                    {
+                        "name": "minLength",
+                        "in": "query",
+                        "description": "Minimum word length"
+                    },
+                    {
+                        "name": "maxLength",
+                        "in": "query",
+                        "description": "Maximum word length"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/words.json\/randomWords": {
+            "get": {
+                "summary": "Returns an array of random WordObjects",
+                "description": "",
+                "operationId": "GetRandomWords",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "hasDictionaryDef",
+                        "in": "query",
+                        "description": "Only return words with dictionary definitions"
+                    },
+                    {
+                        "name": "includePartOfSpeech",
+                        "in": "query",
+                        "description": "CSV part-of-speech values to include"
+                    },
+                    {
+                        "name": "excludePartOfSpeech",
+                        "in": "query",
+                        "description": "CSV part-of-speech values to exclude"
+                    },
+                    {
+                        "name": "minCorpusCount",
+                        "in": "query",
+                        "description": "Minimum corpus frequency for terms"
+                    },
+                    {
+                        "name": "maxCorpusCount",
+                        "in": "query",
+                        "description": "Maximum corpus frequency for terms"
+                    },
+                    {
+                        "name": "minDictionaryCount",
+                        "in": "query",
+                        "description": "Minimum dictionary count"
+                    },
+                    {
+                        "name": "maxDictionaryCount",
+                        "in": "query",
+                        "description": "Maximum dictionary count"
+                    },
+                    {
+                        "name": "minLength",
+                        "in": "query",
+                        "description": "Minimum word length"
+                    },
+                    {
+                        "name": "maxLength",
+                        "in": "query",
+                        "description": "Maximum word length"
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Field to sort by"
+                    },
+                    {
+                        "name": "sortOrder",
+                        "in": "query",
+                        "description": "Direction to sort"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of results to return"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/words.json\/reverseDictionary": {
+            "get": {
+                "summary": "Reverse dictionary search",
+                "description": "",
+                "operationId": "ReverseDictionary",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "query",
+                        "description": "Search term"
+                    },
+                    {
+                        "name": "findSenseForWord",
+                        "in": "query",
+                        "description": "Restricts words and finds closest sense"
+                    },
+                    {
+                        "name": "includeSourceDictionaries",
+                        "in": "query",
+                        "description": "Only include these comma-delimited source dictionaries"
+                    },
+                    {
+                        "name": "excludeSourceDictionaries",
+                        "in": "query",
+                        "description": "Exclude these comma-delimited source dictionaries"
+                    },
+                    {
+                        "name": "includePartOfSpeech",
+                        "in": "query",
+                        "description": "CSV part-of-speech values to include"
+                    },
+                    {
+                        "name": "excludePartOfSpeech",
+                        "in": "query",
+                        "description": "CSV part-of-speech values to exclude"
+                    },
+                    {
+                        "name": "minCorpusCount",
+                        "in": "query",
+                        "description": "Minimum corpus frequency for terms"
+                    },
+                    {
+                        "name": "maxCorpusCount",
+                        "in": "query",
+                        "description": "Maximum corpus frequency for terms"
+                    },
+                    {
+                        "name": "minLength",
+                        "in": "query",
+                        "description": "Minimum word length"
+                    },
+                    {
+                        "name": "maxLength",
+                        "in": "query",
+                        "description": "Maximum word length"
+                    },
+                    {
+                        "name": "expandTerms",
+                        "in": "query",
+                        "description": "Expand terms"
+                    },
+                    {
+                        "name": "includeTags",
+                        "in": "query",
+                        "description": "Return a closed set of XML tags in response"
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Field to sort by"
+                    },
+                    {
+                        "name": "sortOrder",
+                        "in": "query",
+                        "description": "Direction to sort"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "Results to skip"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of results to return"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/words.json\/search\/{query}": {
+            "get": {
+                "summary": "Searches words",
+                "description": "",
+                "operationId": "SearchWords",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "query",
+                        "in": "path",
+                        "description": "Search query"
+                    },
+                    {
+                        "name": "caseSensitive",
+                        "in": "query",
+                        "description": "Search case sensitive"
+                    },
+                    {
+                        "name": "includePartOfSpeech",
+                        "in": "query",
+                        "description": "CSV part-of-speech values to include"
+                    },
+                    {
+                        "name": "excludePartOfSpeech",
+                        "in": "query",
+                        "description": "CSV part-of-speech values to exclude"
+                    },
+                    {
+                        "name": "minCorpusCount",
+                        "in": "query",
+                        "description": "Minimum corpus frequency for terms"
+                    },
+                    {
+                        "name": "maxCorpusCount",
+                        "in": "query",
+                        "description": "Maximum corpus frequency for terms"
+                    },
+                    {
+                        "name": "minDictionaryCount",
+                        "in": "query",
+                        "description": "Minimum dictionary count"
+                    },
+                    {
+                        "name": "maxDictionaryCount",
+                        "in": "query",
+                        "description": "Maximum dictionary count"
+                    },
+                    {
+                        "name": "minLength",
+                        "in": "query",
+                        "description": "Minimum word length"
+                    },
+                    {
+                        "name": "maxLength",
+                        "in": "query",
+                        "description": "Maximum word length"
+                    },
+                    {
+                        "name": "skip",
+                        "in": "query",
+                        "description": "Results to skip"
+                    },
+                    {
+                        "name": "limit",
+                        "in": "query",
+                        "description": "Maximum number of results to return"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Usage statistics for the supplied API key",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/ApiTokenStatus"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/words.json\/wordOfTheDay": {
+            "get": {
+                "summary": "Returns a specific WordOfTheDay",
+                "description": "",
+                "operationId": "GetWordOfTheDay",
+                "deprecated": 0,
+                "parameters": [
+                    {
+                        "name": "date",
+                        "in": "query",
+                        "description": "Fetches by date in yyyy-MM-dd"
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": "success",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "$href": "#\/components\/schemas\/WordOfTheDay"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "User": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "username": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "email": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "status": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "faceBookId": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "displayName": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "password": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Syllable": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "seq": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "AudioType": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "WordOfTheDay": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "parentId": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "category": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "contentProvider": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "htmlExtra": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "word": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "definitions": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "examples": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "note": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "publishDate": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "contentProvider": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "definitions": {
+                "type": "array"
+            },
+            "examples": {
+                "type": "array"
+            },
+            "Facet": {
+                "type": "object",
+                "properties": {
+                    "facetValues": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "facetValues": {
+                "type": "array"
+            },
+            "WordObject": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "word": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "originalWord": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "suggestions": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "canonicalForm": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "vulgar": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "suggestions": {
+                "type": "array"
+            },
+            "WordSearchResults": {
+                "type": "object",
+                "properties": {
+                    "searchResults": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "totalResults": {
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "searchResults": {
+                "type": "array"
+            },
+            "AuthenticationToken": {
+                "type": "object",
+                "properties": {
+                    "token": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "userId": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "userSignature": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "ExampleSearchResults": {
+                "type": "object",
+                "properties": {
+                    "facets": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "examples": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "facets": {
+                "type": "array"
+            },
+            "Example": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "exampleId": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "text": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "score": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "sentence": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "word": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "contentProvider": {
+                        "description": "Reference",
+                        "type": "object"
+                    },
+                    "provider": {
+                        "description": "",
+                        "type": ""
+                    },
+                    "year": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "rating": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "documentId": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "url": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "ScoredWord": {
+                        "description": "",
+                        "type": "object"
+                    }
+                }
+            },
+            "score": {
+                "type": "object"
+            },
+            "sentence": {
+                "type": "object",
+                "properties": {
+                    "hasScoredWords": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "scoredWords": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "display": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "rating": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "documentMetadataId": {
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "SimpleDefinition": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "source": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "note": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "partOfSpeech": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "ExampleUsage": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "AudioFile": {
+                "type": "object",
+                "properties": {
+                    "attributionUrl": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "commentCount": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "voteCount": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "fileUrl": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "audioType": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "duration": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "attributionText": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "createdBy": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "description": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "voteWeightedAverage": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "voteAverage": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "word": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "WordListWord": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "word": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "username": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "userId": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "createdAt": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "numberCommentsOnWord": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "numberLists": {
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "Bigram": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "gram2": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "gram1": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "wlmi": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "mi": {
+                        "description": "",
+                        "type": "number"
+                    }
+                }
+            },
+            "Frequency": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "year": {
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "TextPron": {
+                "type": "object",
+                "properties": {
+                    "raw": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "seq": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "rawType": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "ApiTokenStatus": {
+                "type": "object",
+                "properties": {
+                    "valid": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "token": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "resetsInMillis": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "remainingCalls": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "expiresInMillis": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "totalRequests": {
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "WordList": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "permalink": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "updatedAt": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "lastActivityAt": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "username": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "userId": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "description": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "numberWordsInList": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "WordSearchResult": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "lexicality": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "word": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "DefinitionSearchResults": {
+                "type": "object",
+                "properties": {
+                    "results": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "totalResults": {
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "results": {
+                "type": "array"
+            },
+            "Note": {
+                "type": "object",
+                "properties": {
+                    "noteType": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "appliesTo": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "value": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "pos": {
+                        "description": "",
+                        "type": "integer"
+                    }
+                }
+            },
+            "appliesTo": {
+                "type": "array"
+            },
+            "StringValue": {
+                "type": "object",
+                "properties": {
+                    "word": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Related": {
+                "type": "object",
+                "properties": {
+                    "label1": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "relationshipType": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "label2": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "label3": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "words": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "gram": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "label4": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "words": {
+                "type": "array"
+            },
+            "FacetValue": {
+                "type": "object",
+                "properties": {
+                    "count": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "value": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "ScoredWord": {
+                "type": "object",
+                "properties": {
+                    "position": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "docTermCount": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "lemma": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "wordType": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "score": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "sentenceId": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "word": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "stopword": {
+                        "description": "",
+                        "type": "boolean"
+                    },
+                    "baseWordScore": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "partOfSpeech": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Citation": {
+                "type": "object",
+                "properties": {
+                    "cite": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "source": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Category": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "Root": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "name": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "categories": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "categories": {
+                "type": "array"
+            },
+            "scoredWords": {
+                "type": "array"
+            },
+            "Label": {
+                "type": "object",
+                "properties": {
+                    "text": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "type": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "SimpleExample": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "title": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "text": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "url": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "PartOfSpeech": {
+                "type": "object",
+                "properties": {
+                    "roots": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "storageAbbr": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "allCategories": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "roots": {
+                "type": "array"
+            },
+            "storageAbbr": {
+                "type": "array"
+            },
+            "allCategories": {
+                "type": "array"
+            },
+            "Definition": {
+                "type": "object",
+                "properties": {
+                    "extendedText": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "text": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "sourceDictionary": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "citations": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "labels": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "score": {
+                        "description": "",
+                        "type": "number"
+                    },
+                    "exampleUses": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "attributionUrl": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "seqString": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "attributionText": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "relatedWords": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "sequence": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "word": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "notes": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "textProns": {
+                        "description": "",
+                        "type": "array"
+                    },
+                    "partOfSpeech": {
+                        "description": "",
+                        "type": "string"
+                    }
+                }
+            },
+            "citations": {
+                "type": "array"
+            },
+            "labels": {
+                "type": "array"
+            },
+            "exampleUses": {
+                "type": "array"
+            },
+            "relatedWords": {
+                "type": "array"
+            },
+            "notes": {
+                "type": "array"
+            },
+            "textProns": {
+                "type": "array"
+            },
+            "FrequencySummary": {
+                "type": "object",
+                "properties": {
+                    "unknownYearCount": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "totalCount": {
+                        "description": "",
+                        "type": "integer"
+                    },
+                    "frequencyString": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "word": {
+                        "description": "",
+                        "type": "string"
+                    },
+                    "frequency": {
+                        "description": "",
+                        "type": "array"
+                    }
+                }
+            },
+            "frequency": {
+                "type": "array"
+            },
+            "sourceDictionaries": {
+                "type": "array"
+            }
+        }
+    }
+}
