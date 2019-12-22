@@ -1,5 +1,5 @@
 {
-    "id": "5095ee9a88775c034b10522d88c9b23b",
+    "id": "fb93fed216706812e41d751254d23564",
     "name": "Wordnik",
     "description": null,
     "auth": null,
@@ -10,7 +10,7 @@
     "folders": [],
     "requests": [
         {
-            "id": "029be6b83e89aa9258cef24beb033287",
+            "id": "cb65c3c8ac5398e6506eaa1628b185a1",
             "name": "Returns usage statistics for the API account.",
             "url": "httpsapi.wordnik.com\/v4\/account.json\/apiTokenStatus",
             "description": "Returns usage statistics for the api account..",
@@ -37,11 +37,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "7628739309270e5a43598769e647007c",
+            "id": "4c071fabd034fd24383b230256ce77dd",
             "name": "Authenticates a User",
             "url": "httpsapi.wordnik.com\/v4\/account.json\/authenticate\/{username}",
             "description": "Authenticates a user.",
@@ -75,11 +75,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "ac78e62f6539e577a66407d815357772",
+            "id": "bcbacded1a10dc8909ac848eed76270a",
             "name": "Authenticates a user",
             "url": "httpsapi.wordnik.com\/v4\/account.json\/authenticate\/{username}",
             "description": "Authenticates a user.",
@@ -113,11 +113,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "7dc5052e65fafc9c0be02117b84e1cd2",
+            "id": "7f7fa54c6e682c9227344729df19297d",
             "name": "Returns the logged-in User",
             "url": "httpsapi.wordnik.com\/v4\/account.json\/user",
             "description": "Requires a valid auth_token to be set.",
@@ -144,11 +144,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "0846b01000f87803c4fb852c826f3d4a",
+            "id": "762c01bcb8827018ca008dc67fcc4748",
             "name": "Fetches WordList objects for the logged-in user.",
             "url": "httpsapi.wordnik.com\/v4\/account.json\/wordLists",
             "description": "Fetches wordlist objects for the logged-in user..",
@@ -189,11 +189,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "19f3a458f5316628671daf5eb9e6577a",
+            "id": "342a18323425cb6a22ce5f3890d649bd",
             "name": "Given a word as a string, returns the WordObject that represents it",
             "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}",
             "description": "Given a word as a string, returns the wordobject that represents it.",
@@ -234,11 +234,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "2e7010c3d6d44e692710d22d5c093da5",
+            "id": "fcafeca31fec183d473d9d9940a2393b",
             "name": "Fetches audio metadata for a word.",
             "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/audio",
             "description": "The metadata includes a time-expiring fileUrl which allows reading the audio file directly from the API.  Currently only audio pronunciations from the American Heritage Dictionary in mp3 format are supported.",
@@ -279,11 +279,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "d666369900ced26896ed5285d4275025",
+            "id": "f376eb0da7d4f5cb7109e6c0c8427168",
             "name": "Return definitions for a word",
             "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/definitions",
             "description": "Return definitions for a word.",
@@ -352,11 +352,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "e807c0d3350a6c06146fa5aac1bf3823",
+            "id": "a713063b0592faa82fb63f666a0444c0",
             "name": "Fetches etymology data",
             "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/etymologies",
             "description": "Fetches etymology data.",
@@ -390,11 +390,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "b084be978db4bca92e8603797ab38850",
+            "id": "612ff3ba97bdaa1c78bde41798141232",
             "name": "Returns examples for a word",
             "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/examples",
             "description": "Returns examples for a word.",
@@ -449,11 +449,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "dc631c98715c2537d2075f2a45d95874",
+            "id": "9ec2b5c434f05601de520ca8ac94604a",
             "name": "Returns word usage over time",
             "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/frequency",
             "description": "Returns word usage over time.",
@@ -501,11 +501,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "c946e30890317d7074b9eee0bf8a61d5",
+            "id": "7170e3197882c20ce9c798035377364c",
             "name": "Returns syllable information for a word",
             "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/hyphenation",
             "description": "Returns syllable information for a word.",
@@ -553,11 +553,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "044004e230af2a67ec9ba8ce2f0f5ae0",
+            "id": "76ddf5c3f9e5f49d7272e67a630873fd",
             "name": "Fetches bi-gram phrases for a word",
             "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/phrases",
             "description": "Fetches bi-gram phrases for a word.",
@@ -605,11 +605,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "2937b237a9f0cb3d11f5f95159a1c877",
+            "id": "b13f30dc92e479a55c5e1efa26385eab",
             "name": "Returns text pronunciations for a given word",
             "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/pronunciations",
             "description": "Returns text pronunciations for a given word.",
@@ -664,11 +664,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "fc3e62e686a6bfbd51e14afd5f687991",
+            "id": "a5bf99cfb59f124c1a31865e67e88978",
             "name": "Given a word as a string, returns relationships from the Word Graph",
             "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/relatedWords",
             "description": "Given a word as a string, returns relationships from the word graph.",
@@ -716,11 +716,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "b1a6ea5bef159ce8433408116b653c6f",
+            "id": "655eae73ce8f6ebff6dd9e053b35686f",
             "name": "Returns a top example for a word",
             "url": "httpsapi.wordnik.com\/v4\/word.json\/{word}\/topExample",
             "description": "Returns a top example for a word.",
@@ -754,11 +754,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "0510ac921c3a77b92faaa65572669ac8",
+            "id": "d47221cee3e9299a2cf842709a62e75b",
             "name": "Deletes an existing WordList",
             "url": "httpsapi.wordnik.com\/v4\/wordList.json\/{permalink}",
             "description": "Deletes an existing wordlist.",
@@ -792,11 +792,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "fb867b69771ef77920357f4ac801be4c",
+            "id": "622d1e4d5f16960d5e9a1a7fac86e356",
             "name": "Fetches a WordList by ID",
             "url": "httpsapi.wordnik.com\/v4\/wordList.json\/{permalink}",
             "description": "Fetches a wordlist by id.",
@@ -830,11 +830,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "18319b38fdb2f88f4fec7a6796537ac7",
+            "id": "3a4b3e6cc1a7673ae6ece1b3fa2e5f13",
             "name": "Updates an existing WordList",
             "url": "httpsapi.wordnik.com\/v4\/wordList.json\/{permalink}",
             "description": "Updates an existing wordlist.",
@@ -875,11 +875,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "1e01780c476adcd72fe89a7c8f3b4879",
+            "id": "32c61d695444c52b0f6aeb5aa72ffa22",
             "name": "Removes words from a WordList",
             "url": "httpsapi.wordnik.com\/v4\/wordList.json\/{permalink}\/deleteWords",
             "description": "Removes words from a wordlist.",
@@ -920,11 +920,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "914194249515755a4b501b8c23982e81",
+            "id": "904a2347c5e84389426e63c04477b663",
             "name": "Fetches words in a WordList",
             "url": "httpsapi.wordnik.com\/v4\/wordList.json\/{permalink}\/words",
             "description": "Fetches words in a wordlist.",
@@ -986,11 +986,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "0697b5be6d00ef34a1ec69e82a6938a1",
+            "id": "6fe9f3fb2304adfb45d9b6c701e50480",
             "name": "Adds words to a WordList",
             "url": "httpsapi.wordnik.com\/v4\/wordList.json\/{permalink}\/words",
             "description": "Adds words to a wordlist.",
@@ -1031,11 +1031,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "5ba65cad6972d867eff2703b65f1ff42",
+            "id": "7a0245f66515aac35531498b5293e720",
             "name": "Creates a WordList.",
             "url": "httpsapi.wordnik.com\/v4\/wordLists.json",
             "description": "Creates a wordlist..",
@@ -1069,11 +1069,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "52f0cded48b2346a2ddd64515cfd6900",
+            "id": "8fc0fb94d5084917507ddddb3c36c891",
             "name": "Returns a single random WordObject",
             "url": "httpsapi.wordnik.com\/v4\/words.json\/randomWord",
             "description": "Returns a single random wordobject.",
@@ -1156,11 +1156,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "7fc1763100999204eef0acfb81b50f5f",
+            "id": "a77c5c042b71fbf2f0f4e58711c1fd0b",
             "name": "Returns an array of random WordObjects",
             "url": "httpsapi.wordnik.com\/v4\/words.json\/randomWords",
             "description": "Returns an array of random wordobjects.",
@@ -1264,11 +1264,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "6f0069fe7cc34b98bc5c74996becd4e6",
+            "id": "562e11f5c4622457dce5e95aeb390d23",
             "name": "Reverse dictionary search",
             "url": "httpsapi.wordnik.com\/v4\/words.json\/reverseDictionary",
             "description": "Reverse dictionary search.",
@@ -1400,11 +1400,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "b005385f899fda3dd6736d85e6f27ed7",
+            "id": "718f24a46116f2827921cf24e1cbbf63",
             "name": "Searches words",
             "url": "httpsapi.wordnik.com\/v4\/words.json\/search\/{query}",
             "description": "Searches words.",
@@ -1508,11 +1508,11 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         },
         {
-            "id": "40db8e89fb29fa9987080dd713d1133e",
+            "id": "549f25bedcc742fb8a8ab420595cd433",
             "name": "Returns a specific WordOfTheDay",
             "url": "httpsapi.wordnik.com\/v4\/words.json\/wordOfTheDay",
             "description": "Returns a specific wordoftheday.",
@@ -1539,7 +1539,7 @@
             "responses": [],
             "currentHelper": null,
             "helperAttributes": null,
-            "collectionId": "5095ee9a88775c034b10522d88c9b23b",
+            "collectionId": "fb93fed216706812e41d751254d23564",
             "rawModeData": ""
         }
     ]
