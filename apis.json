@@ -8,8 +8,8 @@
         "have api",
         "have swagger"
     ],
-    "created": "2019-12-19",
-    "modified": "2019-12-19",
+    "created": "2019-12-21",
+    "modified": "2019-12-21",
     "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/wordnik\/master\/apis.json",
     "specificationVersion": "0.14",
     "apis": [
@@ -27,7 +27,7 @@
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/the-wordnik-public-api-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/wordnik\/master\/the-wordnik-public-api-postman-collection.json"
                 }
             ]
         },
@@ -45,7 +45,7 @@
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/wordnik-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/wordnik\/master\/wordnik-postman-collection.json"
                 }
             ]
         },
@@ -63,13 +63,17 @@
                 },
                 {
                     "type": "x-postman-collecction",
-                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/swagger-petstore-simple-postman-collection.json"
+                    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/wordnik\/master\/swagger-petstore-simple-postman-collection.json"
                 }
             ]
         }
     ],
     "include": [],
     "x-common": [
+        {
+            "type": "APIs.json",
+            "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/1forge\/master\/apis.json"
+        },
         {
             "type": "Crunchbase",
             "url": "https:\/\/crunchbase.com\/organization\/wordnik"
