@@ -1,0 +1,10 @@
+{
+  "displayName": "Jane Smith",
+  "email": "user@example.com",
+  "faceBookId": "abc123",
+  "id": 500123,
+  "password": "********",
+  "status": 23,
+  "userName": "Jane Smith",
+  "username": "Jane Smith"
+}

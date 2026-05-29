@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-audio-file-structure.json",
+  "name": "AudioFile",
+  "description": "AudioFile schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "attributionText": {
+      "type": "string"
+    },
+    "attributionUrl": {
+      "type": "string"
+    },
+    "audioType": {
+      "type": "string",
+      "example": "pronunciation"
+    },
+    "commentCount": {
+      "type": "int32"
+    },
+    "createdAt": {
+      "type": "datetime"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "double"
+    },
+    "fileUrl": {
+      "type": "uri"
+    },
+    "id": {
+      "type": "int64"
+    },
+    "voteAverage": {
+      "type": "float"
+    },
+    "voteCount": {
+      "type": "int32"
+    },
+    "voteWeightedAverage": {
+      "type": "float"
+    },
+    "word": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

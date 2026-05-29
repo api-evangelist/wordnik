@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-facet-value-structure.json",
+  "name": "FacetValue",
+  "description": "FacetValue schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "int64"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

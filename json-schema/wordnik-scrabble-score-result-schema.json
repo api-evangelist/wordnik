@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-scrabble-score-result-schema.json",
+  "title": "ScrabbleScoreResult",
+  "description": "ScrabbleScoreResult schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "integer",
+      "format": "int64"
+    }
+  }
+}

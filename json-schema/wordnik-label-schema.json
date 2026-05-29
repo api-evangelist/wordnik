@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-label-schema.json",
+  "title": "Label",
+  "description": "Label schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,305 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Wordnik"
+  description: >-
+    Unified taxonomy of the Wordnik v4 dictionary API. Maps the operational dimension
+    (28 HTTP operations over 24 paths in one OpenAPI spec) to the capability dimension
+    (5 self-contained Naftiko capabilities — Word, Words, Word List, Word Lists, Account).
+  created: "2026-05-29"
+  modified: "2026-05-29"
+
+operational:
+  apis:
+    - name: Wordnik
+      namespace: wordnik
+      version: "4.0"
+      baseUrl: https://api.wordnik.com/v4
+      status: active
+  resources:
+    - name: word
+      api: Wordnik
+      description: A single dictionary word and everything Wordnik knows about it.
+      actions: [getDefinitions, getEtymologies, getExamples, getTopExample, getHyphenation, getPronunciations, getRelatedWords, getFrequency, getPhrases, getScrabbleScore, getAudio]
+    - name: words
+      api: Wordnik
+      description: Cross-word discovery — random words, search, reverse dictionary, word of the day.
+      actions: [getRandomWord, getRandomWords, searchWords, reverseDictionary, getWordOfTheDay]
+    - name: wordList
+      api: Wordnik
+      description: A single user-owned curated list of words identified by permalink.
+      actions: [getByPermalink, update, delete, listWords, addWords, deleteWords]
+    - name: wordLists
+      api: Wordnik
+      description: The user's collection of word lists; the creation surface.
+      actions: [create]
+    - name: account
+      api: Wordnik
+      description: API-key telemetry plus user authentication and ownership.
+      actions: [getApiTokenStatus, authenticate, authenticatePost, getLoggedInUser, getWordLists]
+  actions:
+    - name: get
+      pattern: read
+      httpMethod: GET
+    - name: list
+      pattern: read
+      httpMethod: GET
+    - name: search
+      pattern: query
+      httpMethod: GET
+    - name: create
+      pattern: write
+      httpMethod: POST
+    - name: update
+      pattern: write
+      httpMethod: PUT
+    - name: delete
+      pattern: destructive
+      httpMethod: DELETE
+    - name: authenticate
+      pattern: write
+      httpMethod: GET
+  schemas:
+    core:
+      - WordObject
+      - Definition
+      - SimpleDefinition
+      - Example
+      - SimpleExample
+      - ExampleSearchResults
+      - WordOfTheDay
+      - WordSearchResult
+      - WordSearchResults
+      - DefinitionSearchResults
+    lexical:
+      - PartOfSpeech
+      - Syllable
+      - TextPron
+      - AudioFile
+      - AudioType
+      - Bigram
+      - Related
+      - Root
+      - Category
+      - Label
+      - Note
+      - Citation
+      - ScoredWord
+      - Sentence
+      - Frequency
+      - FrequencySummary
+      - ExampleUsage
+      - ContentProvider
+      - Facet
+      - FacetValue
+    user:
+      - User
+      - WordList
+      - WordListWord
+      - StringValue
+    account:
+      - ApiTokenStatus
+      - AuthenticationToken
+      - ScrabbleScoreResult
+  parameters:
+    pagination:
+      - skip
+      - limit
+    identifiers:
+      - word
+      - permalink
+      - username
+      - query
+      - date
+    filters:
+      - partOfSpeech
+      - includePartOfSpeech
+      - excludePartOfSpeech
+      - relationshipTypes
+      - sourceDictionary
+      - sourceDictionaries
+      - includeSourceDictionaries
+      - excludeSourceDictionaries
+      - hasDictionaryDef
+      - typeFormat
+      - useCanonical
+      - includeRelated
+      - includeDuplicates
+      - includeTags
+      - caseSensitive
+      - allowRegex
+      - expandTerms
+    measurement:
+      - minCorpusCount
+      - maxCorpusCount
+      - minDictionaryCount
+      - maxDictionaryCount
+      - minLength
+      - maxLength
+      - startYear
+      - endYear
+      - wlmi
+      - limitPerRelationshipType
+    sort:
+      - sortBy
+      - sortOrder
+    authentication:
+      - api_key
+      - auth_token
+      - password
+  enums:
+    partOfSpeech: [noun, adjective, verb, adverb, interjection, pronoun, preposition, abbreviation, affix, article, auxiliary-verb, conjunction, definite-article, family-name, given-name, idiom, imperative, noun-plural, noun-posessive, past-participle, phrasal-prefix, proper-noun, proper-noun-plural, proper-noun-posessive, suffix, verb-intransitive, verb-transitive]
+    sourceDictionary: [ahd-5, century, cmu, macmillan, wiktionary, webster, wordnet, all]
+    relationshipType: [synonym, antonym, variant, equivalent, cross-reference, related-word, rhyme, form, etymologically-related-term, hypernym, hyponym, inflected-form, primary, same-context, verb-form, verb-stem, has_topic]
+    typeFormat: [ahd-5, arpabet, gcide-diacritical, IPA]
+    sortBy: [alpha, count, createDate]
+    sortOrder: [asc, desc]
+    wordListType: [PUBLIC, PRIVATE]
+  authentication:
+    schemes:
+      - name: api_key
+        type: apiKey
+        location: query
+        scope: all-endpoints
+        notes: Issued per Wordnik account; required on every request.
+      - name: auth_token
+        type: apiKey
+        location: header
+        scope: user-endpoints
+        notes: Obtained from /account.json/authenticate; required for /account.json/user, /account.json/wordLists, and all /wordList.json / /wordLists.json operations.
+
+capability:
+  workflows:
+    - name: Wordnik — Word
+      file: capabilities/wordnik-word.yaml
+      apis: [Wordnik]
+      operations: 11
+      personas: [App Developer, Linguistics Researcher, Educator]
+      domains: [Dictionary, Lexicography]
+    - name: Wordnik — Words
+      file: capabilities/wordnik-words.yaml
+      apis: [Wordnik]
+      operations: 5
+      personas: [App Developer, Game Developer, Content Writer]
+      domains: [Dictionary, Discovery]
+    - name: Wordnik — Word List
+      file: capabilities/wordnik-word-list.yaml
+      apis: [Wordnik]
+      operations: 6
+      personas: [End User, Educator, Vocabulary Coach]
+      domains: [Personalization, Collections]
+    - name: Wordnik — Word Lists
+      file: capabilities/wordnik-word-lists.yaml
+      apis: [Wordnik]
+      operations: 1
+      personas: [End User, Educator]
+      domains: [Personalization, Collections]
+    - name: Wordnik — Account
+      file: capabilities/wordnik-account.yaml
+      apis: [Wordnik]
+      operations: 5
+      personas: [App Developer, Platform Owner]
+      domains: [Authentication, Telemetry]
+  personas:
+    - id: app-developer
+      name: App Developer
+      description: Integrates Wordnik definitions, examples, and audio into a consumer app or website.
+      workflows: [Wordnik — Word, Wordnik — Words, Wordnik — Account]
+    - id: game-developer
+      name: Game Developer
+      description: Uses random words, scrabble scores, and search for word-based games.
+      workflows: [Wordnik — Words, Wordnik — Word]
+    - id: educator
+      name: Educator
+      description: Curates vocabulary lists for students.
+      workflows: [Wordnik — Word List, Wordnik — Word Lists, Wordnik — Word]
+    - id: linguistics-researcher
+      name: Linguistics Researcher
+      description: Studies word frequency over time, related-word graphs, and etymology.
+      workflows: [Wordnik — Word]
+    - id: end-user
+      name: End User
+      description: A Wordnik member curating their own word collections.
+      workflows: [Wordnik — Word List, Wordnik — Word Lists]
+    - id: platform-owner
+      name: Platform Owner
+      description: Operates a Wordnik integration; monitors quota and user authentication.
+      workflows: [Wordnik — Account]
+    - id: content-writer
+      name: Content Writer
+      description: Uses reverse-dictionary lookup and word-of-the-day for editorial workflows.
+      workflows: [Wordnik — Words]
+    - id: vocabulary-coach
+      name: Vocabulary Coach
+      description: Builds and edits shared word lists for learners.
+      workflows: [Wordnik — Word List]
+  domains:
+    - name: Dictionary
+      description: Core English dictionary surface — definitions, etymologies, examples.
+    - name: Lexicography
+      description: Word-graph relationships, frequency, hyphenation, pronunciation.
+    - name: Discovery
+      description: Random words, search, reverse dictionary, word of the day.
+    - name: Personalization
+      description: User-owned word lists and curation.
+    - name: Collections
+      description: Word-list inventory and word-membership management.
+    - name: Authentication
+      description: User auth tokens and identity.
+    - name: Telemetry
+      description: API key status, quota visibility.
+  namespaces:
+    - consumed: wordnik-word
+      restExposed: wordnik-word-rest
+      mcpExposed: wordnik-word-mcp
+      restPort: 8080
+      mcpPort: 9090
+    - consumed: wordnik-words
+      restExposed: wordnik-words-rest
+      mcpExposed: wordnik-words-mcp
+      restPort: 8080
+      mcpPort: 9090
+    - consumed: wordnik-word-list
+      restExposed: wordnik-word-list-rest
+      mcpExposed: wordnik-word-list-mcp
+      restPort: 8080
+      mcpPort: 9090
+    - consumed: wordnik-word-lists
+      restExposed: wordnik-word-lists-rest
+      mcpExposed: wordnik-word-lists-mcp
+      restPort: 8080
+      mcpPort: 9090
+    - consumed: wordnik-account
+      restExposed: wordnik-account-rest
+      mcpExposed: wordnik-account-mcp
+      restPort: 8080
+      mcpPort: 9090
+  binds:
+    - name: WORDNIK_API_KEY
+      description: Wordnik per-account API key; sent as ?api_key= query parameter on every request.
+      workflows: [Wordnik — Word, Wordnik — Words, Wordnik — Word List, Wordnik — Word Lists, Wordnik — Account]
+    - name: WORDNIK_AUTH_TOKEN
+      description: User auth token returned by /account.json/authenticate/{username}; required for user-scoped surfaces.
+      workflows: [Wordnik — Word List, Wordnik — Word Lists, Wordnik — Account]
+
+crossReference:
+  - resource: word
+    operations: [getDefinitions, getEtymologies, getExamples, getTopExample, getHyphenation, getPronunciations, getRelatedWords, getFrequency, getPhrases, getScrabbleScore, getAudio]
+    workflows: [Wordnik — Word]
+    personas: [App Developer, Game Developer, Educator, Linguistics Researcher]
+  - resource: words
+    operations: [getRandomWord, getRandomWords, searchWords, reverseDictionary, getWordOfTheDay]
+    workflows: [Wordnik — Words]
+    personas: [App Developer, Game Developer, Content Writer]
+  - resource: wordList
+    operations: [getByPermalink, update, delete, listWords, addWords, deleteWords]
+    workflows: [Wordnik — Word List]
+    personas: [End User, Educator, Vocabulary Coach]
+  - resource: wordLists
+    operations: [create]
+    workflows: [Wordnik — Word Lists]
+    personas: [End User, Educator]
+  - resource: account
+    operations: [getApiTokenStatus, authenticate, authenticatePost, getLoggedInUser, getWordLists]
+    workflows: [Wordnik — Account]
+    personas: [App Developer, Platform Owner]

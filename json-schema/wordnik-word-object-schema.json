@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-word-object-schema.json",
+  "title": "WordObject",
+  "description": "WordObject schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "canonicalForm": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "originalWord": {
+      "type": "string"
+    },
+    "suggestions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "vulgar": {
+      "type": "string"
+    },
+    "word": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

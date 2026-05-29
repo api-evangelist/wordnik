@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-word-list-schema.json",
+  "title": "WordList",
+  "description": "WordList schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "description": {
+      "type": "string"
+    },
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "lastActivityAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "name": {
+      "type": "string"
+    },
+    "numberWordsInList": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "permalink": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "PUBLIC",
+        "PRIVATE"
+      ]
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "userId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "username": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

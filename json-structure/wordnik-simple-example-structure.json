@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-simple-example-structure.json",
+  "name": "SimpleExample",
+  "description": "SimpleExample schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int64"
+    },
+    "text": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "uri"
+    }
+  }
+}

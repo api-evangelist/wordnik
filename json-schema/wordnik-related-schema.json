@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-related-schema.json",
+  "title": "Related",
+  "description": "Related schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "gram": {
+      "type": "string"
+    },
+    "label1": {
+      "type": "string"
+    },
+    "label2": {
+      "type": "string"
+    },
+    "label3": {
+      "type": "string"
+    },
+    "label4": {
+      "type": "string"
+    },
+    "relationshipType": {
+      "type": "string",
+      "example": "synonym"
+    },
+    "words": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

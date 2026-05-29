@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-word-search-result-schema.json",
+  "title": "WordSearchResult",
+  "description": "WordSearchResult schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "lexicality": {
+      "type": "number",
+      "format": "double"
+    },
+    "word": {
+      "type": "string"
+    }
+  }
+}

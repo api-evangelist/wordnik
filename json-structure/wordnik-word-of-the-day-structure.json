@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-word-of-the-day-structure.json",
+  "name": "WordOfTheDay",
+  "description": "WordOfTheDay schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "category": {
+      "type": "string"
+    },
+    "contentProvider": {
+      "$ref": "#/components/schemas/ContentProvider"
+    },
+    "createdAt": {
+      "type": "datetime"
+    },
+    "createdBy": {
+      "type": "string"
+    },
+    "definitions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SimpleDefinition"
+      }
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/SimpleExample"
+      }
+    },
+    "htmlExtra": {
+      "type": "string"
+    },
+    "id": {
+      "type": "int64"
+    },
+    "note": {
+      "type": "string"
+    },
+    "parentId": {
+      "type": "string"
+    },
+    "publishDate": {
+      "type": "date"
+    },
+    "word": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

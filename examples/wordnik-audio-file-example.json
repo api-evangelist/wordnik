@@ -1,0 +1,16 @@
+{
+  "attributionText": "Example display string",
+  "attributionUrl": "https://wordnik.com/words/serendipity",
+  "audioType": "pronunciation",
+  "commentCount": 42,
+  "createdAt": "2026-05-29T14:30:00Z",
+  "createdBy": "example",
+  "description": "example",
+  "duration": 1.64,
+  "fileUrl": "https://wordnik.com/words/fileurl",
+  "id": 500123,
+  "voteAverage": 64.77,
+  "voteCount": 42,
+  "voteWeightedAverage": 5.72,
+  "word": "serendipity"
+}

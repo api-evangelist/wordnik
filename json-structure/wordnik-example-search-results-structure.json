@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-example-search-results-structure.json",
+  "name": "ExampleSearchResults",
+  "description": "ExampleSearchResults schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "examples": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Example"
+      }
+    },
+    "facets": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Facet"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-syllable-schema.json",
+  "title": "Syllable",
+  "description": "Syllable schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "seq": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "text": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "stress",
+        "secondary",
+        "normal"
+      ]
+    }
+  }
+}

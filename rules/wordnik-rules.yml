@@ -1,0 +1,338 @@
+# Wordnik API Spectral Ruleset
+#
+# Conventions derived from the Wordnik v4 OpenAPI specification served at
+# https://developer.wordnik.com/api-docs/swagger.json:
+#   - REST surface rooted at https://api.wordnik.com/v4
+#   - Resource paths are lowerCamelCase + `.json` suffix (e.g. /word.json/{word}/examples)
+#   - Parameter names are camelCase (useCanonical, partOfSpeech, sortBy)
+#   - Operation IDs are camelCase with verb prefix (getDefinitions, getRandomWord)
+#   - Schema component names are PascalCase (WordObject, Definition, FrequencySummary)
+#   - Schema property names are camelCase (sourceDictionary, scoredWords, attributionText)
+#   - Authentication is a single apiKey query parameter (`api_key`) plus an `auth_token`
+#     header for user-scoped endpoints
+#   - Title Case OpenAPI operation summaries (`Return Definitions For A Word`)
+
+rules:
+  # ── INFO / METADATA ────────────────────────────────────────────────
+  info-title-required:
+    description: Info block must define a title.
+    given: $
+    severity: error
+    then:
+      field: info.title
+      function: truthy
+  info-title-wordnik-prefix:
+    description: API title should start with "Wordnik".
+    message: 'Info title should start with "Wordnik": {{value}}'
+    given: $.info.title
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^Wordnik'
+  info-description-required:
+    description: Info block must include a description of at least 40 characters.
+    given: $.info
+    severity: warn
+    then:
+      field: description
+      function: length
+      functionOptions: { min: 40 }
+  info-version-required:
+    description: API version must be declared.
+    given: $.info
+    severity: error
+    then: { field: version, function: truthy }
+  info-contact-required:
+    description: Info block should expose contact details (Wordnik publishes apiteam@wordnik.com).
+    given: $.info
+    severity: warn
+    then: { field: contact, function: truthy }
+  info-external-docs-required:
+    description: An externalDocs link to the Wordnik developer portal should be present.
+    given: $
+    severity: info
+    then: { field: externalDocs, function: truthy }
+
+  # ── OPENAPI VERSION ────────────────────────────────────────────────
+  openapi-version-3:
+    description: Wordnik specs should be OpenAPI 3.x.
+    given: $.openapi
+    severity: warn
+    then:
+      function: pattern
+      functionOptions: { match: '^3\.' }
+
+  # ── SERVERS ────────────────────────────────────────────────────────
+  servers-required:
+    description: At least one server entry must be defined.
+    given: $
+    severity: error
+    then: { field: servers, function: truthy }
+  servers-https-only:
+    description: Server URLs must use HTTPS.
+    given: $.servers[*].url
+    severity: error
+    then:
+      function: pattern
+      functionOptions: { match: '^https://' }
+  servers-wordnik-host:
+    description: Servers should point at api.wordnik.com.
+    message: 'Server URL should reference api.wordnik.com: {{value}}'
+    given: $.servers[*].url
+    severity: warn
+    then:
+      function: pattern
+      functionOptions: { match: '^https://api\.wordnik\.com/' }
+
+  # ── PATHS — NAMING CONVENTIONS ─────────────────────────────────────
+  paths-lower-camel-json-suffix:
+    description: Wordnik resource segments follow `lowerCamel.json` (e.g. /word.json, /words.json, /wordList.json).
+    message: 'Path segment "{{value}}" deviates from the lowerCamel.json convention.'
+    given: $.paths.*~
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^/[a-z][a-zA-Z]*\.json(/[a-zA-Z0-9_{}\-]+)*$'
+  paths-no-trailing-slash:
+    description: Paths must not end with a trailing slash.
+    given: $.paths.*~
+    severity: error
+    then:
+      function: pattern
+      functionOptions: { notMatch: '.+/$' }
+  paths-no-query-string:
+    description: Paths must not embed query strings.
+    given: $.paths.*~
+    severity: error
+    then:
+      function: pattern
+      functionOptions: { notMatch: '\?' }
+
+  # ── OPERATIONS ─────────────────────────────────────────────────────
+  operation-operation-id-required:
+    description: Every operation must declare an operationId.
+    given: $.paths[*][get,post,put,delete,patch]
+    severity: error
+    then: { field: operationId, function: truthy }
+  operation-operation-id-camel-case:
+    description: operationId must be camelCase (e.g. getDefinitions, getRandomWord, authenticatePost).
+    given: $.paths[*][get,post,put,delete,patch].operationId
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[a-z][a-zA-Z0-9]*$'
+  operation-operation-id-verb-prefix:
+    description: operationId should start with a recognised verb prefix.
+    message: 'operationId "{{value}}" should start with one of get|list|create|update|delete|search|authenticate|reverse|add.'
+    given: $.paths[*][get,post,put,delete,patch].operationId
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^(get|list|create|update|delete|search|authenticate|reverse|add)[A-Z]'
+  operation-summary-required:
+    description: Every operation must include a summary.
+    given: $.paths[*][get,post,put,delete,patch]
+    severity: warn
+    then: { field: summary, function: truthy }
+  operation-summary-title-case:
+    description: Operation summaries must be Title Case.
+    message: 'Operation summary "{{value}}" should be Title Case (capitalize Each Major Word).'
+    given: $.paths[*][get,post,put,delete,patch].summary
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([A-Z][a-zA-Z0-9]*)( ([A-Z][a-zA-Z0-9]*|For|A|An|The|And|Or|Of|In|On|To|By|With|From))*$'
+  operation-description-required:
+    description: Every operation must include a description.
+    given: $.paths[*][get,post,put,delete,patch]
+    severity: warn
+    then: { field: description, function: truthy }
+  operation-tags-required:
+    description: Every operation must declare at least one tag.
+    given: $.paths[*][get,post,put,delete,patch]
+    severity: warn
+    then:
+      field: tags
+      function: length
+      functionOptions: { min: 1 }
+  operation-microcks-extension:
+    description: Operations should expose an x-microcks-operation block so Microcks can mock them.
+    given: $.paths[*][get,post,put,delete,patch]
+    severity: info
+    then: { field: x-microcks-operation, function: truthy }
+
+  # ── TAGS ───────────────────────────────────────────────────────────
+  tags-global-required:
+    description: A global tags array must be defined.
+    given: $
+    severity: warn
+    then:
+      field: tags
+      function: length
+      functionOptions: { min: 1 }
+  tag-title-case:
+    description: Tag names must be Title Case (Word, Words, Word List, Word Lists, Account).
+    given: $.tags[*].name
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^[A-Z][a-zA-Z]*( [A-Z][a-zA-Z]*)*$'
+  tag-description-required:
+    description: Each global tag must have a description.
+    given: $.tags[*]
+    severity: warn
+    then: { field: description, function: truthy }
+
+  # ── PARAMETERS ─────────────────────────────────────────────────────
+  parameter-description-required:
+    description: Every parameter must include a description.
+    given: $.paths[*][*].parameters[*]
+    severity: warn
+    then: { field: description, function: truthy }
+  parameter-name-camel-case:
+    description: Parameter names must be camelCase (api_key and auth_token are the only documented exceptions).
+    message: 'Parameter name "{{value}}" should be camelCase or the documented api_key / auth_token exception.'
+    given: $.paths[*][*].parameters[*].name
+    severity: warn
+    then:
+      function: pattern
+      functionOptions:
+        match: '^([a-z][a-zA-Z0-9]*|api_key|auth_token)$'
+  parameter-schema-type-required:
+    description: Every parameter must declare a schema type.
+    given: $.paths[*][*].parameters[*].schema
+    severity: warn
+    then: { field: type, function: truthy }
+  parameter-api-key-in-query:
+    description: Wordnik's api_key parameter must remain in the query string.
+    message: 'api_key must be sent as a query parameter, not in header/path/cookie.'
+    given: '$.paths[*][*].parameters[?(@.name == "api_key")]'
+    severity: warn
+    then:
+      field: in
+      function: pattern
+      functionOptions: { match: '^query$' }
+  parameter-pagination-skip-limit:
+    description: Pagination parameters should use skip + limit (the Wordnik convention).
+    given: $.paths[*][*].parameters[*].name
+    severity: info
+    then:
+      function: pattern
+      functionOptions:
+        notMatch: '^(page|page_size|offset|pageSize|perPage|cursor)$'
+
+  # ── REQUEST BODIES ────────────────────────────────────────────────
+  request-body-content-required:
+    description: Request bodies must declare a content map.
+    given: $.paths[*][post,put,patch].requestBody
+    severity: warn
+    then: { field: content, function: truthy }
+
+  # ── RESPONSES ─────────────────────────────────────────────────────
+  response-success-required:
+    description: Every operation must define at least one 2xx response.
+    given: $.paths[*][get,post,put,delete,patch].responses
+    severity: error
+    then:
+      function: pattern
+      functionOptions: { match: '^2' }
+  response-description-required:
+    description: Each response must include a description.
+    given: $.paths[*][*].responses[*]
+    severity: warn
+    then: { field: description, function: truthy }
+  response-json-content:
+    description: Successful 2xx responses should declare an application/json content type.
+    given: $.paths[*][*].responses[?(@property.match(/^2/))].content
+    severity: warn
+    then:
+      field: application/json
+      function: truthy
+
+  # ── SCHEMAS — PROPERTY NAMING ─────────────────────────────────────
+  schema-name-pascal-case:
+    description: Component schema names must be PascalCase (WordObject, FrequencySummary, AuthenticationToken).
+    given: $.components.schemas.*~
+    severity: warn
+    then:
+      function: pattern
+      functionOptions: { match: '^[A-Z][a-zA-Z0-9]*$' }
+  schema-property-camel-case:
+    description: Schema property names must be camelCase.
+    given: $.components.schemas[*].properties.*~
+    severity: warn
+    then:
+      function: pattern
+      functionOptions: { match: '^[a-z][a-zA-Z0-9]*$' }
+  schema-type-required:
+    description: Every schema must declare a type.
+    given: $.components.schemas[*]
+    severity: warn
+    then: { field: type, function: truthy }
+  schema-property-id-int64:
+    description: id properties on Wordnik domain objects are int64.
+    given: $.components.schemas[*].properties.id
+    severity: info
+    then:
+      field: format
+      function: pattern
+      functionOptions: { match: '^int64$' }
+
+  # ── SECURITY ──────────────────────────────────────────────────────
+  security-global-required:
+    description: A global security requirement should be declared.
+    given: $
+    severity: warn
+    then: { field: security, function: truthy }
+  security-schemes-required:
+    description: components.securitySchemes must declare both api_key and auth_token.
+    given: $.components.securitySchemes
+    severity: warn
+    then: { field: api_key, function: truthy }
+  security-scheme-api-key-shape:
+    description: api_key security scheme must be apiKey-in-query.
+    given: $.components.securitySchemes.api_key
+    severity: warn
+    then:
+      field: type
+      function: pattern
+      functionOptions: { match: '^apiKey$' }
+
+  # ── HTTP METHOD CONVENTIONS ───────────────────────────────────────
+  http-get-no-request-body:
+    description: GET operations must not declare a request body.
+    given: $.paths[*].get
+    severity: error
+    then: { field: requestBody, function: falsy }
+  http-delete-no-request-body:
+    description: DELETE operations must not declare a request body.
+    given: $.paths[*].delete
+    severity: warn
+    then: { field: requestBody, function: falsy }
+  http-write-204-or-200:
+    description: PUT / DELETE writes should return 200 or 204.
+    given: $.paths[*][put,delete].responses
+    severity: info
+    then:
+      function: pattern
+      functionOptions: { match: '^(200|204)' }
+
+  # ── GENERAL QUALITY ───────────────────────────────────────────────
+  no-empty-descriptions:
+    description: Description fields must not be empty.
+    given: $..description
+    severity: warn
+    then:
+      function: length
+      functionOptions: { min: 1 }
+  external-docs-encouraged:
+    description: An externalDocs link helps consumers find Wordnik's developer portal.
+    given: $
+    severity: info
+    then: { field: externalDocs, function: truthy }

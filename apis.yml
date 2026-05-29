@@ -1,32 +1,177 @@
 aid: wordnik
 name: Wordnik
-description: "Dictionary Data"
+description: >-
+  Wordnik is the largest online English dictionary by number of words. Its v4 REST API
+  exposes definitions from five dictionaries, etymologies, real example sentences from
+  millions of sources, audio pronunciations, related-word relationships, frequency over
+  time, hyphenation, bi-gram phrases, scrabble scores, random words, reverse-dictionary
+  lookup, word-of-the-day, and authenticated user word lists.
 url: https://developer.wordnik.com
+image: https://wordnik.com/img/logo-wordnik-home.png
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-05-29'
 x-source: public-apis/public-apis
-x-category: "Dictionaries"
-x-tier: 3
-x-tier-reason: bulk-registered-from-public-apis
+x-category: Dictionaries
+x-tier: 2
+x-tier-reason: enriched-from-bulk-public-apis-with-full-openapi-and-capability-pipeline
 tags:
   - Dictionaries
+  - Dictionary
+  - Word Data
+  - English
+  - Lexicography
   - Public APIs
 apis:
   - name: Wordnik
-    description: "Dictionary Data"
+    description: >-
+      The v4 Wordnik API exposes single-word lookups (definitions, etymologies, examples,
+      pronunciations, related words, frequency, hyphenation, phrases, scrabble score, audio),
+      cross-word discovery (random word, search, reverse dictionary, word of the day), and
+      authenticated user word-list management. Authentication is a single api_key query
+      parameter; user-scoped operations require an auth_token header obtained via
+      /account.json/authenticate.
     humanURL: https://developer.wordnik.com
-    baseURL: https://developer.wordnik.com
+    baseURL: https://api.wordnik.com/v4
     tags:
-      - Dictionaries
+      - Dictionary
+      - Word Data
+      - Lexicography
+      - English
     properties:
       - type: Documentation
-        url: https://developer.wordnik.com
+        url: https://developer.wordnik.com/docs
+      - type: GettingStarted
+        url: https://developer.wordnik.com/gettingstarted
+      - type: OpenAPI
+        url: openapi/wordnik-openapi.yml
+      - type: SDK
+        title: Python SDK
+        url: https://pypi.org/project/wordnik-py3/
+      - type: SDK
+        title: Python 2 SDK (legacy)
+        url: https://pypi.org/project/wordnik/
+      - type: SDK
+        title: Ruby SDK
+        url: https://rubygems.org/gems/wordnik
+      - type: SDK
+        title: PHP SDK
+        url: https://github.com/wordnik/wordnik-php
+      - type: SDK
+        title: Java SDK
+        url: https://github.com/wordnik/wordnik-clients/tree/master/java
+      - type: SDK
+        title: Kotlin SDK
+        url: https://github.com/wordnik/wordnik-clients/tree/master/kotlin
+      - type: SDK
+        title: Scala SDK
+        url: https://github.com/wordnik/wordnik-clients/tree/master/scala
+      - type: SDK
+        title: Android SDK
+        url: https://github.com/wordnik/wordnik-clients/tree/master/android-java
+      - type: SDK
+        title: Objective-C SDK
+        url: https://github.com/wordnik/wordnik-clients/tree/master/objc
+      - type: NaftikoCapability
+        url: capabilities/wordnik-word.yaml
+      - type: NaftikoCapability
+        url: capabilities/wordnik-words.yaml
+      - type: NaftikoCapability
+        url: capabilities/wordnik-word-list.yaml
+      - type: NaftikoCapability
+        url: capabilities/wordnik-word-lists.yaml
+      - type: NaftikoCapability
+        url: capabilities/wordnik-account.yaml
 common:
   - type: Website
+    url: https://wordnik.com
+  - type: Documentation
     url: https://developer.wordnik.com
+  - type: Pricing
+    url: https://developer.wordnik.com/pricing
+  - type: GettingStarted
+    url: https://developer.wordnik.com/gettingstarted
+  - type: Signup
+    url: https://www.wordnik.com/signup
+  - type: Blog
+    url: https://blog.wordnik.com
+  - type: StatusPage
+    url: https://github.com/wordnik/wordnik-status
+  - type: GitHubOrganization
+    url: https://github.com/wordnik
+  - type: Support
+    url: mailto:apiteam@wordnik.com
+  - type: TermsOfService
+    url: https://www.wordnik.com/about
+  - type: Plans
+    url: plans/wordnik-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/wordnik-rate-limits.yml
+  - type: FinOps
+    url: finops/wordnik-finops.yml
+  - type: Vocabulary
+    url: vocabulary/wordnik-vocabulary.yml
+  - type: SpectralRuleset
+    url: rules/wordnik-rules.yml
+  - type: JSONLDContext
+    url: json-ld/wordnik-context.jsonld
+  - type: OpenSource
+    title: Wordnik Public Word List
+    url: https://github.com/wordnik/wordlist
+  - type: OpenSource
+    title: NYT First Said
+    url: https://github.com/wordnik/nyt-first-said
+  - type: OpenSource
+    title: Language Museums Dataset
+    url: https://github.com/wordnik/language-museums
   - type: PublicAPIsListing
     url: https://github.com/public-apis/public-apis
+features:
+  - name: Five Dictionary Sources
+    description: Definitions are drawn from American Heritage (ahd-5), Wiktionary, Webster, Century, and WordNet — selectable per request via sourceDictionaries.
+  - name: Real-World Example Sentences
+    description: Examples come from millions of sources rather than constructed example text, with citation metadata via /word.json/{word}/examples and /topExample.
+  - name: Audio Pronunciations
+    description: AHD mp3 audio pronunciations exposed via /word.json/{word}/audio with time-expiring fileUrls.
+  - name: Word Graph Relationships
+    description: Synonym, antonym, hypernym, hyponym, rhyme, and 17 other relationship types via /word.json/{word}/relatedWords.
+  - name: Frequency Over Time
+    description: Annual usage counts from 1800 onward via /word.json/{word}/frequency for historical / linguistic research.
+  - name: Reverse Dictionary
+    description: Natural-language query to candidate words via /words.json/reverseDictionary.
+  - name: Word Of The Day
+    description: Curated daily word with definitions, examples, and editorial notes via /words.json/wordOfTheDay.
+  - name: User Word Lists
+    description: Authenticated users can create, edit, and curate named word lists via /wordList.json and /wordLists.json.
+useCases:
+  - name: Dictionary App
+    description: Build a consumer-facing dictionary or thesaurus app using definitions, etymologies, pronunciations, and examples.
+  - name: Word Games
+    description: Power crossword, scrabble, hangman, and word-discovery games using random words, search, and scrabble scoring.
+  - name: Vocabulary Learning
+    description: Build a flashcard or vocabulary-coach app using user word lists, word of the day, and definitions across grade levels.
+  - name: Editorial Tooling
+    description: Surface synonyms, antonyms, and reverse-dictionary lookup inside CMS / writing tools.
+  - name: Linguistic Research
+    description: Use frequency-over-time data and the word-graph for academic linguistics and lexicographic research.
+  - name: Children's Education
+    description: Use the forthcoming children's / student definitions tier for age-appropriate vocabulary apps.
+integrations:
+  - name: Python (wordnik-py3)
+    description: Official Python 3 client published to PyPI as `wordnik-py3`.
+  - name: Ruby (wordnik)
+    description: Official Ruby gem published to RubyGems as `wordnik`.
+  - name: PHP
+    description: Swagger-generated PHP client in wordnik/wordnik-php.
+  - name: Java
+    description: Swagger-generated Java client in wordnik/wordnik-clients/java.
+  - name: Kotlin / Scala / Android / Objective-C
+    description: Additional swagger-generated clients in wordnik/wordnik-clients.
+solutions:
+  - name: Dictionary-Of-Record Integration
+    description: Use Wordnik as the canonical dictionary for a product surface, hitting /word.json/{word}/definitions with sourceDictionaries selection logic.
+  - name: Quota-Aware Caching Layer
+    description: Cache results aggressively per-word and use /account.json/apiTokenStatus telemetry plus X-RateLimit headers to right-size the Hobby / Pro / Enterprise tier.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

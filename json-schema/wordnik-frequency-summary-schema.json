@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-frequency-summary-schema.json",
+  "title": "FrequencySummary",
+  "description": "FrequencySummary schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "frequency": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Frequency"
+      }
+    },
+    "frequencyString": {
+      "type": "string"
+    },
+    "totalCount": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "unknownYearCount": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "word": {
+      "type": "string"
+    }
+  }
+}

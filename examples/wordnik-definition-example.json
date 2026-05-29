@@ -1,0 +1,36 @@
+{
+  "attributionText": "Example display string",
+  "attributionUrl": "https://wordnik.com/words/serendipity",
+  "citations": [
+    null,
+    null
+  ],
+  "exampleUses": [
+    null,
+    null
+  ],
+  "extendedText": "Example display string",
+  "labels": [
+    null,
+    null
+  ],
+  "notes": [
+    null,
+    null
+  ],
+  "partOfSpeech": "example",
+  "relatedWords": [
+    null,
+    null
+  ],
+  "score": 9.13,
+  "seqString": "example",
+  "sequence": "example",
+  "sourceDictionary": "ahd-5",
+  "text": "Example display string",
+  "textProns": [
+    null,
+    null
+  ],
+  "word": "serendipity"
+}

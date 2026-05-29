@@ -1,0 +1,92 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Wordnik
+providerId: wordnik
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Dictionary
+  - Language Data
+  - Subscription
+description: >-
+  FOCUS-aligned FinOps view of Wordnik: tiered monthly subscriptions ($0 / $10 /
+  $59 / $149) gated by per-hour request quota. Spend is predictable and capped
+  by tier, with the unit of consumption being the API request itself and the
+  unit of billing being the month.
+sources:
+  - https://developer.wordnik.com/
+  - https://developer.wordnik.com/pricing
+  - https://developer.wordnik.com/gettingstarted
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Wordnik Society
+serviceCategory: Language Data
+billingModel:
+  pricingCategory: Tiered Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+focusColumns:
+  ServiceName: Wordnik API
+  ServiceCategory: Language Data
+  ServiceSubcategory: Dictionary API
+  ProviderName: Wordnik
+  PublisherName: Wordnik Society
+  InvoiceIssuerName: Wordnik Society
+  BillingCurrency: USD
+  ChargeCategory: Usage
+meters:
+  - name: api_requests
+    unit: request
+    aggregation: count
+    dimensions:
+      - endpoint
+      - dictionary_source
+      - part_of_speech
+  - name: subscription_month
+    unit: month
+    aggregation: sum
+    dimensions:
+      - plan_tier
+  - name: hourly_quota_window
+    unit: hour
+    aggregation: max
+    dimensions:
+      - plan_tier
+principles:
+  - name: Visibility
+    description: >-
+      Wordnik returns per-call telemetry in x-ratelimit-remaining-hour /
+      x-ratelimit-remaining-minute response headers, and the
+      /account.json/apiTokenStatus endpoint reports remainingCalls and
+      totalRequests for the active key. Pipe these into your observability
+      stack to track consumption against the hourly tier ceiling.
+  - name: Allocation
+    description: >-
+      Issue one Wordnik API key per workload (app, environment, team) so the
+      subscription tier maps to a chargeback unit. Wordnik does not provide
+      account-level cost-allocation tags; use the key itself as the allocation
+      dimension.
+  - name: Optimization
+    description: >-
+      Cache definitions, etymologies, and audio metadata aggressively — these
+      change rarely and dominate request volume. Use the useCanonical flag to
+      consolidate lookups, prefer batched /words.json/randomWords over repeated
+      /words.json/randomWord calls, and downgrade tiers once your steady-state
+      hourly demand fits inside the lower ceiling.
+  - name: Accountability
+    description: >-
+      Owners should review monthly subscription invoices against
+      /account.json/apiTokenStatus totalRequests for each key, alert when
+      per-key hourly utilization exceeds 80% of the tier ceiling, and escalate
+      to apiteam@wordnik.com before exceeding Enterprise.

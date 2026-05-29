@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-note-schema.json",
+  "title": "Note",
+  "description": "Note schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "appliesTo": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "noteType": {
+      "type": "string"
+    },
+    "pos": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-example-schema.json",
+  "title": "Example",
+  "description": "Example schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "documentId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "exampleId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "provider": {
+      "$ref": "#/components/schemas/ContentProvider"
+    },
+    "rating": {
+      "type": "number",
+      "format": "float"
+    },
+    "score": {
+      "$ref": "#/components/schemas/ScoredWord"
+    },
+    "sentence": {
+      "$ref": "#/components/schemas/Sentence"
+    },
+    "text": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "word": {
+      "type": "string"
+    },
+    "year": {
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-api-token-status-schema.json",
+  "title": "ApiTokenStatus",
+  "description": "ApiTokenStatus schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "expiresInMillis": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "remainingCalls": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "resetsInMillis": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "token": {
+      "type": "string"
+    },
+    "totalRequests": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "valid": {
+      "type": "boolean"
+    }
+  }
+}

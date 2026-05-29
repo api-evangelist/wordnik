@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-citation-schema.json",
+  "title": "Citation",
+  "description": "Citation schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "cite": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    }
+  }
+}

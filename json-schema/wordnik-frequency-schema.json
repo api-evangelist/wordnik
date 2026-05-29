@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-frequency-schema.json",
+  "title": "Frequency",
+  "description": "Frequency schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "year": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

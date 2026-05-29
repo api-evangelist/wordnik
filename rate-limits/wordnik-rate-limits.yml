@@ -1,0 +1,91 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Wordnik
+providerId: wordnik
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Dictionary
+  - Language Data
+  - Quota
+description: >-
+  Wordnik enforces request rate limits per API key (issued per Wordnik account),
+  with both per-minute and per-hour ceilings. The hourly ceiling is the tier
+  ceiling sold on the pricing page; the per-minute ceiling is a burst safeguard.
+  Quotas may fluctuate as the system reconciles usage periodically, but Wordnik
+  guarantees a key will never receive fewer calls than its plan permits.
+  Remaining quota and absolute limits are reported on every response via
+  X-RateLimit headers; consumers should inspect these and back off rather than
+  retrying immediately.
+sources:
+  - https://developer.wordnik.com/gettingstarted
+  - https://developer.wordnik.com/pricing
+headers:
+  remainingHour: x-ratelimit-remaining-hour
+  remainingMinute: x-ratelimit-remaining-minute
+  limitMinute: x-ratelimit-limit-minute
+  limitHour: x-ratelimit-limit-hour
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  invalidKey: 401
+  forbidden: 403
+limits:
+  - name: Basic (free) — hourly ceiling
+    scope: key
+    metric: requests_per_hour
+    limit: 100
+    timeFrame: hour
+    notes: Free tier for nonprofit / research use; commercial users get a free trial here.
+  - name: Hobby — hourly ceiling
+    scope: key
+    metric: requests_per_hour
+    limit: 1000
+    timeFrame: hour
+    notes: $10/mo subscription tier.
+  - name: Pro — hourly ceiling
+    scope: key
+    metric: requests_per_hour
+    limit: 20000
+    timeFrame: hour
+    notes: $59/mo subscription tier.
+  - name: Enterprise — hourly ceiling
+    scope: key
+    metric: requests_per_hour
+    limit: 45000
+    timeFrame: hour
+    notes: $149/mo subscription tier.
+  - name: Per-minute burst ceiling
+    scope: key
+    metric: requests_per_minute
+    limit: 'see x-ratelimit-limit-minute response header'
+    notes: Wordnik enforces a per-minute restriction as well as the per-hour ceiling. The exact number is returned per-key in the response headers and is not advertised on the pricing page.
+policies:
+  - name: Inspect response headers
+    description: >-
+      Every response includes x-ratelimit-remaining-hour, x-ratelimit-remaining-minute,
+      x-ratelimit-limit-minute, and x-ratelimit-limit-hour. Consumers should track
+      remaining quota per minute and per hour and throttle locally before Wordnik returns
+      a 429.
+  - name: Reconciliation behavior
+    description: >-
+      Wordnik documents that the "remaining" value may fluctuate as the system reconciles
+      limits periodically, but a key will never receive fewer calls than its plan permits.
+      Treat the headers as advisory, not exact.
+  - name: Backoff on 429
+    description: >-
+      When the API returns 429, wait until the next minute boundary (for per-minute throttling)
+      or the next hour boundary (for per-hour throttling) before retrying. Use an exponential
+      backoff with jitter to avoid synchronized retry storms.
+  - name: One key per account
+    description: >-
+      API keys are issued per Wordnik account. Sharing keys across applications or users splits
+      the quota; high-volume consumers should plan for one key per workload.
+  - name: Tier upgrades
+    description: >-
+      To raise the published hourly ceiling, upgrade to a higher subscription tier via
+      developer.wordnik.com/pricing. Higher-than-Enterprise volumes require contacting
+      apiteam@wordnik.com.

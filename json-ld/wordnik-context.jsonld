@@ -1,0 +1,531 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "wordnik": "https://wordnik.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "ApiTokenStatus": "wordnik:ApiTokenStatus",
+    "AudioFile": "wordnik:AudioFile",
+    "AudioType": "wordnik:AudioType",
+    "AuthenticationToken": "wordnik:AuthenticationToken",
+    "Bigram": "wordnik:Bigram",
+    "Category": "wordnik:Category",
+    "Citation": "wordnik:Citation",
+    "ContentProvider": "wordnik:ContentProvider",
+    "Definition": "wordnik:Definition",
+    "DefinitionSearchResults": "wordnik:DefinitionSearchResults",
+    "Example": "wordnik:Example",
+    "ExampleSearchResults": "wordnik:ExampleSearchResults",
+    "ExampleUsage": "wordnik:ExampleUsage",
+    "Facet": "wordnik:Facet",
+    "FacetValue": "wordnik:FacetValue",
+    "Frequency": "wordnik:Frequency",
+    "FrequencySummary": "wordnik:FrequencySummary",
+    "Label": "wordnik:Label",
+    "Note": "wordnik:Note",
+    "PartOfSpeech": "wordnik:PartOfSpeech",
+    "Related": "wordnik:Related",
+    "Root": "wordnik:Root",
+    "ScrabbleScoreResult": "wordnik:ScrabbleScoreResult",
+    "ScoredWord": "wordnik:ScoredWord",
+    "Sentence": "wordnik:Sentence",
+    "SimpleDefinition": "wordnik:SimpleDefinition",
+    "SimpleExample": "wordnik:SimpleExample",
+    "StringValue": "wordnik:StringValue",
+    "Syllable": "wordnik:Syllable",
+    "TextPron": "wordnik:TextPron",
+    "User": "wordnik:User",
+    "WordList": "wordnik:WordList",
+    "WordListWord": "wordnik:WordListWord",
+    "WordObject": "wordnik:WordObject",
+    "WordOfTheDay": "wordnik:WordOfTheDay",
+    "WordSearchResult": "wordnik:WordSearchResult",
+    "WordSearchResults": "wordnik:WordSearchResults",
+    "expiresInMillis": {
+      "@id": "wordnik:expiresInMillis",
+      "@type": "xsd:long"
+    },
+    "remainingCalls": {
+      "@id": "wordnik:remainingCalls",
+      "@type": "xsd:long"
+    },
+    "resetsInMillis": {
+      "@id": "wordnik:resetsInMillis",
+      "@type": "xsd:long"
+    },
+    "token": {
+      "@id": "wordnik:token",
+      "@type": "xsd:string"
+    },
+    "totalRequests": {
+      "@id": "wordnik:totalRequests",
+      "@type": "xsd:long"
+    },
+    "valid": {
+      "@id": "wordnik:valid",
+      "@type": "xsd:boolean"
+    },
+    "attributionText": {
+      "@id": "wordnik:attributionText",
+      "@type": "xsd:string"
+    },
+    "attributionUrl": {
+      "@id": "schema:url",
+      "@type": "xsd:string"
+    },
+    "audioType": {
+      "@id": "wordnik:audioType",
+      "@type": "xsd:string"
+    },
+    "commentCount": {
+      "@id": "wordnik:commentCount",
+      "@type": "xsd:integer"
+    },
+    "createdAt": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:dateTime"
+    },
+    "createdBy": {
+      "@id": "wordnik:createdBy",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description",
+      "@type": "xsd:string"
+    },
+    "duration": {
+      "@id": "wordnik:duration",
+      "@type": "xsd:double"
+    },
+    "fileUrl": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "id": {
+      "@id": "dcterms:identifier",
+      "@type": "xsd:long"
+    },
+    "voteAverage": {
+      "@id": "wordnik:voteAverage",
+      "@type": "xsd:float"
+    },
+    "voteCount": {
+      "@id": "wordnik:voteCount",
+      "@type": "xsd:integer"
+    },
+    "voteWeightedAverage": {
+      "@id": "wordnik:voteWeightedAverage",
+      "@type": "xsd:float"
+    },
+    "word": {
+      "@id": "wordnik:word",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name",
+      "@type": "xsd:string"
+    },
+    "userId": {
+      "@id": "wordnik:userId",
+      "@type": "xsd:long"
+    },
+    "userSignature": {
+      "@id": "wordnik:userSignature",
+      "@type": "xsd:string"
+    },
+    "count": {
+      "@id": "wordnik:count",
+      "@type": "xsd:long"
+    },
+    "gram1": {
+      "@id": "wordnik:gram1",
+      "@type": "xsd:string"
+    },
+    "gram2": {
+      "@id": "wordnik:gram2",
+      "@type": "xsd:string"
+    },
+    "mi": {
+      "@id": "wordnik:mi",
+      "@type": "xsd:double"
+    },
+    "wlmi": {
+      "@id": "wordnik:wlmi",
+      "@type": "xsd:double"
+    },
+    "cite": {
+      "@id": "wordnik:cite",
+      "@type": "xsd:string"
+    },
+    "source": {
+      "@id": "wordnik:source",
+      "@type": "xsd:string"
+    },
+    "citations": {
+      "@id": "wordnik:citations",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "exampleUses": {
+      "@id": "wordnik:exampleUses",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "extendedText": {
+      "@id": "wordnik:extendedText",
+      "@type": "xsd:string"
+    },
+    "labels": {
+      "@id": "wordnik:labels",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "notes": {
+      "@id": "wordnik:notes",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "partOfSpeech": {
+      "@id": "wordnik:partOfSpeech",
+      "@type": "xsd:string"
+    },
+    "relatedWords": {
+      "@id": "wordnik:relatedWords",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "score": {
+      "@id": "wordnik:score",
+      "@type": "xsd:float"
+    },
+    "seqString": {
+      "@id": "wordnik:seqString",
+      "@type": "xsd:string"
+    },
+    "sequence": {
+      "@id": "wordnik:sequence",
+      "@type": "xsd:string"
+    },
+    "sourceDictionary": {
+      "@id": "wordnik:sourceDictionary",
+      "@type": "xsd:string"
+    },
+    "text": {
+      "@id": "wordnik:text",
+      "@type": "xsd:string"
+    },
+    "textProns": {
+      "@id": "wordnik:textProns",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "results": {
+      "@id": "wordnik:results",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "totalResults": {
+      "@id": "wordnik:totalResults",
+      "@type": "xsd:integer"
+    },
+    "documentId": {
+      "@id": "wordnik:documentId",
+      "@type": "xsd:long"
+    },
+    "exampleId": {
+      "@id": "wordnik:exampleId",
+      "@type": "xsd:long"
+    },
+    "provider": {
+      "@id": "wordnik:provider",
+      "@type": "@id"
+    },
+    "rating": {
+      "@id": "wordnik:rating",
+      "@type": "xsd:float"
+    },
+    "sentence": {
+      "@id": "wordnik:sentence",
+      "@type": "@id"
+    },
+    "title": {
+      "@id": "wordnik:title",
+      "@type": "xsd:string"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "year": {
+      "@id": "wordnik:year",
+      "@type": "xsd:integer"
+    },
+    "examples": {
+      "@id": "wordnik:examples",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "facets": {
+      "@id": "wordnik:facets",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "facetValues": {
+      "@id": "wordnik:facetValues",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "value": {
+      "@id": "wordnik:value",
+      "@type": "xsd:string"
+    },
+    "frequency": {
+      "@id": "wordnik:frequency",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "frequencyString": {
+      "@id": "wordnik:frequencyString",
+      "@type": "xsd:string"
+    },
+    "totalCount": {
+      "@id": "wordnik:totalCount",
+      "@type": "xsd:long"
+    },
+    "unknownYearCount": {
+      "@id": "wordnik:unknownYearCount",
+      "@type": "xsd:integer"
+    },
+    "type": {
+      "@id": "wordnik:type",
+      "@type": "xsd:string"
+    },
+    "appliesTo": {
+      "@id": "wordnik:appliesTo",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "noteType": {
+      "@id": "wordnik:noteType",
+      "@type": "xsd:string"
+    },
+    "pos": {
+      "@id": "wordnik:pos",
+      "@type": "xsd:integer"
+    },
+    "allCategories": {
+      "@id": "wordnik:allCategories",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "roots": {
+      "@id": "wordnik:roots",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "storageAbbr": {
+      "@id": "wordnik:storageAbbr",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "gram": {
+      "@id": "wordnik:gram",
+      "@type": "xsd:string"
+    },
+    "label1": {
+      "@id": "wordnik:label1",
+      "@type": "xsd:string"
+    },
+    "label2": {
+      "@id": "wordnik:label2",
+      "@type": "xsd:string"
+    },
+    "label3": {
+      "@id": "wordnik:label3",
+      "@type": "xsd:string"
+    },
+    "label4": {
+      "@id": "wordnik:label4",
+      "@type": "xsd:string"
+    },
+    "relationshipType": {
+      "@id": "wordnik:relationshipType",
+      "@type": "xsd:string"
+    },
+    "words": {
+      "@id": "wordnik:words",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "categories": {
+      "@id": "wordnik:categories",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "baseWordScore": {
+      "@id": "wordnik:baseWordScore",
+      "@type": "xsd:double"
+    },
+    "docTermCount": {
+      "@id": "wordnik:docTermCount",
+      "@type": "xsd:integer"
+    },
+    "lemma": {
+      "@id": "wordnik:lemma",
+      "@type": "xsd:string"
+    },
+    "position": {
+      "@id": "wordnik:position",
+      "@type": "xsd:integer"
+    },
+    "sentenceId": {
+      "@id": "wordnik:sentenceId",
+      "@type": "xsd:long"
+    },
+    "stopword": {
+      "@id": "wordnik:stopword",
+      "@type": "xsd:boolean"
+    },
+    "wordType": {
+      "@id": "wordnik:wordType",
+      "@type": "xsd:string"
+    },
+    "display": {
+      "@id": "wordnik:display",
+      "@type": "xsd:string"
+    },
+    "documentMetadataId": {
+      "@id": "wordnik:documentMetadataId",
+      "@type": "xsd:long"
+    },
+    "hasScoredWords": {
+      "@id": "wordnik:hasScoredWords",
+      "@type": "xsd:boolean"
+    },
+    "scoredWords": {
+      "@id": "wordnik:scoredWords",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "note": {
+      "@id": "wordnik:note",
+      "@type": "xsd:string"
+    },
+    "seq": {
+      "@id": "wordnik:seq",
+      "@type": "xsd:integer"
+    },
+    "raw": {
+      "@id": "wordnik:raw",
+      "@type": "xsd:string"
+    },
+    "rawType": {
+      "@id": "wordnik:rawType",
+      "@type": "xsd:string"
+    },
+    "displayName": {
+      "@id": "wordnik:displayName",
+      "@type": "xsd:string"
+    },
+    "email": {
+      "@id": "schema:email",
+      "@type": "xsd:string"
+    },
+    "faceBookId": {
+      "@id": "wordnik:faceBookId",
+      "@type": "xsd:string"
+    },
+    "password": {
+      "@id": "wordnik:password",
+      "@type": "xsd:string"
+    },
+    "status": {
+      "@id": "wordnik:status",
+      "@type": "xsd:integer"
+    },
+    "userName": {
+      "@id": "wordnik:userName",
+      "@type": "xsd:string"
+    },
+    "username": {
+      "@id": "wordnik:username",
+      "@type": "xsd:string"
+    },
+    "lastActivityAt": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "numberWordsInList": {
+      "@id": "wordnik:numberWordsInList",
+      "@type": "xsd:long"
+    },
+    "permalink": {
+      "@id": "wordnik:permalink",
+      "@type": "xsd:string"
+    },
+    "updatedAt": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:dateTime"
+    },
+    "numberCommentsOnWord": {
+      "@id": "wordnik:numberCommentsOnWord",
+      "@type": "xsd:long"
+    },
+    "numberLists": {
+      "@id": "wordnik:numberLists",
+      "@type": "xsd:long"
+    },
+    "canonicalForm": {
+      "@id": "wordnik:canonicalForm",
+      "@type": "xsd:string"
+    },
+    "originalWord": {
+      "@id": "wordnik:originalWord",
+      "@type": "xsd:string"
+    },
+    "suggestions": {
+      "@id": "wordnik:suggestions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "vulgar": {
+      "@id": "wordnik:vulgar",
+      "@type": "xsd:string"
+    },
+    "category": {
+      "@id": "wordnik:category",
+      "@type": "xsd:string"
+    },
+    "contentProvider": {
+      "@id": "wordnik:contentProvider",
+      "@type": "@id"
+    },
+    "definitions": {
+      "@id": "wordnik:definitions",
+      "@container": "@set",
+      "@type": "@id"
+    },
+    "htmlExtra": {
+      "@id": "wordnik:htmlExtra",
+      "@type": "xsd:string"
+    },
+    "parentId": {
+      "@id": "wordnik:parentId",
+      "@type": "xsd:string"
+    },
+    "publishDate": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:date"
+    },
+    "lexicality": {
+      "@id": "wordnik:lexicality",
+      "@type": "xsd:double"
+    },
+    "searchResults": {
+      "@id": "wordnik:searchResults",
+      "@container": "@set",
+      "@type": "@id"
+    }
+  }
+}

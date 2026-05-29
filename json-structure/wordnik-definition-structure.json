@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-definition-structure.json",
+  "name": "Definition",
+  "description": "Definition schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "attributionText": {
+      "type": "string"
+    },
+    "attributionUrl": {
+      "type": "string"
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Citation"
+      }
+    },
+    "exampleUses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ExampleUsage"
+      }
+    },
+    "extendedText": {
+      "type": "string"
+    },
+    "labels": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Label"
+      }
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Note"
+      }
+    },
+    "partOfSpeech": {
+      "type": "string"
+    },
+    "relatedWords": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Related"
+      }
+    },
+    "score": {
+      "type": "float"
+    },
+    "seqString": {
+      "type": "string"
+    },
+    "sequence": {
+      "type": "string"
+    },
+    "sourceDictionary": {
+      "type": "string",
+      "example": "ahd-5"
+    },
+    "text": {
+      "type": "string"
+    },
+    "textProns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/TextPron"
+      }
+    },
+    "word": {
+      "type": "string"
+    }
+  }
+}

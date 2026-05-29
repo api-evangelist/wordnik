@@ -1,0 +1,20 @@
+{
+  "category": "example",
+  "contentProvider": null,
+  "createdAt": "2026-05-29T14:30:00Z",
+  "createdBy": "example",
+  "definitions": [
+    null,
+    null
+  ],
+  "examples": [
+    null,
+    null
+  ],
+  "htmlExtra": "example",
+  "id": 500123,
+  "note": "example",
+  "parentId": "abc123",
+  "publishDate": "2026-05-29",
+  "word": "serendipity"
+}

@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-scrabble-score-result-structure.json",
+  "name": "ScrabbleScoreResult",
+  "description": "ScrabbleScoreResult schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "value": {
+      "type": "int64"
+    }
+  }
+}

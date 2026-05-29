@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-word-list-word-structure.json",
+  "name": "WordListWord",
+  "description": "WordListWord schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "createdAt": {
+      "type": "datetime"
+    },
+    "id": {
+      "type": "int64"
+    },
+    "numberCommentsOnWord": {
+      "type": "int64"
+    },
+    "numberLists": {
+      "type": "int64"
+    },
+    "userId": {
+      "type": "int64"
+    },
+    "username": {
+      "type": "string"
+    },
+    "word": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

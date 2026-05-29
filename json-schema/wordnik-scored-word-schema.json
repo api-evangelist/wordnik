@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-scored-word-schema.json",
+  "title": "ScoredWord",
+  "description": "ScoredWord schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "baseWordScore": {
+      "type": "number",
+      "format": "double"
+    },
+    "docTermCount": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "lemma": {
+      "type": "string"
+    },
+    "partOfSpeech": {
+      "type": "string"
+    },
+    "position": {
+      "type": "integer",
+      "format": "int32"
+    },
+    "score": {
+      "type": "number",
+      "format": "float"
+    },
+    "sentenceId": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "stopword": {
+      "type": "boolean"
+    },
+    "word": {
+      "type": "string"
+    },
+    "wordType": {
+      "type": "string"
+    }
+  }
+}

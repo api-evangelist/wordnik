@@ -1,0 +1,145 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Wordnik
+providerId: wordnik
+created: '2026-05-29'
+modified: '2026-05-29'
+reconciled: true
+tags:
+  - Dictionary
+  - Language Data
+  - Word API
+  - Subscription
+  - Tiered
+description: >-
+  Wordnik prices its v4 dictionary API in four flat-rate monthly tiers
+  differentiated almost entirely by per-hour request quota. The Basic tier is
+  free for nonprofit and research use (and a free trial for commercial use),
+  while Hobby, Pro, and Enterprise are recurring subscriptions sold direct from
+  developer.wordnik.com/pricing. Higher tiers also unlock additional dictionary
+  features as they are released (children's / student definitions, etymology
+  search, pronunciation search). All tiers help fund Wordnik's mission to
+  document the English vocabulary.
+sources:
+  - https://developer.wordnik.com/
+  - https://developer.wordnik.com/pricing
+  - https://developer.wordnik.com/gettingstarted
+plans:
+  - id: wordnik-basic
+    name: Basic
+    type: freemium
+    description: Free tier, intended for nonprofits, research, and commercial free-trial.
+    entries:
+      - label: API requests
+        name: api_requests
+        type: metered
+        metric: request
+        limit: 100
+        timeFrame: hour
+        geo: global
+        unit: 1
+        price: '$0'
+        userMultiplied: false
+      - label: Monthly subscription
+        name: subscription
+        type: flat
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$0'
+        userMultiplied: false
+    elements:
+      - name: Definitions, examples, etymologies, pronunciations, audio
+      - name: Word of the Day
+      - name: Reverse dictionary lookup
+      - name: Personal lists (forthcoming)
+      - name: Complex random word queries (forthcoming)
+  - id: wordnik-hobby
+    name: Hobby
+    type: subscription
+    description: Indie developer / side-project tier with a 10x throughput bump.
+    entries:
+      - label: API requests
+        name: api_requests
+        type: metered
+        metric: request
+        limit: 1000
+        timeFrame: hour
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Monthly subscription
+        name: subscription
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$10'
+        userMultiplied: false
+    elements:
+      - name: Everything in Basic
+      - name: Personal lists (forthcoming)
+      - name: Complex random word queries (forthcoming)
+  - id: wordnik-pro
+    name: Pro
+    type: subscription
+    description: Production tier for apps, games, or back-office tools at moderate scale.
+    entries:
+      - label: API requests
+        name: api_requests
+        type: metered
+        metric: request
+        limit: 20000
+        timeFrame: hour
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Monthly subscription
+        name: subscription
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$59'
+        userMultiplied: false
+    elements:
+      - name: Everything in Hobby
+      - name: Children's / student definitions (forthcoming)
+      - name: Etymology search (forthcoming)
+  - id: wordnik-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Highest published tier with the largest hourly quota and full forthcoming feature roadmap.
+    entries:
+      - label: API requests
+        name: api_requests
+        type: metered
+        metric: request
+        limit: 45000
+        timeFrame: hour
+        geo: global
+        unit: 1
+        price: included
+        userMultiplied: false
+      - label: Monthly subscription
+        name: subscription
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '$149'
+        userMultiplied: false
+    elements:
+      - name: Everything in Pro
+      - name: Pronunciation search (forthcoming)

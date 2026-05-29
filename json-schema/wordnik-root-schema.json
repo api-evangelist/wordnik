@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-root-schema.json",
+  "title": "Root",
+  "description": "Root schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "categories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Category"
+      }
+    },
+    "id": {
+      "type": "integer",
+      "format": "int64"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-sentence-structure.json",
+  "name": "Sentence",
+  "description": "Sentence schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "display": {
+      "type": "string"
+    },
+    "documentMetadataId": {
+      "type": "int64"
+    },
+    "hasScoredWords": {
+      "type": "boolean"
+    },
+    "id": {
+      "type": "int64"
+    },
+    "rating": {
+      "type": "int32"
+    },
+    "scoredWords": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ScoredWord"
+      }
+    }
+  }
+}

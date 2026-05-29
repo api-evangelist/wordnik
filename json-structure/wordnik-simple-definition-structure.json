@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-simple-definition-structure.json",
+  "name": "SimpleDefinition",
+  "description": "SimpleDefinition schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "note": {
+      "type": "string"
+    },
+    "partOfSpeech": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "text": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-word-search-result-structure.json",
+  "name": "WordSearchResult",
+  "description": "WordSearchResult schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "count": {
+      "type": "int64"
+    },
+    "lexicality": {
+      "type": "double"
+    },
+    "word": {
+      "type": "string"
+    }
+  }
+}

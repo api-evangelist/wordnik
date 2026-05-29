@@ -1,0 +1,450 @@
+naftiko: "1.0.0-alpha2"
+
+info:
+  label: "Wordnik — Word"
+  description: >-
+    Word — single-word lookup surface. 11 operations covering definitions, examples,
+    etymologies, audio, pronunciations, hyphenation, related-word graph traversal,
+    frequency over time, top example, bi-gram phrases, and scrabble score. Lead operation:
+    return definitions for a word. Self-contained Naftiko capability covering one
+    Wordnik business surface.
+  tags:
+    - Wordnik
+    - Dictionary
+    - Word
+  created: "2026-05-29"
+  modified: "2026-05-29"
+
+binds:
+  - namespace: env
+    keys:
+      WORDNIK_API_KEY: WORDNIK_API_KEY
+
+capability:
+
+  consumes:
+    - type: http
+      namespace: "wordnik-word"
+      baseUri: "https://api.wordnik.com/v4"
+      description: "Wordnik — Word business capability. Self-contained, no shared references."
+      authentication:
+        type: apikey
+        key: api_key
+        value: "{{env.WORDNIK_API_KEY}}"
+        placement: query
+      resources:
+        - name: "word"
+          path: "/word.json/{word}"
+          operations:
+            - name: "getAudio"
+              method: GET
+              description: "Fetch audio metadata for a word."
+              inputParameters:
+                - { name: word, in: path, type: string, required: true, description: "Word to get audio for." }
+                - { name: useCanonical, in: query, type: string, required: false, description: "Return the canonical form of the word." }
+                - { name: limit, in: query, type: integer, required: false, description: "Maximum number of results to return." }
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: "$." }
+            - name: "getDefinitions"
+              method: GET
+              description: "Return definitions for a word."
+              inputParameters:
+                - { name: word, in: path, type: string, required: true, description: "Word to return definitions for." }
+                - { name: limit, in: query, type: integer, required: false, description: "Maximum number of results to return." }
+                - { name: partOfSpeech, in: query, type: string, required: false, description: "CSV list of part-of-speech types." }
+                - { name: includeRelated, in: query, type: string, required: false, description: "Return related words with definitions." }
+                - { name: sourceDictionaries, in: query, type: array, required: false, description: "Source dictionary or dictionaries." }
+                - { name: useCanonical, in: query, type: string, required: false, description: "Return the canonical form of the word." }
+                - { name: includeTags, in: query, type: string, required: false, description: "Return a closed set of XML tags in response." }
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: "$." }
+            - name: "getEtymologies"
+              method: GET
+              description: "Fetch etymology data for a word."
+              inputParameters:
+                - { name: word, in: path, type: string, required: true, description: "Word to return etymologies for." }
+                - { name: useCanonical, in: query, type: string, required: false, description: "Return the canonical form of the word." }
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: "$." }
+            - name: "getExamples"
+              method: GET
+              description: "Return examples for a word."
+              inputParameters:
+                - { name: word, in: path, type: string, required: true, description: "Word to return examples for." }
+                - { name: includeDuplicates, in: query, type: string, required: false, description: "Show duplicate examples." }
+                - { name: useCanonical, in: query, type: string, required: false, description: "Return the canonical form of the word." }
+                - { name: skip, in: query, type: integer, required: false, description: "Results to skip." }
+                - { name: limit, in: query, type: integer, required: false, description: "Maximum number of results to return." }
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: "$." }
+            - name: "getWordFrequency"
+              method: GET
+              description: "Return word usage over time."
+              inputParameters:
+                - { name: word, in: path, type: string, required: true, description: "Word to return frequency for." }
+                - { name: useCanonical, in: query, type: string, required: false, description: "Return the canonical form of the word." }
+                - { name: startYear, in: query, type: integer, required: false, description: "Starting year." }
+                - { name: endYear, in: query, type: integer, required: false, description: "Ending year." }
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: "$." }
+            - name: "getHyphenation"
+              method: GET
+              description: "Return syllable information for a word."
+              inputParameters:
+                - { name: word, in: path, type: string, required: true, description: "Word to get syllables for." }
+                - { name: useCanonical, in: query, type: string, required: false, description: "Return the canonical form of the word." }
+                - { name: sourceDictionary, in: query, type: string, required: false, description: "Source dictionary." }
+                - { name: limit, in: query, type: integer, required: false, description: "Maximum number of results to return." }
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: "$." }
+            - name: "getPhrases"
+              method: GET
+              description: "Fetch bi-gram phrases for a word."
+              inputParameters:
+                - { name: word, in: path, type: string, required: true, description: "Word to fetch phrases for." }
+                - { name: limit, in: query, type: integer, required: false, description: "Maximum number of results to return." }
+                - { name: wlmi, in: query, type: integer, required: false, description: "Minimum WLMI for the phrase." }
+                - { name: useCanonical, in: query, type: string, required: false, description: "Return the canonical form of the word." }
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: "$." }
+            - name: "getTextPronunciations"
+              method: GET
+              description: "Return text pronunciations for a word."
+              inputParameters:
+                - { name: word, in: path, type: string, required: true, description: "Word to get pronunciations for." }
+                - { name: useCanonical, in: query, type: string, required: false, description: "Return the canonical form of the word." }
+                - { name: sourceDictionary, in: query, type: string, required: false, description: "Source dictionary." }
+                - { name: typeFormat, in: query, type: string, required: false, description: "Text pronunciation type." }
+                - { name: limit, in: query, type: integer, required: false, description: "Maximum number of results to return." }
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: "$." }
+            - name: "getRelatedWords"
+              method: GET
+              description: "Return related words from the Word Graph."
+              inputParameters:
+                - { name: word, in: path, type: string, required: true, description: "Word to fetch relationships for." }
+                - { name: useCanonical, in: query, type: string, required: false, description: "Return the canonical form of the word." }
+                - { name: relationshipTypes, in: query, type: string, required: false, description: "Relationship type filter." }
+                - { name: limitPerRelationshipType, in: query, type: integer, required: false, description: "Limit per relationship type." }
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: "$." }
+            - name: "getScrabbleScore"
+              method: GET
+              description: "Return the scrabble score for a word."
+              inputParameters:
+                - { name: word, in: path, type: string, required: true, description: "Word to get scrabble score for." }
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: "$." }
+            - name: "getTopExample"
+              method: GET
+              description: "Return a top example for a word."
+              inputParameters:
+                - { name: word, in: path, type: string, required: true, description: "Word to fetch examples for." }
+                - { name: useCanonical, in: query, type: string, required: false, description: "Return the canonical form of the word." }
+              outputRawFormat: json
+              outputParameters:
+                - { name: result, type: object, value: "$." }
+
+  exposes:
+    - type: rest
+      namespace: "wordnik-word-rest"
+      port: 8080
+      description: "REST adapter for Wordnik — Word. One Spectral-compliant resource per consumed operation, prefixed with /v1."
+      resources:
+        - path: "/v1/words/{word}/audio"
+          name: "word-audio"
+          description: "REST surface for word audio metadata."
+          operations:
+            - method: GET
+              name: "getAudio"
+              description: "Fetch audio metadata for a word."
+              call: "wordnik-word.getAudio"
+              with:
+                word: "rest.word"
+                useCanonical: "rest.useCanonical"
+                limit: "rest.limit"
+              outputParameters:
+                - { type: object, mapping: "$." }
+        - path: "/v1/words/{word}/definitions"
+          name: "word-definitions"
+          description: "REST surface for word definitions."
+          operations:
+            - method: GET
+              name: "getDefinitions"
+              description: "Return definitions for a word."
+              call: "wordnik-word.getDefinitions"
+              with:
+                word: "rest.word"
+                limit: "rest.limit"
+                partOfSpeech: "rest.partOfSpeech"
+                includeRelated: "rest.includeRelated"
+                sourceDictionaries: "rest.sourceDictionaries"
+                useCanonical: "rest.useCanonical"
+                includeTags: "rest.includeTags"
+              outputParameters:
+                - { type: object, mapping: "$." }
+        - path: "/v1/words/{word}/etymologies"
+          name: "word-etymologies"
+          description: "REST surface for etymologies."
+          operations:
+            - method: GET
+              name: "getEtymologies"
+              description: "Fetch etymology data for a word."
+              call: "wordnik-word.getEtymologies"
+              with:
+                word: "rest.word"
+                useCanonical: "rest.useCanonical"
+              outputParameters:
+                - { type: object, mapping: "$." }
+        - path: "/v1/words/{word}/examples"
+          name: "word-examples"
+          description: "REST surface for examples."
+          operations:
+            - method: GET
+              name: "getExamples"
+              description: "Return examples for a word."
+              call: "wordnik-word.getExamples"
+              with:
+                word: "rest.word"
+                includeDuplicates: "rest.includeDuplicates"
+                useCanonical: "rest.useCanonical"
+                skip: "rest.skip"
+                limit: "rest.limit"
+              outputParameters:
+                - { type: object, mapping: "$." }
+        - path: "/v1/words/{word}/frequency"
+          name: "word-frequency"
+          description: "REST surface for frequency over time."
+          operations:
+            - method: GET
+              name: "getWordFrequency"
+              description: "Return word usage over time."
+              call: "wordnik-word.getWordFrequency"
+              with:
+                word: "rest.word"
+                useCanonical: "rest.useCanonical"
+                startYear: "rest.startYear"
+                endYear: "rest.endYear"
+              outputParameters:
+                - { type: object, mapping: "$." }
+        - path: "/v1/words/{word}/hyphenation"
+          name: "word-hyphenation"
+          description: "REST surface for hyphenation."
+          operations:
+            - method: GET
+              name: "getHyphenation"
+              description: "Return syllable information for a word."
+              call: "wordnik-word.getHyphenation"
+              with:
+                word: "rest.word"
+                useCanonical: "rest.useCanonical"
+                sourceDictionary: "rest.sourceDictionary"
+                limit: "rest.limit"
+              outputParameters:
+                - { type: object, mapping: "$." }
+        - path: "/v1/words/{word}/phrases"
+          name: "word-phrases"
+          description: "REST surface for bi-gram phrases."
+          operations:
+            - method: GET
+              name: "getPhrases"
+              description: "Fetch bi-gram phrases for a word."
+              call: "wordnik-word.getPhrases"
+              with:
+                word: "rest.word"
+                limit: "rest.limit"
+                wlmi: "rest.wlmi"
+                useCanonical: "rest.useCanonical"
+              outputParameters:
+                - { type: object, mapping: "$." }
+        - path: "/v1/words/{word}/pronunciations"
+          name: "word-pronunciations"
+          description: "REST surface for pronunciations."
+          operations:
+            - method: GET
+              name: "getTextPronunciations"
+              description: "Return text pronunciations for a word."
+              call: "wordnik-word.getTextPronunciations"
+              with:
+                word: "rest.word"
+                useCanonical: "rest.useCanonical"
+                sourceDictionary: "rest.sourceDictionary"
+                typeFormat: "rest.typeFormat"
+                limit: "rest.limit"
+              outputParameters:
+                - { type: object, mapping: "$." }
+        - path: "/v1/words/{word}/related-words"
+          name: "word-related-words"
+          description: "REST surface for related words."
+          operations:
+            - method: GET
+              name: "getRelatedWords"
+              description: "Return related words from the Word Graph."
+              call: "wordnik-word.getRelatedWords"
+              with:
+                word: "rest.word"
+                useCanonical: "rest.useCanonical"
+                relationshipTypes: "rest.relationshipTypes"
+                limitPerRelationshipType: "rest.limitPerRelationshipType"
+              outputParameters:
+                - { type: object, mapping: "$." }
+        - path: "/v1/words/{word}/scrabble-score"
+          name: "word-scrabble-score"
+          description: "REST surface for scrabble score."
+          operations:
+            - method: GET
+              name: "getScrabbleScore"
+              description: "Return the scrabble score for a word."
+              call: "wordnik-word.getScrabbleScore"
+              with:
+                word: "rest.word"
+              outputParameters:
+                - { type: object, mapping: "$." }
+        - path: "/v1/words/{word}/top-example"
+          name: "word-top-example"
+          description: "REST surface for top example."
+          operations:
+            - method: GET
+              name: "getTopExample"
+              description: "Return a top example for a word."
+              call: "wordnik-word.getTopExample"
+              with:
+                word: "rest.word"
+                useCanonical: "rest.useCanonical"
+              outputParameters:
+                - { type: object, mapping: "$." }
+
+    - type: mcp
+      namespace: "wordnik-word-mcp"
+      port: 9090
+      transport: http
+      description: "MCP adapter for Wordnik — Word. One tool per consumed operation, routed inline through this capability's consumes block."
+      tools:
+        - name: "get-audio"
+          description: "Fetch audio metadata for a word."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "wordnik-word.getAudio"
+          with:
+            word: "tools.word"
+            useCanonical: "tools.useCanonical"
+            limit: "tools.limit"
+          outputParameters:
+            - { type: object, mapping: "$." }
+        - name: "get-definitions"
+          description: "Return definitions for a word."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "wordnik-word.getDefinitions"
+          with:
+            word: "tools.word"
+            limit: "tools.limit"
+            partOfSpeech: "tools.partOfSpeech"
+            includeRelated: "tools.includeRelated"
+            sourceDictionaries: "tools.sourceDictionaries"
+            useCanonical: "tools.useCanonical"
+            includeTags: "tools.includeTags"
+          outputParameters:
+            - { type: object, mapping: "$." }
+        - name: "get-etymologies"
+          description: "Fetch etymology data for a word."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "wordnik-word.getEtymologies"
+          with:
+            word: "tools.word"
+            useCanonical: "tools.useCanonical"
+          outputParameters:
+            - { type: object, mapping: "$." }
+        - name: "get-examples"
+          description: "Return examples for a word."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "wordnik-word.getExamples"
+          with:
+            word: "tools.word"
+            includeDuplicates: "tools.includeDuplicates"
+            useCanonical: "tools.useCanonical"
+            skip: "tools.skip"
+            limit: "tools.limit"
+          outputParameters:
+            - { type: object, mapping: "$." }
+        - name: "get-word-frequency"
+          description: "Return word usage over time."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "wordnik-word.getWordFrequency"
+          with:
+            word: "tools.word"
+            useCanonical: "tools.useCanonical"
+            startYear: "tools.startYear"
+            endYear: "tools.endYear"
+          outputParameters:
+            - { type: object, mapping: "$." }
+        - name: "get-hyphenation"
+          description: "Return syllable information for a word."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "wordnik-word.getHyphenation"
+          with:
+            word: "tools.word"
+            useCanonical: "tools.useCanonical"
+            sourceDictionary: "tools.sourceDictionary"
+            limit: "tools.limit"
+          outputParameters:
+            - { type: object, mapping: "$." }
+        - name: "get-phrases"
+          description: "Fetch bi-gram phrases for a word."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "wordnik-word.getPhrases"
+          with:
+            word: "tools.word"
+            limit: "tools.limit"
+            wlmi: "tools.wlmi"
+            useCanonical: "tools.useCanonical"
+          outputParameters:
+            - { type: object, mapping: "$." }
+        - name: "get-text-pronunciations"
+          description: "Return text pronunciations for a word."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "wordnik-word.getTextPronunciations"
+          with:
+            word: "tools.word"
+            useCanonical: "tools.useCanonical"
+            sourceDictionary: "tools.sourceDictionary"
+            typeFormat: "tools.typeFormat"
+            limit: "tools.limit"
+          outputParameters:
+            - { type: object, mapping: "$." }
+        - name: "get-related-words"
+          description: "Return related words from the Word Graph."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "wordnik-word.getRelatedWords"
+          with:
+            word: "tools.word"
+            useCanonical: "tools.useCanonical"
+            relationshipTypes: "tools.relationshipTypes"
+            limitPerRelationshipType: "tools.limitPerRelationshipType"
+          outputParameters:
+            - { type: object, mapping: "$." }
+        - name: "get-scrabble-score"
+          description: "Return the scrabble score for a word."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "wordnik-word.getScrabbleScore"
+          with:
+            word: "tools.word"
+          outputParameters:
+            - { type: object, mapping: "$." }
+        - name: "get-top-example"
+          description: "Return a top example for a word."
+          hints: { readOnly: true, destructive: false, idempotent: true }
+          call: "wordnik-word.getTopExample"
+          with:
+            word: "tools.word"
+            useCanonical: "tools.useCanonical"
+          outputParameters:
+            - { type: object, mapping: "$." }

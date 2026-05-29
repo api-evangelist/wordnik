@@ -1,0 +1,13 @@
+{
+  "createdAt": "2026-05-29T14:30:00Z",
+  "description": "example",
+  "id": 500123,
+  "lastActivityAt": "2026-05-29T14:30:00Z",
+  "name": "Jane Smith",
+  "numberWordsInList": 1718153645993,
+  "permalink": "favorite-words",
+  "type": "PUBLIC",
+  "updatedAt": "2026-05-29T14:30:00Z",
+  "userId": 500123,
+  "username": "Jane Smith"
+}

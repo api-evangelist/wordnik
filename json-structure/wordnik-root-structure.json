@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-root-structure.json",
+  "name": "Root",
+  "description": "Root schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "categories": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Category"
+      }
+    },
+    "id": {
+      "type": "int64"
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

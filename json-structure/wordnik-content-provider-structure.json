@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-content-provider-structure.json",
+  "name": "ContentProvider",
+  "description": "ContentProvider schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

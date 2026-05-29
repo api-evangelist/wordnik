@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-api-token-status-structure.json",
+  "name": "ApiTokenStatus",
+  "description": "ApiTokenStatus schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "expiresInMillis": {
+      "type": "int64"
+    },
+    "remainingCalls": {
+      "type": "int64"
+    },
+    "resetsInMillis": {
+      "type": "int64"
+    },
+    "token": {
+      "type": "string"
+    },
+    "totalRequests": {
+      "type": "int64"
+    },
+    "valid": {
+      "type": "boolean"
+    }
+  }
+}

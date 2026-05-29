@@ -1,0 +1,13 @@
+{
+  "baseWordScore": 6.63,
+  "docTermCount": 42,
+  "id": 500123,
+  "lemma": "example",
+  "partOfSpeech": "example",
+  "position": 90,
+  "score": 0.4,
+  "sentenceId": 500123,
+  "stopword": false,
+  "word": "serendipity",
+  "wordType": "serendipity"
+}

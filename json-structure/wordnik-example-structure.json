@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-example-structure.json",
+  "name": "Example",
+  "description": "Example schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "documentId": {
+      "type": "int64"
+    },
+    "exampleId": {
+      "type": "int64"
+    },
+    "id": {
+      "type": "int64"
+    },
+    "provider": {
+      "$ref": "#/components/schemas/ContentProvider"
+    },
+    "rating": {
+      "type": "float"
+    },
+    "score": {
+      "$ref": "#/components/schemas/ScoredWord"
+    },
+    "sentence": {
+      "$ref": "#/components/schemas/Sentence"
+    },
+    "text": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "uri"
+    },
+    "word": {
+      "type": "string"
+    },
+    "year": {
+      "type": "int32"
+    }
+  }
+}

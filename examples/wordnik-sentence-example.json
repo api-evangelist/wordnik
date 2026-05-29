@@ -1,0 +1,11 @@
+{
+  "display": "Example display string",
+  "documentMetadataId": 500123,
+  "hasScoredWords": true,
+  "id": 500123,
+  "rating": 83,
+  "scoredWords": [
+    null,
+    null
+  ]
+}

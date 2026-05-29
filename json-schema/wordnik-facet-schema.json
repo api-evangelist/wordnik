@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-facet-schema.json",
+  "title": "Facet",
+  "description": "Facet schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "facetValues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/FacetValue"
+      }
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

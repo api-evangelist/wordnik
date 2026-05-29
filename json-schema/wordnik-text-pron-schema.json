@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-schema/wordnik-text-pron-schema.json",
+  "title": "TextPron",
+  "description": "TextPron schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "raw": {
+      "type": "string"
+    },
+    "rawType": {
+      "type": "string"
+    },
+    "seq": {
+      "type": "integer",
+      "format": "int32"
+    }
+  }
+}

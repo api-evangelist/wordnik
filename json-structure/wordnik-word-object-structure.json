@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/wordnik/refs/heads/main/json-structure/wordnik-word-object-structure.json",
+  "name": "WordObject",
+  "description": "WordObject schema from Wordnik",
+  "type": "object",
+  "properties": {
+    "canonicalForm": {
+      "type": "string"
+    },
+    "id": {
+      "type": "int64"
+    },
+    "originalWord": {
+      "type": "string"
+    },
+    "suggestions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "vulgar": {
+      "type": "string"
+    },
+    "word": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}
