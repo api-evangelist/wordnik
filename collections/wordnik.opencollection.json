@@ -1,0 +1,1134 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wordnik",
+    "version": "4.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Word",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fetch Audio Metadata For A Word",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/word.json/:word/audio",
+            "params": [
+              {
+                "name": "word",
+                "value": "",
+                "type": "path",
+                "description": "Word to get audio for."
+              },
+              {
+                "name": "useCanonical",
+                "value": "",
+                "type": "query",
+                "description": "Return the canonical form of the word (e.g. 'cats' -> 'cat')."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              }
+            ]
+          },
+          "docs": "The metadata includes a time-expiring fileUrl which allows reading the audio file\ndirectly from the API. Currently only audio pronunciations from the American Heritage\nDictionary in mp3 format are supported."
+        },
+        {
+          "info": {
+            "name": "Return Definitions For A Word",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/word.json/:word/definitions",
+            "params": [
+              {
+                "name": "word",
+                "value": "",
+                "type": "path",
+                "description": "Word to return definitions for."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              },
+              {
+                "name": "partOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "CSV list of part-of-speech types."
+              },
+              {
+                "name": "includeRelated",
+                "value": "",
+                "type": "query",
+                "description": "Return related words with definitions."
+              },
+              {
+                "name": "sourceDictionaries",
+                "value": "",
+                "type": "query",
+                "description": "Source dictionary to return definitions from. If 'all' is received, results are returned from all sources. If multiple values are received (e.g. 'century,wiktionary'), results are returned from the first specified dictionary that has definitions. If left blank, results are returned from the first dictionary that has definitions. By default, dictionaries are searched in this order:- ahd-5, wiktionary, webster, century, wordnet."
+              },
+              {
+                "name": "useCanonical",
+                "value": "",
+                "type": "query",
+                "description": "Return the canonical form of the word."
+              },
+              {
+                "name": "includeTags",
+                "value": "",
+                "type": "query",
+                "description": "Return a closed set of XML tags in response."
+              }
+            ]
+          },
+          "docs": "Returns definitions for the given word from one or more source dictionaries."
+        },
+        {
+          "info": {
+            "name": "Fetch Etymology Data For A Word",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/word.json/:word/etymologies",
+            "params": [
+              {
+                "name": "word",
+                "value": "",
+                "type": "path",
+                "description": "Word to return etymologies for."
+              },
+              {
+                "name": "useCanonical",
+                "value": "",
+                "type": "query",
+                "description": "Return the canonical form of the word."
+              }
+            ]
+          },
+          "docs": "Returns the etymology entries for a word, typically as XML-tagged strings."
+        },
+        {
+          "info": {
+            "name": "Return Examples For A Word",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/word.json/:word/examples",
+            "params": [
+              {
+                "name": "word",
+                "value": "",
+                "type": "path",
+                "description": "Word to return examples for."
+              },
+              {
+                "name": "includeDuplicates",
+                "value": "",
+                "type": "query",
+                "description": "Show duplicate examples from different sources."
+              },
+              {
+                "name": "useCanonical",
+                "value": "",
+                "type": "query",
+                "description": "Return the canonical form of the word."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Results to skip."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              }
+            ]
+          },
+          "docs": "Returns real-world example sentences for a word."
+        },
+        {
+          "info": {
+            "name": "Return Word Usage Over Time",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/word.json/:word/frequency",
+            "params": [
+              {
+                "name": "word",
+                "value": "",
+                "type": "path",
+                "description": "Word to return."
+              },
+              {
+                "name": "useCanonical",
+                "value": "",
+                "type": "query",
+                "description": "Return the canonical form of the word."
+              },
+              {
+                "name": "startYear",
+                "value": "",
+                "type": "query",
+                "description": "Starting year."
+              },
+              {
+                "name": "endYear",
+                "value": "",
+                "type": "query",
+                "description": "Ending year."
+              }
+            ]
+          },
+          "docs": "Returns a frequency summary describing how often a word has been used per year."
+        },
+        {
+          "info": {
+            "name": "Return Syllable Information For A Word",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/word.json/:word/hyphenation",
+            "params": [
+              {
+                "name": "word",
+                "value": "",
+                "type": "path",
+                "description": "Word to get syllables for."
+              },
+              {
+                "name": "useCanonical",
+                "value": "",
+                "type": "query",
+                "description": "Return the canonical form of the word."
+              },
+              {
+                "name": "sourceDictionary",
+                "value": "",
+                "type": "query",
+                "description": "Get from a single dictionary. Valid options: ahd-5, century, wiktionary, webster, and wordnet."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              }
+            ]
+          },
+          "docs": "Returns the syllabification (hyphenation) data for a word."
+        },
+        {
+          "info": {
+            "name": "Fetch Bi-gram Phrases For A Word",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/word.json/:word/phrases",
+            "params": [
+              {
+                "name": "word",
+                "value": "",
+                "type": "path",
+                "description": "Word to fetch phrases for."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              },
+              {
+                "name": "wlmi",
+                "value": "",
+                "type": "query",
+                "description": "Minimum WLMI for the phrase."
+              },
+              {
+                "name": "useCanonical",
+                "value": "",
+                "type": "query",
+                "description": "Return the canonical form of the word."
+              }
+            ]
+          },
+          "docs": "Returns the top bi-gram phrases that include the given word."
+        },
+        {
+          "info": {
+            "name": "Return Text Pronunciations For A Word",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/word.json/:word/pronunciations",
+            "params": [
+              {
+                "name": "word",
+                "value": "",
+                "type": "path",
+                "description": "Word to get pronunciations for."
+              },
+              {
+                "name": "useCanonical",
+                "value": "",
+                "type": "query",
+                "description": "Return the canonical form of the word."
+              },
+              {
+                "name": "sourceDictionary",
+                "value": "",
+                "type": "query",
+                "description": "Get from a single dictionary."
+              },
+              {
+                "name": "typeFormat",
+                "value": "",
+                "type": "query",
+                "description": "Text pronunciation type."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              }
+            ]
+          },
+          "docs": "Returns one or more text pronunciations for a given word in any of the supported formats."
+        },
+        {
+          "info": {
+            "name": "Return Related Words From The Word Graph",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/word.json/:word/relatedWords",
+            "params": [
+              {
+                "name": "word",
+                "value": "",
+                "type": "path",
+                "description": "Word to fetch relationships for."
+              },
+              {
+                "name": "useCanonical",
+                "value": "",
+                "type": "query",
+                "description": "Return the canonical form of the word."
+              },
+              {
+                "name": "relationshipTypes",
+                "value": "",
+                "type": "query",
+                "description": "Limits the total results per type of relationship type."
+              },
+              {
+                "name": "limitPerRelationshipType",
+                "value": "",
+                "type": "query",
+                "description": "Restrict to the supplied relationship types."
+              }
+            ]
+          },
+          "docs": "Given a word as a string, returns relationships from the Wordnik Word Graph (synonyms, antonyms, hypernyms, hyponyms, etc.)."
+        },
+        {
+          "info": {
+            "name": "Return The Scrabble Score For A Word",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/word.json/:word/scrabbleScore",
+            "params": [
+              {
+                "name": "word",
+                "value": "",
+                "type": "path",
+                "description": "Word to get scrabble score for."
+              }
+            ]
+          },
+          "docs": "Returns the scrabble score for a given word."
+        },
+        {
+          "info": {
+            "name": "Return A Top Example For A Word",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/word.json/:word/topExample",
+            "params": [
+              {
+                "name": "word",
+                "value": "",
+                "type": "path",
+                "description": "Word to fetch examples for."
+              },
+              {
+                "name": "useCanonical",
+                "value": "",
+                "type": "query",
+                "description": "Return the canonical form of the word."
+              }
+            ]
+          },
+          "docs": "Returns a single top example sentence for a given word."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Words",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return A Single Random Word",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/words.json/randomWord",
+            "params": [
+              {
+                "name": "hasDictionaryDef",
+                "value": "",
+                "type": "query",
+                "description": "Only return words with dictionary definitions."
+              },
+              {
+                "name": "includePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "CSV part-of-speech values to include."
+              },
+              {
+                "name": "excludePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "CSV part-of-speech values to exclude."
+              },
+              {
+                "name": "minCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum corpus frequency for terms."
+              },
+              {
+                "name": "maxCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum corpus frequency for terms."
+              },
+              {
+                "name": "minDictionaryCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum dictionary count."
+              },
+              {
+                "name": "maxDictionaryCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum dictionary count."
+              },
+              {
+                "name": "minLength",
+                "value": "",
+                "type": "query",
+                "description": "Minimum word length."
+              },
+              {
+                "name": "maxLength",
+                "value": "",
+                "type": "query",
+                "description": "Maximum word length."
+              }
+            ]
+          },
+          "docs": "Returns a single random WordObject filtered by part of speech, length, dictionary count, and corpus count."
+        },
+        {
+          "info": {
+            "name": "Return An Array Of Random Words",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/words.json/randomWords",
+            "params": [
+              {
+                "name": "hasDictionaryDef",
+                "value": "",
+                "type": "query",
+                "description": "Only return words with dictionary definitions."
+              },
+              {
+                "name": "includePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "CSV part-of-speech values to include."
+              },
+              {
+                "name": "excludePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "CSV part-of-speech values to exclude."
+              },
+              {
+                "name": "minCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum corpus frequency for terms."
+              },
+              {
+                "name": "maxCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum corpus frequency for terms."
+              },
+              {
+                "name": "minDictionaryCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum dictionary count."
+              },
+              {
+                "name": "maxDictionaryCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum dictionary count."
+              },
+              {
+                "name": "minLength",
+                "value": "",
+                "type": "query",
+                "description": "Minimum word length."
+              },
+              {
+                "name": "maxLength",
+                "value": "",
+                "type": "query",
+                "description": "Maximum word length."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Attribute to sort by."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              }
+            ]
+          },
+          "docs": "Returns an array of random WordObjects filtered by part of speech, length, dictionary count, and corpus count."
+        },
+        {
+          "info": {
+            "name": "Reverse Dictionary Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/words.json/reverseDictionary",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search term."
+              },
+              {
+                "name": "findSenseForWord",
+                "value": "",
+                "type": "query",
+                "description": "Restricts words and finds closest sense."
+              },
+              {
+                "name": "includeSourceDictionaries",
+                "value": "",
+                "type": "query",
+                "description": "Only include these comma-delimited source dictionaries."
+              },
+              {
+                "name": "excludeSourceDictionaries",
+                "value": "",
+                "type": "query",
+                "description": "Exclude these comma-delimited source dictionaries."
+              },
+              {
+                "name": "includePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "Only include these comma-delimited parts of speech."
+              },
+              {
+                "name": "excludePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "Exclude these comma-delimited parts of speech."
+              },
+              {
+                "name": "minCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum corpus frequency for terms."
+              },
+              {
+                "name": "maxCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum corpus frequency for terms."
+              },
+              {
+                "name": "minLength",
+                "value": "",
+                "type": "query",
+                "description": "Minimum word length."
+              },
+              {
+                "name": "maxLength",
+                "value": "",
+                "type": "query",
+                "description": "Maximum word length."
+              },
+              {
+                "name": "expandTerms",
+                "value": "",
+                "type": "query",
+                "description": "Expand terms."
+              },
+              {
+                "name": "includeTags",
+                "value": "",
+                "type": "query",
+                "description": "Return a closed set of XML tags in response."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Attribute to sort by."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Results to skip."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              }
+            ]
+          },
+          "docs": "Returns the words that best match a natural-language query string."
+        },
+        {
+          "info": {
+            "name": "Search Words",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/words.json/search/:query",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "path",
+                "description": "Search query."
+              },
+              {
+                "name": "allowRegex",
+                "value": "",
+                "type": "query",
+                "description": "Search term is a regular expression."
+              },
+              {
+                "name": "caseSensitive",
+                "value": "",
+                "type": "query",
+                "description": "Search case sensitive."
+              },
+              {
+                "name": "includePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "Only include these comma-delimited parts of speech."
+              },
+              {
+                "name": "excludePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "Exclude these comma-delimited parts of speech."
+              },
+              {
+                "name": "minCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum corpus frequency for terms."
+              },
+              {
+                "name": "maxCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum corpus frequency for terms."
+              },
+              {
+                "name": "minDictionaryCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of dictionary entries for words returned."
+              },
+              {
+                "name": "maxDictionaryCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum dictionary definition count."
+              },
+              {
+                "name": "minLength",
+                "value": "",
+                "type": "query",
+                "description": "Minimum word length."
+              },
+              {
+                "name": "maxLength",
+                "value": "",
+                "type": "query",
+                "description": "Maximum word length."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Results to skip."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              }
+            ]
+          },
+          "docs": "Searches for words matching the supplied query (literal or regular expression)."
+        },
+        {
+          "info": {
+            "name": "Return The Word Of The Day",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/words.json/wordOfTheDay",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Fetches by date in yyyy-MM-dd."
+              }
+            ]
+          },
+          "docs": "Returns the Word of the Day, optionally for a specific date."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return API Token Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/account.json/apiTokenStatus",
+            "headers": [
+              {
+                "name": "api_key",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns the current quota, total requests, and remaining-call status for the supplied API key. Endpoint surface verified from the Wordnik official client SDK (wordnik-clients/java AccountApi)."
+        },
+        {
+          "info": {
+            "name": "Authenticate A User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/account.json/authenticate/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "A confirmed Wordnik username."
+              },
+              {
+                "name": "password",
+                "value": "",
+                "type": "query",
+                "description": "The user's password."
+              }
+            ]
+          },
+          "docs": "Authenticates a Wordnik user using the supplied password and returns an auth token for subsequent user-scoped operations."
+        },
+        {
+          "info": {
+            "name": "Authenticate A User (POST Body)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wordnik.com/v4/account.json/authenticate/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "A confirmed Wordnik username."
+              }
+            ]
+          },
+          "docs": "Same as the GET form, but the password is sent in the request body to avoid logging the credential in URL query strings."
+        },
+        {
+          "info": {
+            "name": "Return The Currently Authenticated User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/account.json/user",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns the User profile associated with the supplied auth token."
+        },
+        {
+          "info": {
+            "name": "Return The Authenticated User's Word Lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/account.json/wordLists",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Results to skip."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of lists to return."
+              }
+            ]
+          },
+          "docs": "Returns all word lists owned by the currently authenticated user."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Word Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create A New Word List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wordnik.com/v4/wordLists.json",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new word list owned by the authenticated user. Endpoint surface verified from the Wordnik official client SDK (wordnik-clients/java WordListsApi)."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Word List",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return A Word List By Permalink",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/wordList.json/:permalink",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "permalink",
+                "value": "",
+                "type": "path",
+                "description": "Permalink of the word list."
+              }
+            ]
+          },
+          "docs": "Returns the WordList identified by the supplied permalink."
+        },
+        {
+          "info": {
+            "name": "Update A Word List",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.wordnik.com/v4/wordList.json/:permalink",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "permalink",
+                "value": "",
+                "type": "path",
+                "description": "Permalink of the word list."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the WordList identified by the supplied permalink."
+        },
+        {
+          "info": {
+            "name": "Delete A Word List",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wordnik.com/v4/wordList.json/:permalink",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "permalink",
+                "value": "",
+                "type": "path",
+                "description": "Permalink of the word list."
+              }
+            ]
+          },
+          "docs": "Deletes the WordList identified by the supplied permalink."
+        },
+        {
+          "info": {
+            "name": "Return Words In A Word List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/wordList.json/:permalink/words",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "permalink",
+                "value": "",
+                "type": "path",
+                "description": "Permalink of the word list."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Attribute to sort by."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Results to skip."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              }
+            ]
+          },
+          "docs": "Returns the words contained in the WordList identified by the supplied permalink."
+        },
+        {
+          "info": {
+            "name": "Add Words To A Word List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wordnik.com/v4/wordList.json/:permalink/words",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "permalink",
+                "value": "",
+                "type": "path",
+                "description": "Permalink of the word list."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds one or more words to the WordList identified by the supplied permalink."
+        },
+        {
+          "info": {
+            "name": "Delete Words From A Word List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wordnik.com/v4/wordList.json/:permalink/deleteWords",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "permalink",
+                "value": "",
+                "type": "path",
+                "description": "Permalink of the word list."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Removes one or more words from the WordList identified by the supplied permalink."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

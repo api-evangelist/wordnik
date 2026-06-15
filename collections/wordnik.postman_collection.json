@@ -1,0 +1,3672 @@
+{
+  "item": [
+    {
+      "id": "edc55f3b-9599-4d9c-8a39-9f7e26e5b8a8",
+      "name": "Word",
+      "description": {
+        "content": "Operations on a single English word (definitions, etymologies, examples, pronunciations, related words, frequency, hyphenation, phrases, scrabble score, audio).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b8fdc9fd-94fb-4cba-af25-89be7d6c1620",
+          "name": "Fetch Audio Metadata For A Word",
+          "request": {
+            "name": "Fetch Audio Metadata For A Word",
+            "description": {
+              "content": "The metadata includes a time-expiring fileUrl which allows reading the audio file\ndirectly from the API. Currently only audio pronunciations from the American Heritage\nDictionary in mp3 format are supported.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "audio"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word (e.g. 'cats' -> 'cat')."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to get audio for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c39a14b1-fc17-439d-99eb-b44b4f23c0e3",
+              "name": "Array of AudioFile metadata entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "audio"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to get audio for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 7649,\n    \"attributionText\": \"string\",\n    \"attributionUrl\": \"string\",\n    \"audioType\": \"pronunciation\",\n    \"commentCount\": 9163,\n    \"createdAt\": \"1958-10-12T17:17:23.049Z\",\n    \"createdBy\": \"string\",\n    \"description\": \"string\",\n    \"duration\": 4099.148870484869,\n    \"fileUrl\": \"https://CanIRrbFRSuPylelzQPZnYimizozfIp.tptiVyLuXpTRFQ9uFSWEBsRzCh\",\n    \"voteAverage\": 4701.903381054773,\n    \"voteCount\": 467,\n    \"voteWeightedAverage\": 5927.844123549173,\n    \"word\": \"string\"\n  },\n  {\n    \"id\": 6692,\n    \"attributionText\": \"string\",\n    \"attributionUrl\": \"string\",\n    \"audioType\": \"pronunciation\",\n    \"commentCount\": 9384,\n    \"createdAt\": \"2018-03-19T20:16:27.846Z\",\n    \"createdBy\": \"string\",\n    \"description\": \"string\",\n    \"duration\": 4819.895534699268,\n    \"fileUrl\": \"https://rrmRFFfGsHoFRgrPAEpnjPcACTafML.zuvsNX4skFkz.YjSmTnnseJG-4eC8M5+J-mqNvfby4fbxGjmNG\",\n    \"voteAverage\": 7144.032912801019,\n    \"voteCount\": 3818,\n    \"voteWeightedAverage\": 2404.2194615482435,\n    \"word\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fd7dce4c-700c-47a9-a295-a014b003d759",
+          "name": "Return Definitions For A Word",
+          "request": {
+            "name": "Return Definitions For A Word",
+            "description": {
+              "content": "Returns definitions for the given word from one or more source dictionaries.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "definitions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "200",
+                  "description": "Maximum number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "partOfSpeech",
+                  "value": "<string>",
+                  "description": "CSV list of part-of-speech types."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRelated",
+                  "value": "false",
+                  "description": "Return related words with definitions."
+                },
+                {
+                  "disabled": false,
+                  "key": "sourceDictionaries",
+                  "value": "<string>,<string>",
+                  "description": "Source dictionary to return definitions from. If 'all' is received, results are returned from all sources. If multiple values are received (e.g. 'century,wiktionary'), results are returned from the first specified dictionary that has definitions. If left blank, results are returned from the first dictionary that has definitions. By default, dictionaries are searched in this order:- ahd-5, wiktionary, webster, century, wordnet."
+                },
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeTags",
+                  "value": "false",
+                  "description": "Return a closed set of XML tags in response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to return definitions for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ca76a8e8-d4ab-4e68-90fd-5cac182d623c",
+              "name": "Array of Definition objects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "definitions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "200"
+                    },
+                    {
+                      "key": "partOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeRelated",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sourceDictionaries",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "includeTags",
+                      "value": "false"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to return definitions for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributionText\": \"string\",\n    \"attributionUrl\": \"string\",\n    \"citations\": [\n      {\n        \"cite\": \"string\",\n        \"source\": \"string\"\n      },\n      {\n        \"cite\": \"string\",\n        \"source\": \"string\"\n      }\n    ],\n    \"exampleUses\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"extendedText\": \"string\",\n    \"labels\": [\n      {\n        \"text\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"text\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"notes\": [\n      {\n        \"appliesTo\": [\n          \"string\",\n          \"string\"\n        ],\n        \"noteType\": \"string\",\n        \"pos\": 5296,\n        \"value\": \"string\"\n      },\n      {\n        \"appliesTo\": [\n          \"string\",\n          \"string\"\n        ],\n        \"noteType\": \"string\",\n        \"pos\": 4046,\n        \"value\": \"string\"\n      }\n    ],\n    \"partOfSpeech\": \"string\",\n    \"relatedWords\": [\n      {\n        \"gram\": \"string\",\n        \"label1\": \"string\",\n        \"label2\": \"string\",\n        \"label3\": \"string\",\n        \"label4\": \"string\",\n        \"relationshipType\": \"synonym\",\n        \"words\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"gram\": \"string\",\n        \"label1\": \"string\",\n        \"label2\": \"string\",\n        \"label3\": \"string\",\n        \"label4\": \"string\",\n        \"relationshipType\": \"synonym\",\n        \"words\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"score\": 3361.7690984820524,\n    \"seqString\": \"string\",\n    \"sequence\": \"string\",\n    \"sourceDictionary\": \"ahd-5\",\n    \"text\": \"string\",\n    \"textProns\": [\n      {\n        \"raw\": \"string\",\n        \"rawType\": \"string\",\n        \"seq\": 4656\n      },\n      {\n        \"raw\": \"string\",\n        \"rawType\": \"string\",\n        \"seq\": 7187\n      }\n    ],\n    \"word\": \"string\"\n  },\n  {\n    \"attributionText\": \"string\",\n    \"attributionUrl\": \"string\",\n    \"citations\": [\n      {\n        \"cite\": \"string\",\n        \"source\": \"string\"\n      },\n      {\n        \"cite\": \"string\",\n        \"source\": \"string\"\n      }\n    ],\n    \"exampleUses\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"extendedText\": \"string\",\n    \"labels\": [\n      {\n        \"text\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"text\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"notes\": [\n      {\n        \"appliesTo\": [\n          \"string\",\n          \"string\"\n        ],\n        \"noteType\": \"string\",\n        \"pos\": 7039,\n        \"value\": \"string\"\n      },\n      {\n        \"appliesTo\": [\n          \"string\",\n          \"string\"\n        ],\n        \"noteType\": \"string\",\n        \"pos\": 6969,\n        \"value\": \"string\"\n      }\n    ],\n    \"partOfSpeech\": \"string\",\n    \"relatedWords\": [\n      {\n        \"gram\": \"string\",\n        \"label1\": \"string\",\n        \"label2\": \"string\",\n        \"label3\": \"string\",\n        \"label4\": \"string\",\n        \"relationshipType\": \"synonym\",\n        \"words\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"gram\": \"string\",\n        \"label1\": \"string\",\n        \"label2\": \"string\",\n        \"label3\": \"string\",\n        \"label4\": \"string\",\n        \"relationshipType\": \"synonym\",\n        \"words\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"score\": 7598.312464028556,\n    \"seqString\": \"string\",\n    \"sequence\": \"string\",\n    \"sourceDictionary\": \"ahd-5\",\n    \"text\": \"string\",\n    \"textProns\": [\n      {\n        \"raw\": \"string\",\n        \"rawType\": \"string\",\n        \"seq\": 7031\n      },\n      {\n        \"raw\": \"string\",\n        \"rawType\": \"string\",\n        \"seq\": 7854\n      }\n    ],\n    \"word\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "597f7999-685d-4b82-b352-d24f8fc6f7e5",
+          "name": "Fetch Etymology Data For A Word",
+          "request": {
+            "name": "Fetch Etymology Data For A Word",
+            "description": {
+              "content": "Returns the etymology entries for a word, typically as XML-tagged strings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "etymologies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to return etymologies for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "daefee25-be5b-44ce-aacd-452cd31eabc3",
+              "name": "Array of etymology strings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "etymologies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to return etymologies for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1cc671eb-efdf-44db-b829-cfd9149fc960",
+          "name": "Return Examples For A Word",
+          "request": {
+            "name": "Return Examples For A Word",
+            "description": {
+              "content": "Returns real-world example sentences for a word.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "examples"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeDuplicates",
+                  "value": "false",
+                  "description": "Show duplicate examples from different sources."
+                },
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "0",
+                  "description": "Results to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "5",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to return examples for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3d49fd15-82ce-4267-8ed1-df0fed30f0cb",
+              "name": "ExampleSearchResults payload containing examples and facets.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "examples"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeDuplicates",
+                      "value": "false"
+                    },
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to return examples for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"examples\": [\n    {\n      \"documentId\": 5573,\n      \"exampleId\": 2989,\n      \"id\": 9286,\n      \"provider\": {\n        \"id\": 2209,\n        \"name\": \"string\"\n      },\n      \"rating\": 7149.848743669845,\n      \"score\": {\n        \"baseWordScore\": 2160.526973374477,\n        \"docTermCount\": 4410,\n        \"id\": 7244,\n        \"lemma\": \"string\",\n        \"partOfSpeech\": \"string\",\n        \"position\": 6338,\n        \"score\": 6650.4312563610065,\n        \"sentenceId\": 1950,\n        \"stopword\": false,\n        \"word\": \"string\",\n        \"wordType\": \"string\"\n      },\n      \"sentence\": {\n        \"display\": \"string\",\n        \"documentMetadataId\": 1226,\n        \"hasScoredWords\": false,\n        \"id\": 9669,\n        \"rating\": 9669,\n        \"scoredWords\": [\n          {\n            \"baseWordScore\": 3822.508200426473,\n            \"docTermCount\": 7624,\n            \"id\": 9034,\n            \"lemma\": \"string\",\n            \"partOfSpeech\": \"string\",\n            \"position\": 8595,\n            \"score\": 3762.7960921615354,\n            \"sentenceId\": 7515,\n            \"stopword\": false,\n            \"word\": \"string\",\n            \"wordType\": \"string\"\n          },\n          {\n            \"baseWordScore\": 6087.394549069301,\n            \"docTermCount\": 7053,\n            \"id\": 6071,\n            \"lemma\": \"string\",\n            \"partOfSpeech\": \"string\",\n            \"position\": 7171,\n            \"score\": 5757.792020984444,\n            \"sentenceId\": 8014,\n            \"stopword\": true,\n            \"word\": \"string\",\n            \"wordType\": \"string\"\n          }\n        ]\n      },\n      \"text\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"http://iKNFtpONFFnFAGMySxxHqOtM.cqysCBJ6kXMW4Y9OPjyt9HxEPo5BHFgPMbRGJAl.gTApmDjOc27qon54SAs8MinRrTHD\",\n      \"word\": \"string\",\n      \"year\": 5309\n    },\n    {\n      \"documentId\": 329,\n      \"exampleId\": 2400,\n      \"id\": 8748,\n      \"provider\": {\n        \"id\": 9197,\n        \"name\": \"string\"\n      },\n      \"rating\": 4071.100118691201,\n      \"score\": {\n        \"baseWordScore\": 1110.8974839247776,\n        \"docTermCount\": 6111,\n        \"id\": 6376,\n        \"lemma\": \"string\",\n        \"partOfSpeech\": \"string\",\n        \"position\": 9660,\n        \"score\": 4327.4381699444275,\n        \"sentenceId\": 7141,\n        \"stopword\": true,\n        \"word\": \"string\",\n        \"wordType\": \"string\"\n      },\n      \"sentence\": {\n        \"display\": \"string\",\n        \"documentMetadataId\": 7565,\n        \"hasScoredWords\": false,\n        \"id\": 9775,\n        \"rating\": 4306,\n        \"scoredWords\": [\n          {\n            \"baseWordScore\": 8464.333270183559,\n            \"docTermCount\": 7325,\n            \"id\": 7631,\n            \"lemma\": \"string\",\n            \"partOfSpeech\": \"string\",\n            \"position\": 3236,\n            \"score\": 5310.610891258279,\n            \"sentenceId\": 883,\n            \"stopword\": true,\n            \"word\": \"string\",\n            \"wordType\": \"string\"\n          },\n          {\n            \"baseWordScore\": 8865.531337067136,\n            \"docTermCount\": 2671,\n            \"id\": 445,\n            \"lemma\": \"string\",\n            \"partOfSpeech\": \"string\",\n            \"position\": 3270,\n            \"score\": 7363.680689812063,\n            \"sentenceId\": 438,\n            \"stopword\": true,\n            \"word\": \"string\",\n            \"wordType\": \"string\"\n          }\n        ]\n      },\n      \"text\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"http://zMwdg.qamytmnWRStxNhGCx\",\n      \"word\": \"string\",\n      \"year\": 1198\n    }\n  ],\n  \"facets\": [\n    {\n      \"facetValues\": [\n        {\n          \"count\": 7259,\n          \"value\": \"string\"\n        },\n        {\n          \"count\": 7486,\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\"\n    },\n    {\n      \"facetValues\": [\n        {\n          \"count\": 4206,\n          \"value\": \"string\"\n        },\n        {\n          \"count\": 8381,\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44bcbe10-a49a-42e8-be94-248e0645df03",
+          "name": "Return Word Usage Over Time",
+          "request": {
+            "name": "Return Word Usage Over Time",
+            "description": {
+              "content": "Returns a frequency summary describing how often a word has been used per year.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "frequency"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                },
+                {
+                  "disabled": false,
+                  "key": "startYear",
+                  "value": "1800",
+                  "description": "Starting year."
+                },
+                {
+                  "disabled": false,
+                  "key": "endYear",
+                  "value": "2012",
+                  "description": "Ending year."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to return."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "52662886-6435-481f-98e9-13ef028714f4",
+              "name": "Frequency summary for the word.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "frequency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "startYear",
+                      "value": "1800"
+                    },
+                    {
+                      "key": "endYear",
+                      "value": "2012"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"frequency\": [\n    {\n      \"count\": 8938,\n      \"year\": 619\n    },\n    {\n      \"count\": 2089,\n      \"year\": 7145\n    }\n  ],\n  \"frequencyString\": \"string\",\n  \"totalCount\": 3026,\n  \"unknownYearCount\": 3912,\n  \"word\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b1db9f2-1ea0-4145-8919-971792108d89",
+          "name": "Return Syllable Information For A Word",
+          "request": {
+            "name": "Return Syllable Information For A Word",
+            "description": {
+              "content": "Returns the syllabification (hyphenation) data for a word.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "hyphenation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                },
+                {
+                  "disabled": false,
+                  "key": "sourceDictionary",
+                  "value": "<string>",
+                  "description": "Get from a single dictionary. Valid options: ahd-5, century, wiktionary, webster, and wordnet."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to get syllables for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b43684db-6626-43f8-9c3d-1b9d95a234ec",
+              "name": "Array of Syllable objects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "hyphenation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sourceDictionary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to get syllables for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"seq\": 7466,\n    \"text\": \"string\",\n    \"type\": \"normal\"\n  },\n  {\n    \"seq\": 8560,\n    \"text\": \"string\",\n    \"type\": \"stress\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8bbf0498-456a-4f6a-a0ef-f1e9b09fdaa3",
+          "name": "Fetch Bi-gram Phrases For A Word",
+          "request": {
+            "name": "Fetch Bi-gram Phrases For A Word",
+            "description": {
+              "content": "Returns the top bi-gram phrases that include the given word.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "phrases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "5",
+                  "description": "Maximum number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "wlmi",
+                  "value": "0",
+                  "description": "Minimum WLMI for the phrase."
+                },
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to fetch phrases for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e74b7c0b-9288-4b19-91b0-a4e3a719f3c7",
+              "name": "Array of Bigram phrase entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "phrases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "5"
+                    },
+                    {
+                      "key": "wlmi",
+                      "value": "0"
+                    },
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to fetch phrases for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"count\": 853,\n    \"gram1\": \"string\",\n    \"gram2\": \"string\",\n    \"mi\": 3450.9595482665877,\n    \"wlmi\": 3621.5731898769445\n  },\n  {\n    \"count\": 6242,\n    \"gram1\": \"string\",\n    \"gram2\": \"string\",\n    \"mi\": 3268.9449854048326,\n    \"wlmi\": 3035.33358581507\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b704651b-afba-4f8a-a39b-4f0dc7bd195e",
+          "name": "Return Text Pronunciations For A Word",
+          "request": {
+            "name": "Return Text Pronunciations For A Word",
+            "description": {
+              "content": "Returns one or more text pronunciations for a given word in any of the supported formats.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "pronunciations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                },
+                {
+                  "disabled": false,
+                  "key": "sourceDictionary",
+                  "value": "<string>",
+                  "description": "Get from a single dictionary."
+                },
+                {
+                  "disabled": false,
+                  "key": "typeFormat",
+                  "value": "<string>",
+                  "description": "Text pronunciation type."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to get pronunciations for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f07702ef-e385-49b0-aaec-3d706787b194",
+              "name": "Array of TextPron objects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "pronunciations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sourceDictionary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "typeFormat",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to get pronunciations for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"raw\": \"string\",\n    \"rawType\": \"string\",\n    \"seq\": 281\n  },\n  {\n    \"raw\": \"string\",\n    \"rawType\": \"string\",\n    \"seq\": 6998\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8639bed3-2568-4f57-ae77-a181d30e6ef6",
+          "name": "Return Related Words From The Word Graph",
+          "request": {
+            "name": "Return Related Words From The Word Graph",
+            "description": {
+              "content": "Given a word as a string, returns relationships from the Wordnik Word Graph (synonyms, antonyms, hypernyms, hyponyms, etc.).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "relatedWords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                },
+                {
+                  "disabled": false,
+                  "key": "relationshipTypes",
+                  "value": "<string>",
+                  "description": "Limits the total results per type of relationship type."
+                },
+                {
+                  "disabled": false,
+                  "key": "limitPerRelationshipType",
+                  "value": "10",
+                  "description": "Restrict to the supplied relationship types."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to fetch relationships for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "519391c1-4354-45dd-8e62-de263b15d239",
+              "name": "Array of Related word-group objects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "relatedWords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "relationshipTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limitPerRelationshipType",
+                      "value": "10"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to fetch relationships for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"gram\": \"string\",\n    \"label1\": \"string\",\n    \"label2\": \"string\",\n    \"label3\": \"string\",\n    \"label4\": \"string\",\n    \"relationshipType\": \"synonym\",\n    \"words\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"gram\": \"string\",\n    \"label1\": \"string\",\n    \"label2\": \"string\",\n    \"label3\": \"string\",\n    \"label4\": \"string\",\n    \"relationshipType\": \"synonym\",\n    \"words\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cdb83e03-6e07-4625-af58-dc0749512f8c",
+          "name": "Return The Scrabble Score For A Word",
+          "request": {
+            "name": "Return The Scrabble Score For A Word",
+            "description": {
+              "content": "Returns the scrabble score for a given word.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "scrabbleScore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to get scrabble score for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e15bf489-82ed-46db-9228-2165883e260d",
+              "name": "ScrabbleScoreResult containing a single value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "scrabbleScore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to get scrabble score for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": 7098\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9d49521d-6bcf-4ce7-b25d-10dd8cf6809b",
+          "name": "Return A Top Example For A Word",
+          "request": {
+            "name": "Return A Top Example For A Word",
+            "description": {
+              "content": "Returns a single top example sentence for a given word.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "topExample"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to fetch examples for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f058bc27-bbd9-4926-864d-c039a40ec788",
+              "name": "A single Example payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "topExample"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to fetch examples for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documentId\": 1113,\n  \"exampleId\": 8919,\n  \"id\": 7661,\n  \"provider\": {\n    \"id\": 8514,\n    \"name\": \"string\"\n  },\n  \"rating\": 8873.630774221407,\n  \"score\": {\n    \"baseWordScore\": 9516.107342185202,\n    \"docTermCount\": 3739,\n    \"id\": 3756,\n    \"lemma\": \"string\",\n    \"partOfSpeech\": \"string\",\n    \"position\": 6598,\n    \"score\": 5056.99684641626,\n    \"sentenceId\": 7013,\n    \"stopword\": true,\n    \"word\": \"string\",\n    \"wordType\": \"string\"\n  },\n  \"sentence\": {\n    \"display\": \"string\",\n    \"documentMetadataId\": 7690,\n    \"hasScoredWords\": false,\n    \"id\": 7042,\n    \"rating\": 3265,\n    \"scoredWords\": [\n      {\n        \"baseWordScore\": 4056.8279018514863,\n        \"docTermCount\": 2077,\n        \"id\": 311,\n        \"lemma\": \"string\",\n        \"partOfSpeech\": \"string\",\n        \"position\": 2990,\n        \"score\": 4584.086678037297,\n        \"sentenceId\": 984,\n        \"stopword\": true,\n        \"word\": \"string\",\n        \"wordType\": \"string\"\n      },\n      {\n        \"baseWordScore\": 5617.55231636602,\n        \"docTermCount\": 4147,\n        \"id\": 7927,\n        \"lemma\": \"string\",\n        \"partOfSpeech\": \"string\",\n        \"position\": 9811,\n        \"score\": 5599.753512924688,\n        \"sentenceId\": 8625,\n        \"stopword\": true,\n        \"word\": \"string\",\n        \"wordType\": \"string\"\n      }\n    ]\n  },\n  \"text\": \"string\",\n  \"title\": \"string\",\n  \"url\": \"https://ixVrpduaWIfeWIfHMQENuzifhltJqSocS.ckOeakKlaVPkWeUOPKO5G2O7jNxNU2rtxFVjgLDRXqVuLfO1gnoqS\",\n  \"word\": \"string\",\n  \"year\": 5605\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ace8b992-183f-413d-aed6-5a4ce64f2cbe",
+      "name": "Words",
+      "description": {
+        "content": "Cross-word operations (random words, reverse-dictionary search, full-text search, word-of-the-day).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "00b49790-3a2d-47b5-99e4-c7d411b5aee4",
+          "name": "Return A Single Random Word",
+          "request": {
+            "name": "Return A Single Random Word",
+            "description": {
+              "content": "Returns a single random WordObject filtered by part of speech, length, dictionary count, and corpus count.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "words.json",
+                "randomWord"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hasDictionaryDef",
+                  "value": "true",
+                  "description": "Only return words with dictionary definitions."
+                },
+                {
+                  "disabled": false,
+                  "key": "includePartOfSpeech",
+                  "value": "<string>",
+                  "description": "CSV part-of-speech values to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "excludePartOfSpeech",
+                  "value": "<string>",
+                  "description": "CSV part-of-speech values to exclude."
+                },
+                {
+                  "disabled": false,
+                  "key": "minCorpusCount",
+                  "value": "0",
+                  "description": "Minimum corpus frequency for terms."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCorpusCount",
+                  "value": "-1",
+                  "description": "Maximum corpus frequency for terms."
+                },
+                {
+                  "disabled": false,
+                  "key": "minDictionaryCount",
+                  "value": "1",
+                  "description": "Minimum dictionary count."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxDictionaryCount",
+                  "value": "-1",
+                  "description": "Maximum dictionary count."
+                },
+                {
+                  "disabled": false,
+                  "key": "minLength",
+                  "value": "5",
+                  "description": "Minimum word length."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxLength",
+                  "value": "-1",
+                  "description": "Maximum word length."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2a7786e3-e808-4786-9181-f5bb27699f60",
+              "name": "A single random WordObject.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "words.json",
+                    "randomWord"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hasDictionaryDef",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minCorpusCount",
+                      "value": "0"
+                    },
+                    {
+                      "key": "maxCorpusCount",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "minDictionaryCount",
+                      "value": "1"
+                    },
+                    {
+                      "key": "maxDictionaryCount",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "minLength",
+                      "value": "5"
+                    },
+                    {
+                      "key": "maxLength",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 8950,\n  \"canonicalForm\": \"string\",\n  \"originalWord\": \"string\",\n  \"suggestions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"vulgar\": \"string\",\n  \"word\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "142f12c1-0961-472d-b22a-bb46a3abad36",
+          "name": "Return An Array Of Random Words",
+          "request": {
+            "name": "Return An Array Of Random Words",
+            "description": {
+              "content": "Returns an array of random WordObjects filtered by part of speech, length, dictionary count, and corpus count.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "words.json",
+                "randomWords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hasDictionaryDef",
+                  "value": "true",
+                  "description": "Only return words with dictionary definitions."
+                },
+                {
+                  "disabled": false,
+                  "key": "includePartOfSpeech",
+                  "value": "<string>",
+                  "description": "CSV part-of-speech values to include."
+                },
+                {
+                  "disabled": false,
+                  "key": "excludePartOfSpeech",
+                  "value": "<string>",
+                  "description": "CSV part-of-speech values to exclude."
+                },
+                {
+                  "disabled": false,
+                  "key": "minCorpusCount",
+                  "value": "0",
+                  "description": "Minimum corpus frequency for terms."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCorpusCount",
+                  "value": "-1",
+                  "description": "Maximum corpus frequency for terms."
+                },
+                {
+                  "disabled": false,
+                  "key": "minDictionaryCount",
+                  "value": "1",
+                  "description": "Minimum dictionary count."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxDictionaryCount",
+                  "value": "-1",
+                  "description": "Maximum dictionary count."
+                },
+                {
+                  "disabled": false,
+                  "key": "minLength",
+                  "value": "5",
+                  "description": "Minimum word length."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxLength",
+                  "value": "-1",
+                  "description": "Maximum word length."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Attribute to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "Sort direction."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "89d42b67-e0e7-421d-a180-3f41f8cc4866",
+              "name": "Array of random WordObject entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "words.json",
+                    "randomWords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hasDictionaryDef",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minCorpusCount",
+                      "value": "0"
+                    },
+                    {
+                      "key": "maxCorpusCount",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "minDictionaryCount",
+                      "value": "1"
+                    },
+                    {
+                      "key": "maxDictionaryCount",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "minLength",
+                      "value": "5"
+                    },
+                    {
+                      "key": "maxLength",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 9869,\n    \"canonicalForm\": \"string\",\n    \"originalWord\": \"string\",\n    \"suggestions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"vulgar\": \"string\",\n    \"word\": \"string\"\n  },\n  {\n    \"id\": 6386,\n    \"canonicalForm\": \"string\",\n    \"originalWord\": \"string\",\n    \"suggestions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"vulgar\": \"string\",\n    \"word\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0a278e30-77a2-47c0-b529-ffc69fa01584",
+          "name": "Reverse Dictionary Search",
+          "request": {
+            "name": "Reverse Dictionary Search",
+            "description": {
+              "content": "Returns the words that best match a natural-language query string.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "words.json",
+                "reverseDictionary"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) Search term."
+                },
+                {
+                  "disabled": false,
+                  "key": "findSenseForWord",
+                  "value": "<string>",
+                  "description": "Restricts words and finds closest sense."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeSourceDictionaries",
+                  "value": "<string>",
+                  "description": "Only include these comma-delimited source dictionaries."
+                },
+                {
+                  "disabled": false,
+                  "key": "excludeSourceDictionaries",
+                  "value": "<string>",
+                  "description": "Exclude these comma-delimited source dictionaries."
+                },
+                {
+                  "disabled": false,
+                  "key": "includePartOfSpeech",
+                  "value": "<string>",
+                  "description": "Only include these comma-delimited parts of speech."
+                },
+                {
+                  "disabled": false,
+                  "key": "excludePartOfSpeech",
+                  "value": "<string>",
+                  "description": "Exclude these comma-delimited parts of speech."
+                },
+                {
+                  "disabled": false,
+                  "key": "minCorpusCount",
+                  "value": "5",
+                  "description": "Minimum corpus frequency for terms."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCorpusCount",
+                  "value": "-1",
+                  "description": "Maximum corpus frequency for terms."
+                },
+                {
+                  "disabled": false,
+                  "key": "minLength",
+                  "value": "1",
+                  "description": "Minimum word length."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxLength",
+                  "value": "-1",
+                  "description": "Maximum word length."
+                },
+                {
+                  "disabled": false,
+                  "key": "expandTerms",
+                  "value": "<string>",
+                  "description": "Expand terms."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeTags",
+                  "value": "false",
+                  "description": "Return a closed set of XML tags in response."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Attribute to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "Sort direction."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "0",
+                  "description": "Results to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6a0c97fc-f90a-4fa8-aab0-fddbcaf93982",
+              "name": "DefinitionSearchResults payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "words.json",
+                    "reverseDictionary"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "feeling of happiness"
+                    },
+                    {
+                      "key": "findSenseForWord",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeSourceDictionaries",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludeSourceDictionaries",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minCorpusCount",
+                      "value": "5"
+                    },
+                    {
+                      "key": "maxCorpusCount",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "minLength",
+                      "value": "1"
+                    },
+                    {
+                      "key": "maxLength",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "expandTerms",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeTags",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"note\": \"string\",\n      \"partOfSpeech\": \"string\",\n      \"source\": \"string\",\n      \"text\": \"string\"\n    },\n    {\n      \"note\": \"string\",\n      \"partOfSpeech\": \"string\",\n      \"source\": \"string\",\n      \"text\": \"string\"\n    }\n  ],\n  \"totalResults\": 2803\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0542982-a7f6-48a6-b898-61428c52d548",
+          "name": "Search Words",
+          "request": {
+            "name": "Search Words",
+            "description": {
+              "content": "Searches for words matching the supplied query (literal or regular expression).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "words.json",
+                "search",
+                ":query"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "allowRegex",
+                  "value": "false",
+                  "description": "Search term is a regular expression."
+                },
+                {
+                  "disabled": false,
+                  "key": "caseSensitive",
+                  "value": "true",
+                  "description": "Search case sensitive."
+                },
+                {
+                  "disabled": false,
+                  "key": "includePartOfSpeech",
+                  "value": "<string>",
+                  "description": "Only include these comma-delimited parts of speech."
+                },
+                {
+                  "disabled": false,
+                  "key": "excludePartOfSpeech",
+                  "value": "<string>",
+                  "description": "Exclude these comma-delimited parts of speech."
+                },
+                {
+                  "disabled": false,
+                  "key": "minCorpusCount",
+                  "value": "5",
+                  "description": "Minimum corpus frequency for terms."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCorpusCount",
+                  "value": "-1",
+                  "description": "Maximum corpus frequency for terms."
+                },
+                {
+                  "disabled": false,
+                  "key": "minDictionaryCount",
+                  "value": "1",
+                  "description": "Minimum number of dictionary entries for words returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxDictionaryCount",
+                  "value": "-1",
+                  "description": "Maximum dictionary definition count."
+                },
+                {
+                  "disabled": false,
+                  "key": "minLength",
+                  "value": "1",
+                  "description": "Minimum word length."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxLength",
+                  "value": "-1",
+                  "description": "Maximum word length."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "0",
+                  "description": "Results to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "10",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "query",
+                  "description": "(Required) Search query."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5e6cdf3e-59e4-4745-aa20-b5262308be84",
+              "name": "WordSearchResults payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "words.json",
+                    "search",
+                    ":query"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "allowRegex",
+                      "value": "false"
+                    },
+                    {
+                      "key": "caseSensitive",
+                      "value": "true"
+                    },
+                    {
+                      "key": "includePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "excludePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "minCorpusCount",
+                      "value": "5"
+                    },
+                    {
+                      "key": "maxCorpusCount",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "minDictionaryCount",
+                      "value": "1"
+                    },
+                    {
+                      "key": "maxDictionaryCount",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "minLength",
+                      "value": "1"
+                    },
+                    {
+                      "key": "maxLength",
+                      "value": "-1"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "query",
+                      "description": "(Required) Search query."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"searchResults\": [\n    {\n      \"count\": 392,\n      \"lexicality\": 625.0513820768111,\n      \"word\": \"string\"\n    },\n    {\n      \"count\": 3679,\n      \"lexicality\": 7912.266212047645,\n      \"word\": \"string\"\n    }\n  ],\n  \"totalResults\": 4771\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7c6aa341-cf5b-493f-9e24-0d8294d6c182",
+          "name": "Return The Word Of The Day",
+          "request": {
+            "name": "Return The Word Of The Day",
+            "description": {
+              "content": "Returns the Word of the Day, optionally for a specific date.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "words.json",
+                "wordOfTheDay"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "date",
+                  "value": "<string>",
+                  "description": "Fetches by date in yyyy-MM-dd."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "467b01dd-96b2-45cc-9c20-b9b22002b72d",
+              "name": "A single WordOfTheDay payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "words.json",
+                    "wordOfTheDay"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "date",
+                      "value": "2026-05-29"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3605,\n  \"category\": \"string\",\n  \"contentProvider\": {\n    \"id\": 7918,\n    \"name\": \"string\"\n  },\n  \"createdAt\": \"1969-12-01T23:42:54.585Z\",\n  \"createdBy\": \"string\",\n  \"definitions\": {\n    \"type\": \"array\",\n    \"maxItems\": 2,\n    \"items\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"note\": {\n          \"type\": \"string\"\n        },\n        \"partOfSpeech\": {\n          \"type\": \"string\"\n        },\n        \"source\": {\n          \"type\": \"string\"\n        },\n        \"text\": {\n          \"type\": \"string\"\n        }\n      }\n    }\n  },\n  \"examples\": [\n    {\n      \"id\": 1282,\n      \"text\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"https://gYGZXWN.swiiMTpzbiCr9qp,6XyAAyfl\"\n    },\n    {\n      \"id\": 8968,\n      \"text\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"https://OVGq.bgGObh3WQUTSDU.NltG4zgJZpgdSXzheMv4\"\n    }\n  ],\n  \"htmlExtra\": \"string\",\n  \"note\": \"string\",\n  \"parentId\": \"string\",\n  \"publishDate\": \"2024-07-18\",\n  \"word\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "ef708a19-2e51-49f7-b0a8-1c7379733588",
+      "name": "Word List",
+      "description": {
+        "content": "Read and write operations on an individual user word list.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "993c1869-df01-4698-bd98-9e747bcb28ff",
+          "name": "Return A Word List By Permalink",
+          "request": {
+            "name": "Return A Word List By Permalink",
+            "description": {
+              "content": "Returns the WordList identified by the supplied permalink.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wordList.json",
+                ":permalink"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "permalink",
+                  "description": "(Required) Permalink of the word list."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) A valid user auth token.",
+                "key": "auth_token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0dd010aa-5f14-43f9-bac4-5fc89a901115",
+              "name": "The WordList payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wordList.json",
+                    ":permalink"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "permalink",
+                      "description": "(Required) Permalink of the word list."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f643c8d3-a425-44f0-b3f0-70e1a577ed17",
+          "name": "Update A Word List",
+          "request": {
+            "name": "Update A Word List",
+            "description": {
+              "content": "Updates the WordList identified by the supplied permalink.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wordList.json",
+                ":permalink"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "permalink",
+                  "description": "(Required) Permalink of the word list."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) A valid user auth token.",
+                "key": "auth_token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c8db9709-0ab5-4ef3-94cc-07da0d5c80b0",
+              "name": "WordList updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wordList.json",
+                    ":permalink"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "permalink",
+                      "description": "(Required) Permalink of the word list."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "772d23ec-bcae-4b36-9413-5c10eeaf8877",
+          "name": "Delete A Word List",
+          "request": {
+            "name": "Delete A Word List",
+            "description": {
+              "content": "Deletes the WordList identified by the supplied permalink.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wordList.json",
+                ":permalink"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "permalink",
+                  "description": "(Required) Permalink of the word list."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) A valid user auth token.",
+                "key": "auth_token",
+                "value": "<string>"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2c102319-9bd0-433d-aabb-b5f2c3c0b5a9",
+              "name": "WordList deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wordList.json",
+                    ":permalink"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "permalink",
+                      "description": "(Required) Permalink of the word list."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4982260b-cf2b-4c23-b10d-28df88aebd68",
+          "name": "Return Words In A Word List",
+          "request": {
+            "name": "Return Words In A Word List",
+            "description": {
+              "content": "Returns the words contained in the WordList identified by the supplied permalink.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wordList.json",
+                ":permalink",
+                "words"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "sortBy",
+                  "value": "<string>",
+                  "description": "Attribute to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "sortOrder",
+                  "value": "<string>",
+                  "description": "Sort direction."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "0",
+                  "description": "Results to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "100",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "permalink",
+                  "description": "(Required) Permalink of the word list."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) A valid user auth token.",
+                "key": "auth_token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "49e4610e-00d7-4fa5-88d9-31effd2b911d",
+              "name": "Array of WordListWord entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wordList.json",
+                    ":permalink",
+                    "words"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "sortBy",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sortOrder",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "100"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "permalink",
+                      "description": "(Required) Permalink of the word list."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 6005,\n    \"createdAt\": \"2009-10-23T16:35:56.932Z\",\n    \"numberCommentsOnWord\": 6478,\n    \"numberLists\": 6297,\n    \"userId\": 8454,\n    \"username\": \"string\",\n    \"word\": \"string\"\n  },\n  {\n    \"id\": 6724,\n    \"createdAt\": \"1996-12-26T23:03:20.600Z\",\n    \"numberCommentsOnWord\": 9929,\n    \"numberLists\": 6655,\n    \"userId\": 6178,\n    \"username\": \"string\",\n    \"word\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5343ac22-599a-4474-9f1d-e3383f9a5942",
+          "name": "Add Words To A Word List",
+          "request": {
+            "name": "Add Words To A Word List",
+            "description": {
+              "content": "Adds one or more words to the WordList identified by the supplied permalink.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wordList.json",
+                ":permalink",
+                "words"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "permalink",
+                  "description": "(Required) Permalink of the word list."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) A valid user auth token.",
+                "key": "auth_token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"word\": \"<string>\"\n  },\n  {\n    \"word\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "170dc666-eb45-4433-b606-495d467e3209",
+              "name": "Words added to the WordList.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wordList.json",
+                    ":permalink",
+                    "words"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "permalink",
+                      "description": "(Required) Permalink of the word list."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"word\": \"<string>\"\n  },\n  {\n    \"word\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d1d9cb5-b944-428f-9fd1-80836f4b4435",
+          "name": "Delete Words From A Word List",
+          "request": {
+            "name": "Delete Words From A Word List",
+            "description": {
+              "content": "Removes one or more words from the WordList identified by the supplied permalink.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wordList.json",
+                ":permalink",
+                "deleteWords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "permalink",
+                  "description": "(Required) Permalink of the word list."
+                }
+              ]
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) A valid user auth token.",
+                "key": "auth_token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"word\": \"<string>\"\n  },\n  {\n    \"word\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "43574c1e-9335-4112-8438-1ce34042903b",
+              "name": "Words removed from the WordList.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wordList.json",
+                    ":permalink",
+                    "deleteWords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "permalink",
+                      "description": "(Required) Permalink of the word list."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"word\": \"<string>\"\n  },\n  {\n    \"word\": \"<string>\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "0147a1de-257b-4c46-85f6-17b76a79a36f",
+      "name": "Word Lists",
+      "description": {
+        "content": "Create new user word lists.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "b7149123-f4df-422c-9df2-7e6fb9073de4",
+          "name": "Create A New Word List",
+          "request": {
+            "name": "Create A New Word List",
+            "description": {
+              "content": "Creates a new word list owned by the authenticated user. Endpoint surface verified from the Wordnik official client SDK (wordnik-clients/java WordListsApi).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wordLists.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) A valid user auth token.",
+                "key": "auth_token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2bfa023d-b33d-43d9-a515-e43a666f0963",
+              "name": "The created WordList.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wordLists.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "da1ac6c7-6845-4aca-ad30-9033b5e5ca9c",
+      "name": "Account",
+      "description": {
+        "content": "API-key status and user authentication operations.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "151045e5-443b-4948-9c05-43be38e99fcd",
+          "name": "Return API Token Status",
+          "request": {
+            "name": "Return API Token Status",
+            "description": {
+              "content": "Returns the current quota, total requests, and remaining-call status for the supplied API key. Endpoint surface verified from the Wordnik official client SDK (wordnik-clients/java AccountApi).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account.json",
+                "apiTokenStatus"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "Wordnik API key (when not using the query parameter).",
+                "key": "api_key",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d8a5edb4-4ac1-44e8-8ff3-c1ed86abed82",
+              "name": "ApiTokenStatus payload describing the supplied key.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account.json",
+                    "apiTokenStatus"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "Wordnik API key (when not using the query parameter).",
+                    "key": "api_key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"expiresInMillis\": 1228,\n  \"remainingCalls\": 8710,\n  \"resetsInMillis\": 5074,\n  \"token\": \"string\",\n  \"totalRequests\": 6407,\n  \"valid\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "35e14e57-bd08-4ed3-a43e-79a2f7cede27",
+          "name": "Authenticate A User",
+          "request": {
+            "name": "Authenticate A User",
+            "description": {
+              "content": "Authenticates a Wordnik user using the supplied password and returns an auth token for subsequent user-scoped operations.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account.json",
+                "authenticate",
+                ":username"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "password",
+                  "value": "<password>",
+                  "description": "(Required) The user's password."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) A confirmed Wordnik username."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c5af27a0-a96d-481b-934c-a45a71ac4f6a",
+              "name": "AuthenticationToken payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account.json",
+                    "authenticate",
+                    ":username"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "password",
+                      "value": "<password>"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) A confirmed Wordnik username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"string\",\n  \"userId\": 643,\n  \"userSignature\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b81e05ad-3c69-44c9-b120-9d3264bbb997",
+          "name": "Authenticate A User (POST Body)",
+          "request": {
+            "name": "Authenticate A User (POST Body)",
+            "description": {
+              "content": "Same as the GET form, but the password is sent in the request body to avoid logging the credential in URL query strings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account.json",
+                "authenticate",
+                ":username"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) A confirmed Wordnik username."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "text/plain"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<string>"
+            }
+          },
+          "response": [
+            {
+              "id": "892aa546-81dc-47f5-bc74-452037238dc8",
+              "name": "AuthenticationToken payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account.json",
+                    "authenticate",
+                    ":username"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) A confirmed Wordnik username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<string>"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"string\",\n  \"userId\": 643,\n  \"userSignature\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25dd3ef0-5d44-4e9e-bb5b-9422da4ce32e",
+          "name": "Return The Currently Authenticated User",
+          "request": {
+            "name": "Return The Currently Authenticated User",
+            "description": {
+              "content": "Returns the User profile associated with the supplied auth token.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account.json",
+                "user"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) A valid user auth token obtained via /account.json/authenticate.",
+                "key": "auth_token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78bad6d4-c63a-484a-be95-5297547c0abb",
+              "name": "User profile payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account.json",
+                    "user"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) A valid user auth token obtained via /account.json/authenticate.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"displayName\": \"string\",\n  \"email\": \"Ij54rg-Wj2VDe@IvefGMMEuftnADJolfzAvBmG.xcop\",\n  \"faceBookId\": \"string\",\n  \"id\": 7517,\n  \"password\": \"string\",\n  \"status\": 143,\n  \"userName\": \"string\",\n  \"username\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3b367420-db76-4366-9bf8-767b09ef812b",
+          "name": "Return The Authenticated User's Word Lists",
+          "request": {
+            "name": "Return The Authenticated User's Word Lists",
+            "description": {
+              "content": "Returns all word lists owned by the currently authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account.json",
+                "wordLists"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "0",
+                  "description": "Results to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of lists to return."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) A valid user auth token.",
+                "key": "auth_token",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9b2717ab-d907-4f97-b2ca-7662b2bda2ca",
+              "name": "Array of WordList objects owned by the user.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account.json",
+                    "wordLists"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 4484,\n    \"createdAt\": \"1979-10-05T08:19:48.571Z\",\n    \"description\": \"string\",\n    \"lastActivityAt\": \"2017-02-12T10:24:59.962Z\",\n    \"name\": \"string\",\n    \"numberWordsInList\": 812,\n    \"permalink\": \"string\",\n    \"type\": \"PRIVATE\",\n    \"updatedAt\": \"1950-06-13T00:39:42.118Z\",\n    \"userId\": 4677,\n    \"username\": \"string\"\n  },\n  {\n    \"id\": 8471,\n    \"createdAt\": \"1969-11-12T11:39:35.997Z\",\n    \"description\": \"string\",\n    \"lastActivityAt\": \"1986-01-29T04:00:07.469Z\",\n    \"name\": \"string\",\n    \"numberWordsInList\": 5130,\n    \"permalink\": \"string\",\n    \"type\": \"PRIVATE\",\n    \"updatedAt\": \"2012-05-04T10:38:10.336Z\",\n    \"userId\": 9203,\n    \"username\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wordnik.com/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1260b6cd-09cf-44c3-9643-54f006da4b4a",
+    "name": "Wordnik",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Wordnik is the world's biggest online English dictionary. The Wordnik API exposes\nword definitions (from five dictionaries), etymologies, real example sentences from\nmillions of sources, audio pronunciations, related-word relationships, frequency data,\nhyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,\nword-of-the-day, and user word lists.\n\nContact Support:\n Name: Wordnik API Team\n Email: apiteam@wordnik.com",
+      "type": "text/plain"
+    }
+  }
+}

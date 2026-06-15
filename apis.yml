@@ -1,10 +1,9 @@
 aid: wordnik
 name: Wordnik
 description: >-
-  Wordnik is the largest online English dictionary by number of words. Its v4 REST API
-  exposes definitions from five dictionaries, etymologies, real example sentences from
-  millions of sources, audio pronunciations, related-word relationships, frequency over
-  time, hyphenation, bi-gram phrases, scrabble scores, random words, reverse-dictionary
+  Wordnik is the largest online English dictionary by number of words. Its v4 REST API exposes definitions from five
+  dictionaries, etymologies, real example sentences from millions of sources, audio pronunciations, related-word
+  relationships, frequency over time, hyphenation, bi-gram phrases, scrabble scores, random words, reverse-dictionary
   lookup, word-of-the-day, and authenticated user word lists.
 url: https://developer.wordnik.com
 image: https://wordnik.com/img/logo-wordnik-home.png
@@ -25,12 +24,10 @@ tags:
 apis:
   - name: Wordnik
     description: >-
-      The v4 Wordnik API exposes single-word lookups (definitions, etymologies, examples,
-      pronunciations, related words, frequency, hyphenation, phrases, scrabble score, audio),
-      cross-word discovery (random word, search, reverse dictionary, word of the day), and
-      authenticated user word-list management. Authentication is a single api_key query
-      parameter; user-scoped operations require an auth_token header obtained via
-      /account.json/authenticate.
+      The v4 Wordnik API exposes single-word lookups (definitions, etymologies, examples, pronunciations, related words,
+      frequency, hyphenation, phrases, scrabble score, audio), cross-word discovery (random word, search, reverse
+      dictionary, word of the day), and authenticated user word-list management. Authentication is a single api_key
+      query parameter; user-scoped operations require an auth_token header obtained via /account.json/authenticate.
     humanURL: https://developer.wordnik.com
     baseURL: https://api.wordnik.com/v4
     tags:
@@ -72,16 +69,6 @@ apis:
       - type: SDK
         title: Objective-C SDK
         url: https://github.com/wordnik/wordnik-clients/tree/master/objc
-      - type: NaftikoCapability
-        url: capabilities/wordnik-word.yaml
-      - type: NaftikoCapability
-        url: capabilities/wordnik-words.yaml
-      - type: NaftikoCapability
-        url: capabilities/wordnik-word-list.yaml
-      - type: NaftikoCapability
-        url: capabilities/wordnik-word-lists.yaml
-      - type: NaftikoCapability
-        url: capabilities/wordnik-account.yaml
 common:
   - type: Website
     url: https://wordnik.com
@@ -128,9 +115,13 @@ common:
     url: https://github.com/public-apis/public-apis
 features:
   - name: Five Dictionary Sources
-    description: Definitions are drawn from American Heritage (ahd-5), Wiktionary, Webster, Century, and WordNet — selectable per request via sourceDictionaries.
+    description: >-
+      Definitions are drawn from American Heritage (ahd-5), Wiktionary, Webster, Century, and WordNet — selectable per
+      request via sourceDictionaries.
   - name: Real-World Example Sentences
-    description: Examples come from millions of sources rather than constructed example text, with citation metadata via /word.json/{word}/examples and /topExample.
+    description: >-
+      Examples come from millions of sources rather than constructed example text, with citation metadata via
+      /word.json/{word}/examples and /topExample.
   - name: Audio Pronunciations
     description: AHD mp3 audio pronunciations exposed via /word.json/{word}/audio with time-expiring fileUrls.
   - name: Word Graph Relationships
@@ -149,7 +140,9 @@ useCases:
   - name: Word Games
     description: Power crossword, scrabble, hangman, and word-discovery games using random words, search, and scrabble scoring.
   - name: Vocabulary Learning
-    description: Build a flashcard or vocabulary-coach app using user word lists, word of the day, and definitions across grade levels.
+    description: >-
+      Build a flashcard or vocabulary-coach app using user word lists, word of the day, and definitions across grade
+      levels.
   - name: Editorial Tooling
     description: Surface synonyms, antonyms, and reverse-dictionary lookup inside CMS / writing tools.
   - name: Linguistic Research
@@ -169,9 +162,13 @@ integrations:
     description: Additional swagger-generated clients in wordnik/wordnik-clients.
 solutions:
   - name: Dictionary-Of-Record Integration
-    description: Use Wordnik as the canonical dictionary for a product surface, hitting /word.json/{word}/definitions with sourceDictionaries selection logic.
+    description: >-
+      Use Wordnik as the canonical dictionary for a product surface, hitting /word.json/{word}/definitions with
+      sourceDictionaries selection logic.
   - name: Quota-Aware Caching Layer
-    description: Cache results aggressively per-word and use /account.json/apiTokenStatus telemetry plus X-RateLimit headers to right-size the Hobby / Pro / Enterprise tier.
+    description: >-
+      Cache results aggressively per-word and use /account.json/apiTokenStatus telemetry plus X-RateLimit headers to
+      right-size the Hobby / Pro / Enterprise tier.
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
