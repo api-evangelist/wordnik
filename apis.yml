@@ -42,31 +42,31 @@ apis:
         url: https://developer.wordnik.com/gettingstarted
       - type: OpenAPI
         url: openapi/wordnik-openapi.yml
-      - type: SDK
+      - type: SDKs
         title: Python SDK
         url: https://pypi.org/project/wordnik-py3/
-      - type: SDK
+      - type: SDKs
         title: Python 2 SDK (legacy)
         url: https://pypi.org/project/wordnik/
-      - type: SDK
+      - type: SDKs
         title: Ruby SDK
         url: https://rubygems.org/gems/wordnik
-      - type: SDK
+      - type: SDKs
         title: PHP SDK
         url: https://github.com/wordnik/wordnik-php
-      - type: SDK
+      - type: SDKs
         title: Java SDK
         url: https://github.com/wordnik/wordnik-clients/tree/master/java
-      - type: SDK
+      - type: SDKs
         title: Kotlin SDK
         url: https://github.com/wordnik/wordnik-clients/tree/master/kotlin
-      - type: SDK
+      - type: SDKs
         title: Scala SDK
         url: https://github.com/wordnik/wordnik-clients/tree/master/scala
-      - type: SDK
+      - type: SDKs
         title: Android SDK
         url: https://github.com/wordnik/wordnik-clients/tree/master/android-java
-      - type: SDK
+      - type: SDKs
         title: Objective-C SDK
         url: https://github.com/wordnik/wordnik-clients/tree/master/objc
 common:
