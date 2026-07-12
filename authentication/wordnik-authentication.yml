@@ -1,0 +1,26 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/wordnik-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: api_key
+  type: apiKey
+  in: query
+  parameter: api_key
+  description: Wordnik issues per-account API keys; pass via the `api_key` query parameter on
+    every request.
+  sources:
+  - openapi/wordnik-openapi.yml
+- name: auth_token
+  type: apiKey
+  in: header
+  parameter: auth_token
+  description: User auth token returned by `/account.json/authenticate/{username}`; required
+    for user-scoped account and word-list operations.
+  sources:
+  - openapi/wordnik-openapi.yml
