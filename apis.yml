@@ -70,6 +70,8 @@ apis:
         title: Objective-C SDK
         url: https://github.com/wordnik/wordnik-clients/tree/master/objc
 common:
+  - type: AgenticAccess
+    url: agentic-access/wordnik-agentic-access.yml
   - type: DomainSecurity
     url: security/wordnik-domain-security.yml
   - type: Authentication
