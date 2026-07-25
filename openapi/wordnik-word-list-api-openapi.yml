@@ -1,0 +1,352 @@
+openapi: 3.0.3
+info:
+  title: Wordnik Account Word List API
+  description: 'Wordnik is the world''s biggest online English dictionary. The Wordnik API exposes
+
+    word definitions (from five dictionaries), etymologies, real example sentences from
+
+    millions of sources, audio pronunciations, related-word relationships, frequency data,
+
+    hyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,
+
+    word-of-the-day, and user word lists.'
+  version: '4.0'
+  contact:
+    name: Wordnik API Team
+    email: apiteam@wordnik.com
+    url: https://developer.wordnik.com
+  termsOfService: https://www.wordnik.com/about
+  license:
+    name: Wordnik Terms of Service
+    url: https://www.wordnik.com/about
+  x-providerName: wordnik.com
+  x-apisguru-categories:
+  - text
+  x-logo:
+    url: https://wordnik.com/img/logo-wordnik-home.png
+  x-last-validated: '2026-05-29'
+  x-origin:
+  - format: openapi
+    url: https://developer.wordnik.com/api-docs/swagger.json
+    version: '2.0'
+servers:
+- url: https://api.wordnik.com/v4
+  description: Wordnik v4 production API
+security:
+- api_key: []
+tags:
+- name: Word List
+  description: Read and write operations on an individual user word list.
+paths:
+  /wordList.json/{permalink}:
+    get:
+      operationId: getWordListByPermalink
+      summary: Return A Word List By Permalink
+      description: Returns the WordList identified by the supplied permalink.
+      tags:
+      - Word List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      x-schema-source: sdk
+      x-sdk-repo: https://github.com/wordnik/wordnik-clients
+      parameters:
+      - name: permalink
+        in: path
+        required: true
+        description: Permalink of the word list.
+        schema:
+          type: string
+      - name: auth_token
+        in: header
+        required: true
+        description: A valid user auth token.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: The WordList payload.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WordList'
+    put:
+      operationId: updateWordList
+      summary: Update A Word List
+      description: Updates the WordList identified by the supplied permalink.
+      tags:
+      - Word List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      x-schema-source: sdk
+      x-sdk-repo: https://github.com/wordnik/wordnik-clients
+      parameters:
+      - name: permalink
+        in: path
+        required: true
+        description: Permalink of the word list.
+        schema:
+          type: string
+      - name: auth_token
+        in: header
+        required: true
+        description: A valid user auth token.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WordList'
+      responses:
+        '204':
+          description: WordList updated.
+    delete:
+      operationId: deleteWordList
+      summary: Delete A Word List
+      description: Deletes the WordList identified by the supplied permalink.
+      tags:
+      - Word List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      x-schema-source: sdk
+      x-sdk-repo: https://github.com/wordnik/wordnik-clients
+      parameters:
+      - name: permalink
+        in: path
+        required: true
+        description: Permalink of the word list.
+        schema:
+          type: string
+      - name: auth_token
+        in: header
+        required: true
+        description: A valid user auth token.
+        schema:
+          type: string
+      responses:
+        '204':
+          description: WordList deleted.
+  /wordList.json/{permalink}/words:
+    get:
+      operationId: getWordListWords
+      summary: Return Words In A Word List
+      description: Returns the words contained in the WordList identified by the supplied permalink.
+      tags:
+      - Word List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      x-schema-source: sdk
+      x-sdk-repo: https://github.com/wordnik/wordnik-clients
+      parameters:
+      - name: permalink
+        in: path
+        required: true
+        description: Permalink of the word list.
+        schema:
+          type: string
+      - name: auth_token
+        in: header
+        required: true
+        description: A valid user auth token.
+        schema:
+          type: string
+      - name: sortBy
+        in: query
+        required: false
+        description: Attribute to sort by.
+        schema:
+          type: string
+          enum:
+          - alpha
+          - createDate
+      - name: sortOrder
+        in: query
+        required: false
+        description: Sort direction.
+        schema:
+          type: string
+          enum:
+          - asc
+          - desc
+      - name: skip
+        in: query
+        required: false
+        description: Results to skip.
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        required: false
+        description: Maximum number of results to return.
+        schema:
+          type: integer
+          format: int32
+          default: 100
+      responses:
+        '200':
+          description: Array of WordListWord entries.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WordListWord'
+    post:
+      operationId: addWordsToWordList
+      summary: Add Words To A Word List
+      description: Adds one or more words to the WordList identified by the supplied permalink.
+      tags:
+      - Word List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      x-schema-source: sdk
+      x-sdk-repo: https://github.com/wordnik/wordnik-clients
+      parameters:
+      - name: permalink
+        in: path
+        required: true
+        description: Permalink of the word list.
+        schema:
+          type: string
+      - name: auth_token
+        in: header
+        required: true
+        description: A valid user auth token.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/StringValue'
+      responses:
+        '204':
+          description: Words added to the WordList.
+  /wordList.json/{permalink}/deleteWords:
+    post:
+      operationId: deleteWordsFromWordList
+      summary: Delete Words From A Word List
+      description: Removes one or more words from the WordList identified by the supplied permalink.
+      tags:
+      - Word List
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      x-schema-source: sdk
+      x-sdk-repo: https://github.com/wordnik/wordnik-clients
+      parameters:
+      - name: permalink
+        in: path
+        required: true
+        description: Permalink of the word list.
+        schema:
+          type: string
+      - name: auth_token
+        in: header
+        required: true
+        description: A valid user auth token.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/StringValue'
+      responses:
+        '204':
+          description: Words removed from the WordList.
+components:
+  schemas:
+    WordListWord:
+      type: object
+      required:
+      - id
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        numberCommentsOnWord:
+          type: integer
+          format: int64
+        numberLists:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        username:
+          type: string
+        word:
+          type: string
+    StringValue:
+      type: object
+      properties:
+        word:
+          type: string
+    WordList:
+      type: object
+      required:
+      - id
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        description:
+          type: string
+        id:
+          type: integer
+          format: int64
+        lastActivityAt:
+          type: string
+          format: date-time
+        name:
+          type: string
+        numberWordsInList:
+          type: integer
+          format: int64
+        permalink:
+          type: string
+        type:
+          type: string
+          enum:
+          - PUBLIC
+          - PRIVATE
+        updatedAt:
+          type: string
+          format: date-time
+        userId:
+          type: integer
+          format: int64
+        username:
+          type: string
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: query
+      description: Wordnik issues per-account API keys; pass via the `api_key` query parameter on every request.
+    auth_token:
+      type: apiKey
+      name: auth_token
+      in: header
+      description: User auth token returned by `/account.json/authenticate/{username}`; required for user-scoped account and word-list operations.
+externalDocs:
+  description: Wordnik Developer Documentation
+  url: https://developer.wordnik.com

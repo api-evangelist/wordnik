@@ -1,0 +1,305 @@
+openapi: 3.0.3
+info:
+  title: Wordnik Account API
+  description: 'Wordnik is the world''s biggest online English dictionary. The Wordnik API exposes
+
+    word definitions (from five dictionaries), etymologies, real example sentences from
+
+    millions of sources, audio pronunciations, related-word relationships, frequency data,
+
+    hyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,
+
+    word-of-the-day, and user word lists.'
+  version: '4.0'
+  contact:
+    name: Wordnik API Team
+    email: apiteam@wordnik.com
+    url: https://developer.wordnik.com
+  termsOfService: https://www.wordnik.com/about
+  license:
+    name: Wordnik Terms of Service
+    url: https://www.wordnik.com/about
+  x-providerName: wordnik.com
+  x-apisguru-categories:
+  - text
+  x-logo:
+    url: https://wordnik.com/img/logo-wordnik-home.png
+  x-last-validated: '2026-05-29'
+  x-origin:
+  - format: openapi
+    url: https://developer.wordnik.com/api-docs/swagger.json
+    version: '2.0'
+servers:
+- url: https://api.wordnik.com/v4
+  description: Wordnik v4 production API
+security:
+- api_key: []
+tags:
+- name: Account
+  description: API-key status and user authentication operations.
+paths:
+  /account.json/apiTokenStatus:
+    get:
+      operationId: getApiTokenStatus
+      summary: Return API Token Status
+      description: Returns the current quota, total requests, and remaining-call status for the supplied API key. Endpoint surface verified from the Wordnik official client SDK (wordnik-clients/java AccountApi).
+      tags:
+      - Account
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      x-schema-source: sdk
+      x-sdk-repo: https://github.com/wordnik/wordnik-clients
+      parameters:
+      - name: api_key
+        in: header
+        required: false
+        description: Wordnik API key (when not using the query parameter).
+        schema:
+          type: string
+      responses:
+        '200':
+          description: ApiTokenStatus payload describing the supplied key.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ApiTokenStatus'
+  /account.json/authenticate/{username}:
+    get:
+      operationId: authenticate
+      summary: Authenticate A User
+      description: Authenticates a Wordnik user using the supplied password and returns an auth token for subsequent user-scoped operations.
+      tags:
+      - Account
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      x-schema-source: sdk
+      x-sdk-repo: https://github.com/wordnik/wordnik-clients
+      parameters:
+      - name: username
+        in: path
+        required: true
+        description: A confirmed Wordnik username.
+        schema:
+          type: string
+      - name: password
+        in: query
+        required: true
+        description: The user's password.
+        schema:
+          type: string
+          format: password
+      responses:
+        '200':
+          description: AuthenticationToken payload.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationToken'
+    post:
+      operationId: authenticatePost
+      summary: Authenticate A User (POST Body)
+      description: Same as the GET form, but the password is sent in the request body to avoid logging the credential in URL query strings.
+      tags:
+      - Account
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      x-schema-source: sdk
+      x-sdk-repo: https://github.com/wordnik/wordnik-clients
+      parameters:
+      - name: username
+        in: path
+        required: true
+        description: A confirmed Wordnik username.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          text/plain:
+            schema:
+              type: string
+              description: The user's password as a plain string.
+      responses:
+        '200':
+          description: AuthenticationToken payload.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthenticationToken'
+  /account.json/user:
+    get:
+      operationId: getLoggedInUser
+      summary: Return The Currently Authenticated User
+      description: Returns the User profile associated with the supplied auth token.
+      tags:
+      - Account
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      x-schema-source: sdk
+      x-sdk-repo: https://github.com/wordnik/wordnik-clients
+      parameters:
+      - name: auth_token
+        in: header
+        required: true
+        description: A valid user auth token obtained via /account.json/authenticate.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User profile payload.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /account.json/wordLists:
+    get:
+      operationId: getWordListsForLoggedInUser
+      summary: Return The Authenticated User's Word Lists
+      description: Returns all word lists owned by the currently authenticated user.
+      tags:
+      - Account
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      x-schema-source: sdk
+      x-sdk-repo: https://github.com/wordnik/wordnik-clients
+      parameters:
+      - name: auth_token
+        in: header
+        required: true
+        description: A valid user auth token.
+        schema:
+          type: string
+      - name: skip
+        in: query
+        required: false
+        description: Results to skip.
+        schema:
+          type: integer
+          format: int32
+          default: 0
+      - name: limit
+        in: query
+        required: false
+        description: Maximum number of lists to return.
+        schema:
+          type: integer
+          format: int32
+          default: 50
+      responses:
+        '200':
+          description: Array of WordList objects owned by the user.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/WordList'
+components:
+  schemas:
+    WordList:
+      type: object
+      required:
+      - id
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        description:
+          type: string
+        id:
+          type: integer
+          format: int64
+        lastActivityAt:
+          type: string
+          format: date-time
+        name:
+          type: string
+        numberWordsInList:
+          type: integer
+          format: int64
+        permalink:
+          type: string
+        type:
+          type: string
+          enum:
+          - PUBLIC
+          - PRIVATE
+        updatedAt:
+          type: string
+          format: date-time
+        userId:
+          type: integer
+          format: int64
+        username:
+          type: string
+    User:
+      type: object
+      properties:
+        displayName:
+          type: string
+        email:
+          type: string
+          format: email
+        faceBookId:
+          type: string
+        id:
+          type: integer
+          format: int64
+        password:
+          type: string
+          format: password
+        status:
+          type: integer
+          format: int32
+        userName:
+          type: string
+        username:
+          type: string
+    ApiTokenStatus:
+      type: object
+      properties:
+        expiresInMillis:
+          type: integer
+          format: int64
+        remainingCalls:
+          type: integer
+          format: int64
+        resetsInMillis:
+          type: integer
+          format: int64
+        token:
+          type: string
+        totalRequests:
+          type: integer
+          format: int64
+        valid:
+          type: boolean
+    AuthenticationToken:
+      type: object
+      properties:
+        token:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        userSignature:
+          type: string
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: query
+      description: Wordnik issues per-account API keys; pass via the `api_key` query parameter on every request.
+    auth_token:
+      type: apiKey
+      name: auth_token
+      in: header
+      description: User auth token returned by `/account.json/authenticate/{username}`; required for user-scoped account and word-list operations.
+externalDocs:
+  description: Wordnik Developer Documentation
+  url: https://developer.wordnik.com

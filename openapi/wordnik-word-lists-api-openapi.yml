@@ -1,0 +1,124 @@
+openapi: 3.0.3
+info:
+  title: Wordnik Account Word Lists API
+  description: 'Wordnik is the world''s biggest online English dictionary. The Wordnik API exposes
+
+    word definitions (from five dictionaries), etymologies, real example sentences from
+
+    millions of sources, audio pronunciations, related-word relationships, frequency data,
+
+    hyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,
+
+    word-of-the-day, and user word lists.'
+  version: '4.0'
+  contact:
+    name: Wordnik API Team
+    email: apiteam@wordnik.com
+    url: https://developer.wordnik.com
+  termsOfService: https://www.wordnik.com/about
+  license:
+    name: Wordnik Terms of Service
+    url: https://www.wordnik.com/about
+  x-providerName: wordnik.com
+  x-apisguru-categories:
+  - text
+  x-logo:
+    url: https://wordnik.com/img/logo-wordnik-home.png
+  x-last-validated: '2026-05-29'
+  x-origin:
+  - format: openapi
+    url: https://developer.wordnik.com/api-docs/swagger.json
+    version: '2.0'
+servers:
+- url: https://api.wordnik.com/v4
+  description: Wordnik v4 production API
+security:
+- api_key: []
+tags:
+- name: Word Lists
+  description: Create new user word lists.
+paths:
+  /wordLists.json:
+    post:
+      operationId: createWordList
+      summary: Create A New Word List
+      description: Creates a new word list owned by the authenticated user. Endpoint surface verified from the Wordnik official client SDK (wordnik-clients/java WordListsApi).
+      tags:
+      - Word Lists
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      x-schema-source: sdk
+      x-sdk-repo: https://github.com/wordnik/wordnik-clients
+      parameters:
+      - name: auth_token
+        in: header
+        required: true
+        description: A valid user auth token.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/WordList'
+      responses:
+        '200':
+          description: The created WordList.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WordList'
+components:
+  schemas:
+    WordList:
+      type: object
+      required:
+      - id
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        description:
+          type: string
+        id:
+          type: integer
+          format: int64
+        lastActivityAt:
+          type: string
+          format: date-time
+        name:
+          type: string
+        numberWordsInList:
+          type: integer
+          format: int64
+        permalink:
+          type: string
+        type:
+          type: string
+          enum:
+          - PUBLIC
+          - PRIVATE
+        updatedAt:
+          type: string
+          format: date-time
+        userId:
+          type: integer
+          format: int64
+        username:
+          type: string
+  securitySchemes:
+    api_key:
+      type: apiKey
+      name: api_key
+      in: query
+      description: Wordnik issues per-account API keys; pass via the `api_key` query parameter on every request.
+    auth_token:
+      type: apiKey
+      name: auth_token
+      in: header
+      description: User auth token returned by `/account.json/authenticate/{username}`; required for user-scoped account and word-list operations.
+externalDocs:
+  description: Wordnik Developer Documentation
+  url: https://developer.wordnik.com
