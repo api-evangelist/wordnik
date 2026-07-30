@@ -6,6 +6,19 @@ description: >-
   relationships, frequency over time, hyphenation, bi-gram phrases, scrabble scores, random words, reverse-dictionary
   lookup, word-of-the-day, and authenticated user word lists.
 url: https://developer.wordnik.com
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: true
+  try_now: true
+  public: false
+  label: Freemium (free trial) · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://wordnik.com/img/logo-wordnik-home.png
 specificationVersion: '0.20'
 created: '2026-05-28'
@@ -22,54 +35,172 @@ tags:
   - Lexicography
   - Public APIs
 apis:
-  - name: Wordnik
-    description: >-
-      The v4 Wordnik API exposes single-word lookups (definitions, etymologies, examples, pronunciations, related words,
-      frequency, hyphenation, phrases, scrabble score, audio), cross-word discovery (random word, search, reverse
-      dictionary, word of the day), and authenticated user word-list management. Authentication is a single api_key
-      query parameter; user-scoped operations require an auth_token header obtained via /account.json/authenticate.
-    humanURL: https://developer.wordnik.com
-    baseURL: https://api.wordnik.com/v4
-    tags:
-      - Dictionary
-      - Word Data
-      - Lexicography
-      - English
-    properties:
-      - type: Documentation
-        url: https://developer.wordnik.com/docs
-      - type: GettingStarted
-        url: https://developer.wordnik.com/gettingstarted
-      - type: OpenAPI
-        url: openapi/wordnik-openapi.yml
-      - type: SDKs
-        title: Python SDK
-        url: https://pypi.org/project/wordnik-py3/
-      - type: SDKs
-        title: Python 2 SDK (legacy)
-        url: https://pypi.org/project/wordnik/
-      - type: SDKs
-        title: Ruby SDK
-        url: https://rubygems.org/gems/wordnik
-      - type: SDKs
-        title: PHP SDK
-        url: https://github.com/wordnik/wordnik-php
-      - type: SDKs
-        title: Java SDK
-        url: https://github.com/wordnik/wordnik-clients/tree/master/java
-      - type: SDKs
-        title: Kotlin SDK
-        url: https://github.com/wordnik/wordnik-clients/tree/master/kotlin
-      - type: SDKs
-        title: Scala SDK
-        url: https://github.com/wordnik/wordnik-clients/tree/master/scala
-      - type: SDKs
-        title: Android SDK
-        url: https://github.com/wordnik/wordnik-clients/tree/master/android-java
-      - type: SDKs
-        title: Objective-C SDK
-        url: https://github.com/wordnik/wordnik-clients/tree/master/objc
+- aid: wordnik:wordnik-account-api
+  name: Wordnik Account API
+  description: API-key status and user authentication operations.
+  humanURL: https://developer.wordnik.com
+  baseURL: https://api.wordnik.com/v4
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/wordnik-account-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordnik.com/docs
+  - type: GettingStarted
+    url: https://developer.wordnik.com/gettingstarted
+  - type: SDKs
+    url: https://pypi.org/project/wordnik-py3/
+  - type: SDKs
+    url: https://pypi.org/project/wordnik/
+  - type: SDKs
+    url: https://rubygems.org/gems/wordnik
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-php
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/java
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/kotlin
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/scala
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/android-java
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/objc
+- aid: wordnik:wordnik-word-api
+  name: Wordnik Word API
+  description: >-
+    Operations on a single English word (definitions, etymologies, examples, pronunciations, related words,
+    frequency, hyphenation, phrases, scrabble score, audio).
+  humanURL: https://developer.wordnik.com
+  baseURL: https://api.wordnik.com/v4
+  tags:
+  - Word
+  properties:
+  - type: OpenAPI
+    url: openapi/wordnik-word-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordnik.com/docs
+  - type: GettingStarted
+    url: https://developer.wordnik.com/gettingstarted
+  - type: SDKs
+    url: https://pypi.org/project/wordnik-py3/
+  - type: SDKs
+    url: https://pypi.org/project/wordnik/
+  - type: SDKs
+    url: https://rubygems.org/gems/wordnik
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-php
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/java
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/kotlin
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/scala
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/android-java
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/objc
+- aid: wordnik:wordnik-word-list-api
+  name: Wordnik Word List API
+  description: Read and write operations on an individual user word list.
+  humanURL: https://developer.wordnik.com
+  baseURL: https://api.wordnik.com/v4
+  tags:
+  - Word List
+  properties:
+  - type: OpenAPI
+    url: openapi/wordnik-word-list-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordnik.com/docs
+  - type: GettingStarted
+    url: https://developer.wordnik.com/gettingstarted
+  - type: SDKs
+    url: https://pypi.org/project/wordnik-py3/
+  - type: SDKs
+    url: https://pypi.org/project/wordnik/
+  - type: SDKs
+    url: https://rubygems.org/gems/wordnik
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-php
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/java
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/kotlin
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/scala
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/android-java
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/objc
+- aid: wordnik:wordnik-word-lists-api
+  name: Wordnik Word Lists API
+  description: Create new user word lists.
+  humanURL: https://developer.wordnik.com
+  baseURL: https://api.wordnik.com/v4
+  tags:
+  - Word Lists
+  properties:
+  - type: OpenAPI
+    url: openapi/wordnik-word-lists-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordnik.com/docs
+  - type: GettingStarted
+    url: https://developer.wordnik.com/gettingstarted
+  - type: SDKs
+    url: https://pypi.org/project/wordnik-py3/
+  - type: SDKs
+    url: https://pypi.org/project/wordnik/
+  - type: SDKs
+    url: https://rubygems.org/gems/wordnik
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-php
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/java
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/kotlin
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/scala
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/android-java
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/objc
+- aid: wordnik:wordnik-words-api
+  name: Wordnik Words API
+  description: >-
+    Cross-word operations (random words, reverse-dictionary search, full-text search, word-of-the-day).
+  humanURL: https://developer.wordnik.com
+  baseURL: https://api.wordnik.com/v4
+  tags:
+  - Words
+  properties:
+  - type: OpenAPI
+    url: openapi/wordnik-words-api-openapi.yml
+  - type: Documentation
+    url: https://developer.wordnik.com/docs
+  - type: GettingStarted
+    url: https://developer.wordnik.com/gettingstarted
+  - type: SDKs
+    url: https://pypi.org/project/wordnik-py3/
+  - type: SDKs
+    url: https://pypi.org/project/wordnik/
+  - type: SDKs
+    url: https://rubygems.org/gems/wordnik
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-php
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/java
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/kotlin
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/scala
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/android-java
+  - type: SDKs
+    url: https://github.com/wordnik/wordnik-clients/tree/master/objc
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/wordnik/overview
   - type: AgenticAccess
     url: agentic-access/wordnik-agentic-access.yml
   - type: DomainSecurity
