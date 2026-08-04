@@ -10,7 +10,7 @@ info:
     hyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,
 
     word-of-the-day, and user word lists.'
-  version: '4.0'
+  version: '2.0'
   contact:
     name: Wordnik API Team
     email: apiteam@wordnik.com
@@ -28,7 +28,6 @@ info:
   x-origin:
   - format: openapi
     url: https://developer.wordnik.com/api-docs/swagger.json
-    version: '2.0'
 servers:
 - url: https://api.wordnik.com/v4
   description: Wordnik v4 production API

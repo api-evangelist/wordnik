@@ -1,0 +1,22 @@
+{
+  "provider": "wordnik",
+  "sources": [
+    "wordnik-account-api-openapi.yml",
+    "wordnik-word-api-openapi.yml",
+    "wordnik-word-list-api-openapi.yml",
+    "wordnik-word-lists-api-openapi.yml",
+    "wordnik-words-api-openapi.yml"
+  ],
+  "outputs": [
+    "wordnik-account-api-openapi.yml",
+    "wordnik-word-api-openapi.yml",
+    "wordnik-word-list-api-openapi.yml",
+    "wordnik-word-lists-api-openapi.yml",
+    "wordnik-words-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

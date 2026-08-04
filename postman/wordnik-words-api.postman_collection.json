@@ -1,0 +1,1013 @@
+{
+  "info": {
+    "_postman_id": "20558669-cc2f-4b8a-8483-cc38ccfe58d7",
+    "name": "Wordnik Account Words API",
+    "description": "Wordnik is the world's biggest online English dictionary. The Wordnik API exposes\nword definitions (from five dictionaries), etymologies, real example sentences from\nmillions of sources, audio pronunciations, related-word relationships, frequency data,\nhyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,\nword-of-the-day, and user word lists.\n\nContact Support:\n Name: Wordnik API Team\n Email: apiteam@wordnik.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:07:30.000Z",
+    "updatedAt": "2026-07-28T11:07:30.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-20558669-cc2f-4b8a-8483-cc38ccfe58d7"
+  },
+  "item": [
+    {
+      "name": "words.json",
+      "item": [
+        {
+          "name": "randomWord",
+          "item": [
+            {
+              "name": "Return A Single Random Word",
+              "id": "b45a6c46-db0e-46a2-a322-0a937e19cbaf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/words.json/randomWord?hasDictionaryDef=true&includePartOfSpeech=<string>&excludePartOfSpeech=<string>&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "words.json",
+                    "randomWord"
+                  ],
+                  "query": [
+                    {
+                      "description": "Only return words with dictionary definitions.",
+                      "key": "hasDictionaryDef",
+                      "value": "true"
+                    },
+                    {
+                      "description": "CSV part-of-speech values to include.",
+                      "key": "includePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CSV part-of-speech values to exclude.",
+                      "key": "excludePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Minimum corpus frequency for terms.",
+                      "key": "minCorpusCount",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Maximum corpus frequency for terms.",
+                      "key": "maxCorpusCount",
+                      "value": "-1"
+                    },
+                    {
+                      "description": "Minimum dictionary count.",
+                      "key": "minDictionaryCount",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Maximum dictionary count.",
+                      "key": "maxDictionaryCount",
+                      "value": "-1"
+                    },
+                    {
+                      "description": "Minimum word length.",
+                      "key": "minLength",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Maximum word length.",
+                      "key": "maxLength",
+                      "value": "-1"
+                    }
+                  ]
+                },
+                "description": "Returns a single random WordObject filtered by part of speech, length, dictionary count, and corpus count."
+              },
+              "response": [
+                {
+                  "id": "d50eda7a-2a56-436c-8e66-b26b74f97636",
+                  "name": "A single random WordObject.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/words.json/randomWord?hasDictionaryDef=true&includePartOfSpeech=<string>&excludePartOfSpeech=<string>&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&api_key=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "words.json",
+                        "randomWord"
+                      ],
+                      "query": [
+                        {
+                          "description": "Only return words with dictionary definitions.",
+                          "key": "hasDictionaryDef",
+                          "value": "true"
+                        },
+                        {
+                          "description": "CSV part-of-speech values to include.",
+                          "key": "includePartOfSpeech",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CSV part-of-speech values to exclude.",
+                          "key": "excludePartOfSpeech",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Minimum corpus frequency for terms.",
+                          "key": "minCorpusCount",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Maximum corpus frequency for terms.",
+                          "key": "maxCorpusCount",
+                          "value": "-1"
+                        },
+                        {
+                          "description": "Minimum dictionary count.",
+                          "key": "minDictionaryCount",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Maximum dictionary count.",
+                          "key": "maxDictionaryCount",
+                          "value": "-1"
+                        },
+                        {
+                          "description": "Minimum word length.",
+                          "key": "minLength",
+                          "value": "5"
+                        },
+                        {
+                          "description": "Maximum word length.",
+                          "key": "maxLength",
+                          "value": "-1"
+                        },
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "api_key",
+                          "value": "<API Key>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<long>\",\n  \"canonicalForm\": \"<string>\",\n  \"originalWord\": \"<string>\",\n  \"suggestions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"vulgar\": \"<string>\",\n  \"word\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T11:07:31.000Z",
+                  "updatedAt": "2026-07-28T11:07:31.000Z",
+                  "uid": "35240-d50eda7a-2a56-436c-8e66-b26b74f97636"
+                }
+              ],
+              "createdAt": "2026-07-28T11:07:31.000Z",
+              "updatedAt": "2026-07-28T11:07:31.000Z",
+              "uid": "35240-b45a6c46-db0e-46a2-a322-0a937e19cbaf"
+            }
+          ],
+          "id": "8a387e92-8f12-422e-87d6-de40f86809f0",
+          "createdAt": "2026-07-28T11:07:31.000Z",
+          "updatedAt": "2026-07-28T11:07:31.000Z",
+          "uid": "35240-8a387e92-8f12-422e-87d6-de40f86809f0"
+        },
+        {
+          "name": "randomWords",
+          "item": [
+            {
+              "name": "Return An Array Of Random Words",
+              "id": "35278612-5dee-444f-9452-600672a59201",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/words.json/randomWords?hasDictionaryDef=true&includePartOfSpeech=<string>&excludePartOfSpeech=<string>&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&sortBy=alpha&sortOrder=desc&limit=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "words.json",
+                    "randomWords"
+                  ],
+                  "query": [
+                    {
+                      "description": "Only return words with dictionary definitions.",
+                      "key": "hasDictionaryDef",
+                      "value": "true"
+                    },
+                    {
+                      "description": "CSV part-of-speech values to include.",
+                      "key": "includePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "CSV part-of-speech values to exclude.",
+                      "key": "excludePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Minimum corpus frequency for terms.",
+                      "key": "minCorpusCount",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Maximum corpus frequency for terms.",
+                      "key": "maxCorpusCount",
+                      "value": "-1"
+                    },
+                    {
+                      "description": "Minimum dictionary count.",
+                      "key": "minDictionaryCount",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Maximum dictionary count.",
+                      "key": "maxDictionaryCount",
+                      "value": "-1"
+                    },
+                    {
+                      "description": "Minimum word length.",
+                      "key": "minLength",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Maximum word length.",
+                      "key": "maxLength",
+                      "value": "-1"
+                    },
+                    {
+                      "description": "Attribute to sort by.",
+                      "key": "sortBy",
+                      "value": "alpha"
+                    },
+                    {
+                      "description": "Sort direction.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "Maximum number of results to return.",
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                },
+                "description": "Returns an array of random WordObjects filtered by part of speech, length, dictionary count, and corpus count."
+              },
+              "response": [
+                {
+                  "id": "80c56005-2e77-44fc-8da2-c88960f79b08",
+                  "name": "Array of random WordObject entries.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/words.json/randomWords?hasDictionaryDef=true&includePartOfSpeech=<string>&excludePartOfSpeech=<string>&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&sortBy=alpha&sortOrder=desc&limit=10&api_key=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "words.json",
+                        "randomWords"
+                      ],
+                      "query": [
+                        {
+                          "description": "Only return words with dictionary definitions.",
+                          "key": "hasDictionaryDef",
+                          "value": "true"
+                        },
+                        {
+                          "description": "CSV part-of-speech values to include.",
+                          "key": "includePartOfSpeech",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "CSV part-of-speech values to exclude.",
+                          "key": "excludePartOfSpeech",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Minimum corpus frequency for terms.",
+                          "key": "minCorpusCount",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Maximum corpus frequency for terms.",
+                          "key": "maxCorpusCount",
+                          "value": "-1"
+                        },
+                        {
+                          "description": "Minimum dictionary count.",
+                          "key": "minDictionaryCount",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Maximum dictionary count.",
+                          "key": "maxDictionaryCount",
+                          "value": "-1"
+                        },
+                        {
+                          "description": "Minimum word length.",
+                          "key": "minLength",
+                          "value": "5"
+                        },
+                        {
+                          "description": "Maximum word length.",
+                          "key": "maxLength",
+                          "value": "-1"
+                        },
+                        {
+                          "description": "Attribute to sort by.",
+                          "key": "sortBy",
+                          "value": "alpha"
+                        },
+                        {
+                          "description": "Sort direction.",
+                          "key": "sortOrder",
+                          "value": "desc"
+                        },
+                        {
+                          "description": "Maximum number of results to return.",
+                          "key": "limit",
+                          "value": "10"
+                        },
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "api_key",
+                          "value": "<API Key>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<long>\",\n    \"canonicalForm\": \"<string>\",\n    \"originalWord\": \"<string>\",\n    \"suggestions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vulgar\": \"<string>\",\n    \"word\": \"<string>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"canonicalForm\": \"<string>\",\n    \"originalWord\": \"<string>\",\n    \"suggestions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"vulgar\": \"<string>\",\n    \"word\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T11:07:31.000Z",
+                  "updatedAt": "2026-07-28T11:07:31.000Z",
+                  "uid": "35240-80c56005-2e77-44fc-8da2-c88960f79b08"
+                }
+              ],
+              "createdAt": "2026-07-28T11:07:31.000Z",
+              "updatedAt": "2026-07-28T11:07:31.000Z",
+              "uid": "35240-35278612-5dee-444f-9452-600672a59201"
+            }
+          ],
+          "id": "e4dd99a6-b792-493e-bf54-625ad2afa604",
+          "createdAt": "2026-07-28T11:07:31.000Z",
+          "updatedAt": "2026-07-28T11:07:31.000Z",
+          "uid": "35240-e4dd99a6-b792-493e-bf54-625ad2afa604"
+        },
+        {
+          "name": "reverseDictionary",
+          "item": [
+            {
+              "name": "Reverse Dictionary Search",
+              "id": "80f3fac2-5d68-4efb-bc8a-e63c1c297616",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/words.json/reverseDictionary?query=<string>&findSenseForWord=<string>&includeSourceDictionaries=webster&excludeSourceDictionaries=webster&includePartOfSpeech=<string>&excludePartOfSpeech=<string>&minCorpusCount=5&maxCorpusCount=-1&minLength=1&maxLength=-1&expandTerms=<string>&includeTags=false&sortBy=alpha&sortOrder=desc&skip=0&limit=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "words.json",
+                    "reverseDictionary"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) Search term.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Restricts words and finds closest sense.",
+                      "key": "findSenseForWord",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Only include these comma-delimited source dictionaries.",
+                      "key": "includeSourceDictionaries",
+                      "value": "webster"
+                    },
+                    {
+                      "description": "Exclude these comma-delimited source dictionaries.",
+                      "key": "excludeSourceDictionaries",
+                      "value": "webster"
+                    },
+                    {
+                      "description": "Only include these comma-delimited parts of speech.",
+                      "key": "includePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Exclude these comma-delimited parts of speech.",
+                      "key": "excludePartOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Minimum corpus frequency for terms.",
+                      "key": "minCorpusCount",
+                      "value": "5"
+                    },
+                    {
+                      "description": "Maximum corpus frequency for terms.",
+                      "key": "maxCorpusCount",
+                      "value": "-1"
+                    },
+                    {
+                      "description": "Minimum word length.",
+                      "key": "minLength",
+                      "value": "1"
+                    },
+                    {
+                      "description": "Maximum word length.",
+                      "key": "maxLength",
+                      "value": "-1"
+                    },
+                    {
+                      "description": "Expand terms.",
+                      "key": "expandTerms",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Return a closed set of XML tags in response.",
+                      "key": "includeTags",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Attribute to sort by.",
+                      "key": "sortBy",
+                      "value": "alpha"
+                    },
+                    {
+                      "description": "Sort direction.",
+                      "key": "sortOrder",
+                      "value": "desc"
+                    },
+                    {
+                      "description": "Results to skip.",
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Maximum number of results to return.",
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ]
+                },
+                "description": "Returns the words that best match a natural-language query string."
+              },
+              "response": [
+                {
+                  "id": "3e000d93-c4db-41be-8079-01b1484cfd06",
+                  "name": "DefinitionSearchResults payload.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/words.json/reverseDictionary?query=<string>&findSenseForWord=<string>&includeSourceDictionaries=webster&excludeSourceDictionaries=webster&includePartOfSpeech=<string>&excludePartOfSpeech=<string>&minCorpusCount=5&maxCorpusCount=-1&minLength=1&maxLength=-1&expandTerms=<string>&includeTags=false&sortBy=alpha&sortOrder=desc&skip=0&limit=10&api_key=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "words.json",
+                        "reverseDictionary"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) Search term.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Restricts words and finds closest sense.",
+                          "key": "findSenseForWord",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Only include these comma-delimited source dictionaries.",
+                          "key": "includeSourceDictionaries",
+                          "value": "webster"
+                        },
+                        {
+                          "description": "Exclude these comma-delimited source dictionaries.",
+                          "key": "excludeSourceDictionaries",
+                          "value": "webster"
+                        },
+                        {
+                          "description": "Only include these comma-delimited parts of speech.",
+                          "key": "includePartOfSpeech",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Exclude these comma-delimited parts of speech.",
+                          "key": "excludePartOfSpeech",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Minimum corpus frequency for terms.",
+                          "key": "minCorpusCount",
+                          "value": "5"
+                        },
+                        {
+                          "description": "Maximum corpus frequency for terms.",
+                          "key": "maxCorpusCount",
+                          "value": "-1"
+                        },
+                        {
+                          "description": "Minimum word length.",
+                          "key": "minLength",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Maximum word length.",
+                          "key": "maxLength",
+                          "value": "-1"
+                        },
+                        {
+                          "description": "Expand terms.",
+                          "key": "expandTerms",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Return a closed set of XML tags in response.",
+                          "key": "includeTags",
+                          "value": "false"
+                        },
+                        {
+                          "description": "Attribute to sort by.",
+                          "key": "sortBy",
+                          "value": "alpha"
+                        },
+                        {
+                          "description": "Sort direction.",
+                          "key": "sortOrder",
+                          "value": "desc"
+                        },
+                        {
+                          "description": "Results to skip.",
+                          "key": "skip",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Maximum number of results to return.",
+                          "key": "limit",
+                          "value": "10"
+                        },
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "api_key",
+                          "value": "<API Key>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"results\": [\n    {\n      \"note\": \"<string>\",\n      \"partOfSpeech\": \"<string>\",\n      \"source\": \"<string>\",\n      \"text\": \"<string>\"\n    },\n    {\n      \"note\": \"<string>\",\n      \"partOfSpeech\": \"<string>\",\n      \"source\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  ],\n  \"totalResults\": \"<integer>\"\n}",
+                  "createdAt": "2026-07-28T11:07:31.000Z",
+                  "updatedAt": "2026-07-28T11:07:31.000Z",
+                  "uid": "35240-3e000d93-c4db-41be-8079-01b1484cfd06"
+                }
+              ],
+              "createdAt": "2026-07-28T11:07:31.000Z",
+              "updatedAt": "2026-07-28T11:07:31.000Z",
+              "uid": "35240-80f3fac2-5d68-4efb-bc8a-e63c1c297616"
+            }
+          ],
+          "id": "480de394-8c73-4754-8933-4791e57096d4",
+          "createdAt": "2026-07-28T11:07:31.000Z",
+          "updatedAt": "2026-07-28T11:07:31.000Z",
+          "uid": "35240-480de394-8c73-4754-8933-4791e57096d4"
+        },
+        {
+          "name": "search",
+          "item": [
+            {
+              "name": "{query}",
+              "item": [
+                {
+                  "name": "Search Words",
+                  "id": "24b018bc-bc7b-436d-b08d-851009e24a65",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/words.json/search/:query?allowRegex=false&caseSensitive=true&includePartOfSpeech=<string>&excludePartOfSpeech=<string>&minCorpusCount=5&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=1&maxLength=-1&skip=0&limit=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "words.json",
+                        "search",
+                        ":query"
+                      ],
+                      "query": [
+                        {
+                          "description": "Search term is a regular expression.",
+                          "key": "allowRegex",
+                          "value": "false"
+                        },
+                        {
+                          "description": "Search case sensitive.",
+                          "key": "caseSensitive",
+                          "value": "true"
+                        },
+                        {
+                          "description": "Only include these comma-delimited parts of speech.",
+                          "key": "includePartOfSpeech",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Exclude these comma-delimited parts of speech.",
+                          "key": "excludePartOfSpeech",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Minimum corpus frequency for terms.",
+                          "key": "minCorpusCount",
+                          "value": "5"
+                        },
+                        {
+                          "description": "Maximum corpus frequency for terms.",
+                          "key": "maxCorpusCount",
+                          "value": "-1"
+                        },
+                        {
+                          "description": "Minimum number of dictionary entries for words returned.",
+                          "key": "minDictionaryCount",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Maximum dictionary definition count.",
+                          "key": "maxDictionaryCount",
+                          "value": "-1"
+                        },
+                        {
+                          "description": "Minimum word length.",
+                          "key": "minLength",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Maximum word length.",
+                          "key": "maxLength",
+                          "value": "-1"
+                        },
+                        {
+                          "description": "Results to skip.",
+                          "key": "skip",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Maximum number of results to return.",
+                          "key": "limit",
+                          "value": "10"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "a5ce497c-0b11-4215-a56d-fed2a39a8361",
+                          "key": "query",
+                          "value": "<string>",
+                          "description": "(Required) Search query."
+                        }
+                      ]
+                    },
+                    "description": "Searches for words matching the supplied query (literal or regular expression)."
+                  },
+                  "response": [
+                    {
+                      "id": "4d518b35-ee67-4e94-9477-2e4b6798aa03",
+                      "name": "WordSearchResults payload.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/words.json/search/:query?allowRegex=false&caseSensitive=true&includePartOfSpeech=<string>&excludePartOfSpeech=<string>&minCorpusCount=5&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=1&maxLength=-1&skip=0&limit=10&api_key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "words.json",
+                            "search",
+                            ":query"
+                          ],
+                          "query": [
+                            {
+                              "description": "Search term is a regular expression.",
+                              "key": "allowRegex",
+                              "value": "false"
+                            },
+                            {
+                              "description": "Search case sensitive.",
+                              "key": "caseSensitive",
+                              "value": "true"
+                            },
+                            {
+                              "description": "Only include these comma-delimited parts of speech.",
+                              "key": "includePartOfSpeech",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Exclude these comma-delimited parts of speech.",
+                              "key": "excludePartOfSpeech",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum corpus frequency for terms.",
+                              "key": "minCorpusCount",
+                              "value": "5"
+                            },
+                            {
+                              "description": "Maximum corpus frequency for terms.",
+                              "key": "maxCorpusCount",
+                              "value": "-1"
+                            },
+                            {
+                              "description": "Minimum number of dictionary entries for words returned.",
+                              "key": "minDictionaryCount",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Maximum dictionary definition count.",
+                              "key": "maxDictionaryCount",
+                              "value": "-1"
+                            },
+                            {
+                              "description": "Minimum word length.",
+                              "key": "minLength",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Maximum word length.",
+                              "key": "maxLength",
+                              "value": "-1"
+                            },
+                            {
+                              "description": "Results to skip.",
+                              "key": "skip",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Maximum number of results to return.",
+                              "key": "limit",
+                              "value": "10"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "api_key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "query"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"searchResults\": [\n    {\n      \"count\": \"<long>\",\n      \"lexicality\": \"<double>\",\n      \"word\": \"<string>\"\n    },\n    {\n      \"count\": \"<long>\",\n      \"lexicality\": \"<double>\",\n      \"word\": \"<string>\"\n    }\n  ],\n  \"totalResults\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T11:07:31.000Z",
+                      "updatedAt": "2026-07-28T11:07:31.000Z",
+                      "uid": "35240-4d518b35-ee67-4e94-9477-2e4b6798aa03"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:07:31.000Z",
+                  "updatedAt": "2026-07-28T11:07:31.000Z",
+                  "uid": "35240-24b018bc-bc7b-436d-b08d-851009e24a65"
+                }
+              ],
+              "id": "e52fcfac-dd82-48f5-889d-2e801ad9f599",
+              "createdAt": "2026-07-28T11:07:31.000Z",
+              "updatedAt": "2026-07-28T11:07:31.000Z",
+              "uid": "35240-e52fcfac-dd82-48f5-889d-2e801ad9f599"
+            }
+          ],
+          "id": "07dce3ff-bf96-4365-80d5-d5a0a8b69b09",
+          "createdAt": "2026-07-28T11:07:31.000Z",
+          "updatedAt": "2026-07-28T11:07:31.000Z",
+          "uid": "35240-07dce3ff-bf96-4365-80d5-d5a0a8b69b09"
+        },
+        {
+          "name": "wordOfTheDay",
+          "item": [
+            {
+              "name": "Return The Word Of The Day",
+              "id": "beba6fb5-743a-4a6d-bdc9-ab4e7927d438",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/words.json/wordOfTheDay?date=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "words.json",
+                    "wordOfTheDay"
+                  ],
+                  "query": [
+                    {
+                      "description": "Fetches by date in yyyy-MM-dd.",
+                      "key": "date",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "Returns the Word of the Day, optionally for a specific date."
+              },
+              "response": [
+                {
+                  "id": "4f75dc0b-cc22-493c-b9cd-a76f3680e793",
+                  "name": "A single WordOfTheDay payload.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/words.json/wordOfTheDay?date=<string>&api_key=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "words.json",
+                        "wordOfTheDay"
+                      ],
+                      "query": [
+                        {
+                          "description": "Fetches by date in yyyy-MM-dd.",
+                          "key": "date",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "api_key",
+                          "value": "<API Key>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<long>\",\n  \"category\": \"<string>\",\n  \"contentProvider\": {\n    \"id\": \"<integer>\",\n    \"name\": \"<string>\"\n  },\n  \"createdAt\": \"<dateTime>\",\n  \"createdBy\": \"<string>\",\n  \"definitions\": {\n    \"type\": \"array\",\n    \"items\": {\n      \"type\": \"object\",\n      \"properties\": {\n        \"note\": {\n          \"type\": \"string\",\n          \"default\": \"<string>\"\n        },\n        \"partOfSpeech\": {\n          \"type\": \"string\",\n          \"default\": \"<string>\"\n        },\n        \"source\": {\n          \"type\": \"string\",\n          \"default\": \"<string>\"\n        },\n        \"text\": {\n          \"type\": \"string\",\n          \"default\": \"<string>\"\n        }\n      }\n    }\n  },\n  \"examples\": [\n    {\n      \"id\": \"<long>\",\n      \"text\": \"<string>\",\n      \"title\": \"<string>\",\n      \"url\": \"<uri>\"\n    },\n    {\n      \"id\": \"<long>\",\n      \"text\": \"<string>\",\n      \"title\": \"<string>\",\n      \"url\": \"<uri>\"\n    }\n  ],\n  \"htmlExtra\": \"<string>\",\n  \"note\": \"<string>\",\n  \"parentId\": \"<string>\",\n  \"publishDate\": \"<date>\",\n  \"word\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T11:07:31.000Z",
+                  "updatedAt": "2026-07-28T11:07:31.000Z",
+                  "uid": "35240-4f75dc0b-cc22-493c-b9cd-a76f3680e793"
+                }
+              ],
+              "createdAt": "2026-07-28T11:07:31.000Z",
+              "updatedAt": "2026-07-28T11:07:31.000Z",
+              "uid": "35240-beba6fb5-743a-4a6d-bdc9-ab4e7927d438"
+            }
+          ],
+          "id": "f195a181-f511-4a08-857d-feb25b7c4f7e",
+          "createdAt": "2026-07-28T11:07:31.000Z",
+          "updatedAt": "2026-07-28T11:07:31.000Z",
+          "uid": "35240-f195a181-f511-4a08-857d-feb25b7c4f7e"
+        }
+      ],
+      "id": "1ba994db-42ad-435d-9b04-b3c04ef8b15c",
+      "createdAt": "2026-07-28T11:07:31.000Z",
+      "updatedAt": "2026-07-28T11:07:31.000Z",
+      "uid": "35240-1ba994db-42ad-435d-9b04-b3c04ef8b15c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.wordnik.com/v4"
+    }
+  ]
+}

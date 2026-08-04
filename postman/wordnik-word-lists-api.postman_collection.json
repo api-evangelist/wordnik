@@ -1,0 +1,162 @@
+{
+  "info": {
+    "_postman_id": "19a29fa6-6c80-4646-8df0-3f2e3e4fbd6c",
+    "name": "Wordnik Account Word Lists API",
+    "description": "Wordnik is the world's biggest online English dictionary. The Wordnik API exposes\nword definitions (from five dictionaries), etymologies, real example sentences from\nmillions of sources, audio pronunciations, related-word relationships, frequency data,\nhyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,\nword-of-the-day, and user word lists.\n\nContact Support:\n Name: Wordnik API Team\n Email: apiteam@wordnik.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:07:26.000Z",
+    "updatedAt": "2026-07-28T11:07:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-19a29fa6-6c80-4646-8df0-3f2e3e4fbd6c"
+  },
+  "item": [
+    {
+      "name": "wordLists.json",
+      "item": [
+        {
+          "name": "Create A New Word List",
+          "id": "5ff47662-cb75-4452-aa78-afb23ca2989b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) A valid user auth token.",
+                "key": "auth_token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"PUBLIC\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/wordLists.json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "wordLists.json"
+              ]
+            },
+            "description": "Creates a new word list owned by the authenticated user. Endpoint surface verified from the Wordnik official client SDK (wordnik-clients/java WordListsApi)."
+          },
+          "response": [
+            {
+              "id": "ac9c8b86-ddf6-40f9-bcae-195e24f17a41",
+              "name": "The created WordList.",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"PUBLIC\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/wordLists.json?api_key=<API Key>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wordLists.json"
+                  ],
+                  "query": [
+                    {
+                      "description": "Added as a part of security scheme: apikey",
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"PUBLIC\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T11:07:26.000Z",
+              "updatedAt": "2026-07-28T11:07:26.000Z",
+              "uid": "35240-ac9c8b86-ddf6-40f9-bcae-195e24f17a41"
+            }
+          ],
+          "createdAt": "2026-07-28T11:07:26.000Z",
+          "updatedAt": "2026-07-28T11:07:26.000Z",
+          "uid": "35240-5ff47662-cb75-4452-aa78-afb23ca2989b"
+        }
+      ],
+      "id": "ad189ea6-0f81-4d2a-adea-0bd8cfa35655",
+      "createdAt": "2026-07-28T11:07:26.000Z",
+      "updatedAt": "2026-07-28T11:07:26.000Z",
+      "uid": "35240-ad189ea6-0f81-4d2a-adea-0bd8cfa35655"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.wordnik.com/v4"
+    }
+  ]
+}

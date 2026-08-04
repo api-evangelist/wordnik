@@ -1,0 +1,756 @@
+{
+  "info": {
+    "_postman_id": "da53211c-e00b-4104-8f10-79dd8c0f77da",
+    "name": "Wordnik Account Word List API",
+    "description": "Wordnik is the world's biggest online English dictionary. The Wordnik API exposes\nword definitions (from five dictionaries), etymologies, real example sentences from\nmillions of sources, audio pronunciations, related-word relationships, frequency data,\nhyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,\nword-of-the-day, and user word lists.\n\nContact Support:\n Name: Wordnik API Team\n Email: apiteam@wordnik.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:07:23.000Z",
+    "updatedAt": "2026-07-28T11:07:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-da53211c-e00b-4104-8f10-79dd8c0f77da"
+  },
+  "item": [
+    {
+      "name": "wordList.json",
+      "item": [
+        {
+          "name": "{permalink}",
+          "item": [
+            {
+              "name": "words",
+              "item": [
+                {
+                  "name": "Return Words In A Word List",
+                  "id": "9d1a2702-bf7f-4c45-b47a-94d59f90e235",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) A valid user auth token.",
+                        "key": "auth_token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wordList.json/:permalink/words?sortBy=alpha&sortOrder=asc&skip=0&limit=100",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wordList.json",
+                        ":permalink",
+                        "words"
+                      ],
+                      "query": [
+                        {
+                          "description": "Attribute to sort by.",
+                          "key": "sortBy",
+                          "value": "alpha"
+                        },
+                        {
+                          "description": "Sort direction.",
+                          "key": "sortOrder",
+                          "value": "asc"
+                        },
+                        {
+                          "description": "Results to skip.",
+                          "key": "skip",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Maximum number of results to return.",
+                          "key": "limit",
+                          "value": "100"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "7e2adeea-4ac0-447d-9444-6c1b13bb83d6",
+                          "key": "permalink",
+                          "value": "<string>",
+                          "description": "(Required) Permalink of the word list."
+                        }
+                      ]
+                    },
+                    "description": "Returns the words contained in the WordList identified by the supplied permalink."
+                  },
+                  "response": [
+                    {
+                      "id": "f9dee1fd-8c12-4e0a-9cd8-e5e11ba90ded",
+                      "name": "Array of WordListWord entries.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "(Required) A valid user auth token.",
+                            "key": "auth_token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/wordList.json/:permalink/words?sortBy=alpha&sortOrder=asc&skip=0&limit=100&api_key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wordList.json",
+                            ":permalink",
+                            "words"
+                          ],
+                          "query": [
+                            {
+                              "description": "Attribute to sort by.",
+                              "key": "sortBy",
+                              "value": "alpha"
+                            },
+                            {
+                              "description": "Sort direction.",
+                              "key": "sortOrder",
+                              "value": "asc"
+                            },
+                            {
+                              "description": "Results to skip.",
+                              "key": "skip",
+                              "value": "0"
+                            },
+                            {
+                              "description": "Maximum number of results to return.",
+                              "key": "limit",
+                              "value": "100"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "api_key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "permalink"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<long>\",\n    \"createdAt\": \"<dateTime>\",\n    \"numberCommentsOnWord\": \"<long>\",\n    \"numberLists\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"username\": \"<string>\",\n    \"word\": \"<string>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"createdAt\": \"<dateTime>\",\n    \"numberCommentsOnWord\": \"<long>\",\n    \"numberLists\": \"<long>\",\n    \"userId\": \"<long>\",\n    \"username\": \"<string>\",\n    \"word\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T11:07:24.000Z",
+                      "updatedAt": "2026-07-28T11:07:24.000Z",
+                      "uid": "35240-f9dee1fd-8c12-4e0a-9cd8-e5e11ba90ded"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:07:24.000Z",
+                  "updatedAt": "2026-07-28T11:07:24.000Z",
+                  "uid": "35240-9d1a2702-bf7f-4c45-b47a-94d59f90e235"
+                },
+                {
+                  "name": "Add Words To A Word List",
+                  "id": "5d52061e-4d3b-4703-a859-f6f480bd9626",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) A valid user auth token.",
+                        "key": "auth_token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"word\": \"<string>\"\n  },\n  {\n    \"word\": \"<string>\"\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wordList.json/:permalink/words",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wordList.json",
+                        ":permalink",
+                        "words"
+                      ],
+                      "variable": [
+                        {
+                          "id": "70013673-c848-4555-af07-c44aa8ad8e45",
+                          "key": "permalink",
+                          "value": "<string>",
+                          "description": "(Required) Permalink of the word list."
+                        }
+                      ]
+                    },
+                    "description": "Adds one or more words to the WordList identified by the supplied permalink."
+                  },
+                  "response": [
+                    {
+                      "id": "950b24b4-8259-4351-b10e-5e6804e6d601",
+                      "name": "Words added to the WordList.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) A valid user auth token.",
+                            "key": "auth_token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[\n  {\n    \"word\": \"<string>\"\n  },\n  {\n    \"word\": \"<string>\"\n  }\n]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/wordList.json/:permalink/words?api_key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wordList.json",
+                            ":permalink",
+                            "words"
+                          ],
+                          "query": [
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "api_key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "permalink"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T11:07:24.000Z",
+                      "updatedAt": "2026-07-28T11:07:24.000Z",
+                      "uid": "35240-950b24b4-8259-4351-b10e-5e6804e6d601"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:07:24.000Z",
+                  "updatedAt": "2026-07-28T11:07:24.000Z",
+                  "uid": "35240-5d52061e-4d3b-4703-a859-f6f480bd9626"
+                }
+              ],
+              "id": "ed58d65f-5980-422d-8ba4-843f4702ddcc",
+              "createdAt": "2026-07-28T11:07:24.000Z",
+              "updatedAt": "2026-07-28T11:07:24.000Z",
+              "uid": "35240-ed58d65f-5980-422d-8ba4-843f4702ddcc"
+            },
+            {
+              "name": "deleteWords",
+              "item": [
+                {
+                  "name": "Delete Words From A Word List",
+                  "id": "44709d8e-e65e-41b5-95fd-874771a72690",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "(Required) A valid user auth token.",
+                        "key": "auth_token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "[\n  {\n    \"word\": \"<string>\"\n  },\n  {\n    \"word\": \"<string>\"\n  }\n]",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wordList.json/:permalink/deleteWords",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wordList.json",
+                        ":permalink",
+                        "deleteWords"
+                      ],
+                      "variable": [
+                        {
+                          "id": "be898d73-42ff-4412-86ab-783e0e6d14ff",
+                          "key": "permalink",
+                          "value": "<string>",
+                          "description": "(Required) Permalink of the word list."
+                        }
+                      ]
+                    },
+                    "description": "Removes one or more words from the WordList identified by the supplied permalink."
+                  },
+                  "response": [
+                    {
+                      "id": "6433f83f-052d-43d0-a33b-a7830a7d92dc",
+                      "name": "Words removed from the WordList.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "(Required) A valid user auth token.",
+                            "key": "auth_token",
+                            "value": "<string>"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "[\n  {\n    \"word\": \"<string>\"\n  },\n  {\n    \"word\": \"<string>\"\n  }\n]",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/wordList.json/:permalink/deleteWords?api_key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "wordList.json",
+                            ":permalink",
+                            "deleteWords"
+                          ],
+                          "query": [
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "api_key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "permalink"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "No Content",
+                      "code": 204,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T11:07:24.000Z",
+                      "updatedAt": "2026-07-28T11:07:24.000Z",
+                      "uid": "35240-6433f83f-052d-43d0-a33b-a7830a7d92dc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:07:24.000Z",
+                  "updatedAt": "2026-07-28T11:07:24.000Z",
+                  "uid": "35240-44709d8e-e65e-41b5-95fd-874771a72690"
+                }
+              ],
+              "id": "3d11bf7b-9191-4b3d-882c-871283aae373",
+              "createdAt": "2026-07-28T11:07:24.000Z",
+              "updatedAt": "2026-07-28T11:07:24.000Z",
+              "uid": "35240-3d11bf7b-9191-4b3d-882c-871283aae373"
+            },
+            {
+              "name": "Return A Word List By Permalink",
+              "id": "0f9016a4-84af-465a-8353-5744f6e1bbc0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/wordList.json/:permalink",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wordList.json",
+                    ":permalink"
+                  ],
+                  "variable": [
+                    {
+                      "id": "0dfd5626-aac6-4c82-9fe9-85d4ff5250e3",
+                      "key": "permalink",
+                      "value": "<string>",
+                      "description": "(Required) Permalink of the word list."
+                    }
+                  ]
+                },
+                "description": "Returns the WordList identified by the supplied permalink."
+              },
+              "response": [
+                {
+                  "id": "17072209-b329-4337-9e3f-c0f75a9e90b5",
+                  "name": "The WordList payload.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) A valid user auth token.",
+                        "key": "auth_token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wordList.json/:permalink?api_key=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wordList.json",
+                        ":permalink"
+                      ],
+                      "query": [
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "api_key",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "permalink"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"PUBLIC\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T11:07:24.000Z",
+                  "updatedAt": "2026-07-28T11:07:24.000Z",
+                  "uid": "35240-17072209-b329-4337-9e3f-c0f75a9e90b5"
+                }
+              ],
+              "createdAt": "2026-07-28T11:07:24.000Z",
+              "updatedAt": "2026-07-28T11:07:24.000Z",
+              "uid": "35240-0f9016a4-84af-465a-8353-5744f6e1bbc0"
+            },
+            {
+              "name": "Update A Word List",
+              "id": "deb3d1a4-1888-444b-96de-b1e81562a4d5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"PUBLIC\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/wordList.json/:permalink",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wordList.json",
+                    ":permalink"
+                  ],
+                  "variable": [
+                    {
+                      "id": "6b3e7430-5921-409b-8e5d-42af451c400e",
+                      "key": "permalink",
+                      "value": "<string>",
+                      "description": "(Required) Permalink of the word list."
+                    }
+                  ]
+                },
+                "description": "Updates the WordList identified by the supplied permalink."
+              },
+              "response": [
+                {
+                  "id": "217062fb-bfea-4c03-a74d-8eb94d8d1e06",
+                  "name": "WordList updated.",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "description": "(Required) A valid user auth token.",
+                        "key": "auth_token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"PUBLIC\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/wordList.json/:permalink?api_key=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wordList.json",
+                        ":permalink"
+                      ],
+                      "query": [
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "api_key",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "permalink"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T11:07:24.000Z",
+                  "updatedAt": "2026-07-28T11:07:24.000Z",
+                  "uid": "35240-217062fb-bfea-4c03-a74d-8eb94d8d1e06"
+                }
+              ],
+              "createdAt": "2026-07-28T11:07:24.000Z",
+              "updatedAt": "2026-07-28T11:07:24.000Z",
+              "uid": "35240-deb3d1a4-1888-444b-96de-b1e81562a4d5"
+            },
+            {
+              "name": "Delete A Word List",
+              "id": "fd5f331a-28c9-4463-b2d5-46eb558e1c31",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/wordList.json/:permalink",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "wordList.json",
+                    ":permalink"
+                  ],
+                  "variable": [
+                    {
+                      "id": "1d0083d0-5dbc-4362-bd52-8f0d01fc5b28",
+                      "key": "permalink",
+                      "value": "<string>",
+                      "description": "(Required) Permalink of the word list."
+                    }
+                  ]
+                },
+                "description": "Deletes the WordList identified by the supplied permalink."
+              },
+              "response": [
+                {
+                  "id": "f941ea77-3262-4f94-b5db-03b580fbbe59",
+                  "name": "WordList deleted.",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "description": "(Required) A valid user auth token.",
+                        "key": "auth_token",
+                        "value": "<string>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/wordList.json/:permalink?api_key=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "wordList.json",
+                        ":permalink"
+                      ],
+                      "query": [
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "api_key",
+                          "value": "<API Key>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "permalink"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "No Content",
+                  "code": 204,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T11:07:24.000Z",
+                  "updatedAt": "2026-07-28T11:07:24.000Z",
+                  "uid": "35240-f941ea77-3262-4f94-b5db-03b580fbbe59"
+                }
+              ],
+              "createdAt": "2026-07-28T11:07:24.000Z",
+              "updatedAt": "2026-07-28T11:07:24.000Z",
+              "uid": "35240-fd5f331a-28c9-4463-b2d5-46eb558e1c31"
+            }
+          ],
+          "id": "be905bfc-0ab7-4c54-9642-dcf6a62bebfe",
+          "createdAt": "2026-07-28T11:07:24.000Z",
+          "updatedAt": "2026-07-28T11:07:24.000Z",
+          "uid": "35240-be905bfc-0ab7-4c54-9642-dcf6a62bebfe"
+        }
+      ],
+      "id": "ec9b8d5e-82e4-42c3-bfff-594f526b5b27",
+      "createdAt": "2026-07-28T11:07:24.000Z",
+      "updatedAt": "2026-07-28T11:07:24.000Z",
+      "uid": "35240-ec9b8d5e-82e4-42c3-bfff-594f526b5b27"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.wordnik.com/v4"
+    }
+  ]
+}

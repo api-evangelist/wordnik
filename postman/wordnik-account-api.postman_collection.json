@@ -1,0 +1,589 @@
+{
+  "info": {
+    "_postman_id": "7ba04f41-01d4-49fb-8225-b9b8eecc23c9",
+    "name": "Wordnik Account API",
+    "description": "Wordnik is the world's biggest online English dictionary. The Wordnik API exposes\nword definitions (from five dictionaries), etymologies, real example sentences from\nmillions of sources, audio pronunciations, related-word relationships, frequency data,\nhyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,\nword-of-the-day, and user word lists.\n\nContact Support:\n Name: Wordnik API Team\n Email: apiteam@wordnik.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T11:07:13.000Z",
+    "updatedAt": "2026-07-28T11:07:13.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7ba04f41-01d4-49fb-8225-b9b8eecc23c9"
+  },
+  "item": [
+    {
+      "name": "account.json",
+      "item": [
+        {
+          "name": "apiTokenStatus",
+          "item": [
+            {
+              "name": "Return API Token Status",
+              "id": "456c0017-ef06-4469-90a1-2acfa11bf1a5",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Wordnik API key (when not using the query parameter).",
+                    "key": "api_key",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account.json/apiTokenStatus",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account.json",
+                    "apiTokenStatus"
+                  ]
+                },
+                "description": "Returns the current quota, total requests, and remaining-call status for the supplied API key. Endpoint surface verified from the Wordnik official client SDK (wordnik-clients/java AccountApi)."
+              },
+              "response": [
+                {
+                  "id": "9d08aa8d-e5b4-4e67-8fda-c30668e16b9a",
+                  "name": "ApiTokenStatus payload describing the supplied key.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Wordnik API key (when not using the query parameter).",
+                        "key": "api_key",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account.json/apiTokenStatus?api_key=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account.json",
+                        "apiTokenStatus"
+                      ],
+                      "query": [
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "api_key",
+                          "value": "<API Key>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"expiresInMillis\": \"<long>\",\n  \"remainingCalls\": \"<long>\",\n  \"resetsInMillis\": \"<long>\",\n  \"token\": \"<string>\",\n  \"totalRequests\": \"<long>\",\n  \"valid\": \"<boolean>\"\n}",
+                  "createdAt": "2026-07-28T11:07:14.000Z",
+                  "updatedAt": "2026-07-28T11:07:14.000Z",
+                  "uid": "35240-9d08aa8d-e5b4-4e67-8fda-c30668e16b9a"
+                }
+              ],
+              "createdAt": "2026-07-28T11:07:14.000Z",
+              "updatedAt": "2026-07-28T11:07:14.000Z",
+              "uid": "35240-456c0017-ef06-4469-90a1-2acfa11bf1a5"
+            }
+          ],
+          "id": "a828a2ce-288a-4b60-9e83-dad224974ada",
+          "createdAt": "2026-07-28T11:07:14.000Z",
+          "updatedAt": "2026-07-28T11:07:14.000Z",
+          "uid": "35240-a828a2ce-288a-4b60-9e83-dad224974ada"
+        },
+        {
+          "name": "authenticate",
+          "item": [
+            {
+              "name": "{username}",
+              "item": [
+                {
+                  "name": "Authenticate A User",
+                  "id": "e4c416fd-602f-4c48-aa5c-5431c62873f8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account.json/authenticate/:username?password=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account.json",
+                        "authenticate",
+                        ":username"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The user's password.",
+                          "key": "password",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "9fc1cf9b-a65f-4c23-943a-2747f160e9eb",
+                          "key": "username",
+                          "value": "<string>",
+                          "description": "(Required) A confirmed Wordnik username."
+                        }
+                      ]
+                    },
+                    "description": "Authenticates a Wordnik user using the supplied password and returns an auth token for subsequent user-scoped operations."
+                  },
+                  "response": [
+                    {
+                      "id": "59935fbb-5e5b-4bf5-b13c-071326d972bf",
+                      "name": "AuthenticationToken payload.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/account.json/authenticate/:username?password=<string>&api_key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account.json",
+                            "authenticate",
+                            ":username"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The user's password.",
+                              "key": "password",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "api_key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"token\": \"<string>\",\n  \"userId\": \"<long>\",\n  \"userSignature\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T11:07:14.000Z",
+                      "updatedAt": "2026-07-28T11:07:14.000Z",
+                      "uid": "35240-59935fbb-5e5b-4bf5-b13c-071326d972bf"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:07:14.000Z",
+                  "updatedAt": "2026-07-28T11:07:14.000Z",
+                  "uid": "35240-e4c416fd-602f-4c48-aa5c-5431c62873f8"
+                },
+                {
+                  "name": "Authenticate A User (POST Body)",
+                  "id": "c722d634-9e59-41c7-82ab-cf64dbf3ba65",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "text/plain"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "<string>"
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/account.json/authenticate/:username",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account.json",
+                        "authenticate",
+                        ":username"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a1828721-d115-4ba1-b1c2-bdc6ea13055d",
+                          "key": "username",
+                          "value": "<string>",
+                          "description": "(Required) A confirmed Wordnik username."
+                        }
+                      ]
+                    },
+                    "description": "Same as the GET form, but the password is sent in the request body to avoid logging the credential in URL query strings."
+                  },
+                  "response": [
+                    {
+                      "id": "b3874d75-7586-49b5-b1bd-55412c6ac076",
+                      "name": "AuthenticationToken payload.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "text/plain"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "<string>"
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/account.json/authenticate/:username?api_key=<API Key>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "account.json",
+                            "authenticate",
+                            ":username"
+                          ],
+                          "query": [
+                            {
+                              "description": "Added as a part of security scheme: apikey",
+                              "key": "api_key",
+                              "value": "<API Key>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "username"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"token\": \"<string>\",\n  \"userId\": \"<long>\",\n  \"userSignature\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T11:07:14.000Z",
+                      "updatedAt": "2026-07-28T11:07:14.000Z",
+                      "uid": "35240-b3874d75-7586-49b5-b1bd-55412c6ac076"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T11:07:14.000Z",
+                  "updatedAt": "2026-07-28T11:07:14.000Z",
+                  "uid": "35240-c722d634-9e59-41c7-82ab-cf64dbf3ba65"
+                }
+              ],
+              "id": "1b0ccb98-ca9e-4b55-95d0-bbca53596d1e",
+              "createdAt": "2026-07-28T11:07:14.000Z",
+              "updatedAt": "2026-07-28T11:07:14.000Z",
+              "uid": "35240-1b0ccb98-ca9e-4b55-95d0-bbca53596d1e"
+            }
+          ],
+          "id": "2f43073a-31c8-4c66-83ba-8e266303ef23",
+          "createdAt": "2026-07-28T11:07:14.000Z",
+          "updatedAt": "2026-07-28T11:07:14.000Z",
+          "uid": "35240-2f43073a-31c8-4c66-83ba-8e266303ef23"
+        },
+        {
+          "name": "user",
+          "item": [
+            {
+              "name": "Return The Currently Authenticated User",
+              "id": "620be718-75bc-4a0d-bca7-78953b0d5964",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) A valid user auth token obtained via /account.json/authenticate.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account.json/user",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account.json",
+                    "user"
+                  ]
+                },
+                "description": "Returns the User profile associated with the supplied auth token."
+              },
+              "response": [
+                {
+                  "id": "15fe1d31-8c62-4069-b22d-21e2e0f0049c",
+                  "name": "User profile payload.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) A valid user auth token obtained via /account.json/authenticate.",
+                        "key": "auth_token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account.json/user?api_key=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account.json",
+                        "user"
+                      ],
+                      "query": [
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "api_key",
+                          "value": "<API Key>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"displayName\": \"<string>\",\n  \"email\": \"<email>\",\n  \"faceBookId\": \"<string>\",\n  \"id\": \"<long>\",\n  \"password\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"userName\": \"<string>\",\n  \"username\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T11:07:14.000Z",
+                  "updatedAt": "2026-07-28T11:07:14.000Z",
+                  "uid": "35240-15fe1d31-8c62-4069-b22d-21e2e0f0049c"
+                }
+              ],
+              "createdAt": "2026-07-28T11:07:14.000Z",
+              "updatedAt": "2026-07-28T11:07:14.000Z",
+              "uid": "35240-620be718-75bc-4a0d-bca7-78953b0d5964"
+            }
+          ],
+          "id": "824386bb-d819-4e57-8a90-b9c5ac018d6c",
+          "createdAt": "2026-07-28T11:07:14.000Z",
+          "updatedAt": "2026-07-28T11:07:14.000Z",
+          "uid": "35240-824386bb-d819-4e57-8a90-b9c5ac018d6c"
+        },
+        {
+          "name": "wordLists",
+          "item": [
+            {
+              "name": "Return The Authenticated User's Word Lists",
+              "id": "691a7ac3-1889-4fcb-9100-1263c1133e1d",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/account.json/wordLists?skip=0&limit=50",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "account.json",
+                    "wordLists"
+                  ],
+                  "query": [
+                    {
+                      "description": "Results to skip.",
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Maximum number of lists to return.",
+                      "key": "limit",
+                      "value": "50"
+                    }
+                  ]
+                },
+                "description": "Returns all word lists owned by the currently authenticated user."
+              },
+              "response": [
+                {
+                  "id": "02de2e6b-768a-4d37-8633-f52d6d69f432",
+                  "name": "Array of WordList objects owned by the user.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "(Required) A valid user auth token.",
+                        "key": "auth_token",
+                        "value": "<string>"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/account.json/wordLists?skip=0&limit=50&api_key=<API Key>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "account.json",
+                        "wordLists"
+                      ],
+                      "query": [
+                        {
+                          "description": "Results to skip.",
+                          "key": "skip",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Maximum number of lists to return.",
+                          "key": "limit",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Added as a part of security scheme: apikey",
+                          "key": "api_key",
+                          "value": "<API Key>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "[\n  {\n    \"id\": \"<long>\",\n    \"createdAt\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"lastActivityAt\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"numberWordsInList\": \"<long>\",\n    \"permalink\": \"<string>\",\n    \"type\": \"PUBLIC\",\n    \"updatedAt\": \"<dateTime>\",\n    \"userId\": \"<long>\",\n    \"username\": \"<string>\"\n  },\n  {\n    \"id\": \"<long>\",\n    \"createdAt\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"lastActivityAt\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"numberWordsInList\": \"<long>\",\n    \"permalink\": \"<string>\",\n    \"type\": \"PRIVATE\",\n    \"updatedAt\": \"<dateTime>\",\n    \"userId\": \"<long>\",\n    \"username\": \"<string>\"\n  }\n]",
+                  "createdAt": "2026-07-28T11:07:14.000Z",
+                  "updatedAt": "2026-07-28T11:07:14.000Z",
+                  "uid": "35240-02de2e6b-768a-4d37-8633-f52d6d69f432"
+                }
+              ],
+              "createdAt": "2026-07-28T11:07:14.000Z",
+              "updatedAt": "2026-07-28T11:07:14.000Z",
+              "uid": "35240-691a7ac3-1889-4fcb-9100-1263c1133e1d"
+            }
+          ],
+          "id": "8a0c1c11-96aa-44da-9863-2fede981a3e6",
+          "createdAt": "2026-07-28T11:07:14.000Z",
+          "updatedAt": "2026-07-28T11:07:14.000Z",
+          "uid": "35240-8a0c1c11-96aa-44da-9863-2fede981a3e6"
+        }
+      ],
+      "id": "db667bb2-5d5e-46dd-b24d-b3a0d8c3aa52",
+      "createdAt": "2026-07-28T11:07:14.000Z",
+      "updatedAt": "2026-07-28T11:07:14.000Z",
+      "uid": "35240-db667bb2-5d5e-46dd-b24d-b3a0d8c3aa52"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "query",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.wordnik.com/v4"
+    }
+  ]
+}
