@@ -1,0 +1,47 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wordnik Account Word Lists API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Word Lists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create A New Word List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wordnik.com/v4/wordLists.json",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new word list owned by the authenticated user. Endpoint surface verified from the Wordnik official client SDK (wordnik-clients/java WordListsApi)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

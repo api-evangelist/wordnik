@@ -1,0 +1,1404 @@
+{
+  "item": [
+    {
+      "id": "6e11f779-533b-4f59-9bec-008576c5f6f0",
+      "name": "Word",
+      "description": {
+        "content": "Operations on a single English word (definitions, etymologies, examples, pronunciations, related words, frequency, hyphenation, phrases, scrabble score, audio).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4b25d4b2-cc7e-4bdd-885a-397fac61e46d",
+          "name": "Fetch Audio Metadata For A Word",
+          "request": {
+            "name": "Fetch Audio Metadata For A Word",
+            "description": {
+              "content": "The metadata includes a time-expiring fileUrl which allows reading the audio file\ndirectly from the API. Currently only audio pronunciations from the American Heritage\nDictionary in mp3 format are supported.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "audio"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word (e.g. 'cats' -> 'cat')."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to get audio for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "94c2742b-2769-4452-8f76-2b6d70dc7ff6",
+              "name": "Array of AudioFile metadata entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "audio"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to get audio for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": 2424,\n    \"attributionText\": \"string\",\n    \"attributionUrl\": \"string\",\n    \"audioType\": \"pronunciation\",\n    \"commentCount\": 9912,\n    \"createdAt\": \"2004-03-15T20:04:54.605Z\",\n    \"createdBy\": \"string\",\n    \"description\": \"string\",\n    \"duration\": 4159.389069514452,\n    \"fileUrl\": \"https://hpGjNZvRJvgdEduKvrR.vktglEgykJL2xjCXYroKV9KDpM5LHLP9uoxQ4d10sD31ESkhL3OHjj8hu+PyoMKL,7MI+PZXcshApG0u\",\n    \"voteAverage\": 1326.8308518456483,\n    \"voteCount\": 1505,\n    \"voteWeightedAverage\": 8742.433589148855,\n    \"word\": \"string\"\n  },\n  {\n    \"id\": 4890,\n    \"attributionText\": \"string\",\n    \"attributionUrl\": \"string\",\n    \"audioType\": \"pronunciation\",\n    \"commentCount\": 9928,\n    \"createdAt\": \"2001-02-03T23:38:05.209Z\",\n    \"createdBy\": \"string\",\n    \"description\": \"string\",\n    \"duration\": 1745.7006134526698,\n    \"fileUrl\": \"http://udynKEUoiZTqxUYEU.irr1VsvETc1Sg9mDAFUb0nZKOayNvYYsK419v8HqM+Xv-j7jnr1dr3Vix4\",\n    \"voteAverage\": 1755.13892021412,\n    \"voteCount\": 7927,\n    \"voteWeightedAverage\": 5054.471314157909,\n    \"word\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "379273a5-6320-42ce-8213-d59416e5a7b5",
+          "name": "Return Definitions For A Word",
+          "request": {
+            "name": "Return Definitions For A Word",
+            "description": {
+              "content": "Returns definitions for the given word from one or more source dictionaries.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "definitions"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "200",
+                  "description": "Maximum number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "partOfSpeech",
+                  "value": "<string>",
+                  "description": "CSV list of part-of-speech types."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeRelated",
+                  "value": "false",
+                  "description": "Return related words with definitions."
+                },
+                {
+                  "disabled": false,
+                  "key": "sourceDictionaries",
+                  "value": "<string>,<string>",
+                  "description": "Source dictionary to return definitions from. If 'all' is received, results are returned from all sources. If multiple values are received (e.g. 'century,wiktionary'), results are returned from the first specified dictionary that has definitions. If left blank, results are returned from the first dictionary that has definitions. By default, dictionaries are searched in this order:- ahd-5, wiktionary, webster, century, wordnet."
+                },
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeTags",
+                  "value": "false",
+                  "description": "Return a closed set of XML tags in response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to return definitions for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "846bc0e1-034b-46ee-b68f-6e2d6bd404d3",
+              "name": "Array of Definition objects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "definitions"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "200"
+                    },
+                    {
+                      "key": "partOfSpeech",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "includeRelated",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sourceDictionaries",
+                      "value": "<string>,<string>"
+                    },
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "includeTags",
+                      "value": "false"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to return definitions for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"attributionText\": \"string\",\n    \"attributionUrl\": \"string\",\n    \"citations\": [\n      {\n        \"cite\": \"string\",\n        \"source\": \"string\"\n      },\n      {\n        \"cite\": \"string\",\n        \"source\": \"string\"\n      }\n    ],\n    \"exampleUses\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"extendedText\": \"string\",\n    \"labels\": [\n      {\n        \"text\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"text\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"notes\": [\n      {\n        \"appliesTo\": [\n          \"string\",\n          \"string\"\n        ],\n        \"noteType\": \"string\",\n        \"pos\": 3402,\n        \"value\": \"string\"\n      },\n      {\n        \"appliesTo\": [\n          \"string\",\n          \"string\"\n        ],\n        \"noteType\": \"string\",\n        \"pos\": 601,\n        \"value\": \"string\"\n      }\n    ],\n    \"partOfSpeech\": \"string\",\n    \"relatedWords\": [\n      {\n        \"gram\": \"string\",\n        \"label1\": \"string\",\n        \"label2\": \"string\",\n        \"label3\": \"string\",\n        \"label4\": \"string\",\n        \"relationshipType\": \"synonym\",\n        \"words\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"gram\": \"string\",\n        \"label1\": \"string\",\n        \"label2\": \"string\",\n        \"label3\": \"string\",\n        \"label4\": \"string\",\n        \"relationshipType\": \"synonym\",\n        \"words\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"score\": 5490.073592034416,\n    \"seqString\": \"string\",\n    \"sequence\": \"string\",\n    \"sourceDictionary\": \"ahd-5\",\n    \"text\": \"string\",\n    \"textProns\": [\n      {\n        \"raw\": \"string\",\n        \"rawType\": \"string\",\n        \"seq\": 3546\n      },\n      {\n        \"raw\": \"string\",\n        \"rawType\": \"string\",\n        \"seq\": 8064\n      }\n    ],\n    \"word\": \"string\"\n  },\n  {\n    \"attributionText\": \"string\",\n    \"attributionUrl\": \"string\",\n    \"citations\": [\n      {\n        \"cite\": \"string\",\n        \"source\": \"string\"\n      },\n      {\n        \"cite\": \"string\",\n        \"source\": \"string\"\n      }\n    ],\n    \"exampleUses\": [\n      {\n        \"text\": \"string\"\n      },\n      {\n        \"text\": \"string\"\n      }\n    ],\n    \"extendedText\": \"string\",\n    \"labels\": [\n      {\n        \"text\": \"string\",\n        \"type\": \"string\"\n      },\n      {\n        \"text\": \"string\",\n        \"type\": \"string\"\n      }\n    ],\n    \"notes\": [\n      {\n        \"appliesTo\": [\n          \"string\",\n          \"string\"\n        ],\n        \"noteType\": \"string\",\n        \"pos\": 5574,\n        \"value\": \"string\"\n      },\n      {\n        \"appliesTo\": [\n          \"string\",\n          \"string\"\n        ],\n        \"noteType\": \"string\",\n        \"pos\": 3664,\n        \"value\": \"string\"\n      }\n    ],\n    \"partOfSpeech\": \"string\",\n    \"relatedWords\": [\n      {\n        \"gram\": \"string\",\n        \"label1\": \"string\",\n        \"label2\": \"string\",\n        \"label3\": \"string\",\n        \"label4\": \"string\",\n        \"relationshipType\": \"synonym\",\n        \"words\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      {\n        \"gram\": \"string\",\n        \"label1\": \"string\",\n        \"label2\": \"string\",\n        \"label3\": \"string\",\n        \"label4\": \"string\",\n        \"relationshipType\": \"synonym\",\n        \"words\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    ],\n    \"score\": 5307.135360773813,\n    \"seqString\": \"string\",\n    \"sequence\": \"string\",\n    \"sourceDictionary\": \"ahd-5\",\n    \"text\": \"string\",\n    \"textProns\": [\n      {\n        \"raw\": \"string\",\n        \"rawType\": \"string\",\n        \"seq\": 5200\n      },\n      {\n        \"raw\": \"string\",\n        \"rawType\": \"string\",\n        \"seq\": 1714\n      }\n    ],\n    \"word\": \"string\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c131667a-8716-4663-9d3d-489d65a905f5",
+          "name": "Fetch Etymology Data For A Word",
+          "request": {
+            "name": "Fetch Etymology Data For A Word",
+            "description": {
+              "content": "Returns the etymology entries for a word, typically as XML-tagged strings.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "etymologies"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to return etymologies for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f71be03-d89e-4a08-a923-e33577c1bc55",
+              "name": "Array of etymology strings.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "etymologies"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to return etymologies for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  \"string\",\n  \"string\"\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5d51a32-50ec-4ac8-a7de-7115ccd94808",
+          "name": "Return Examples For A Word",
+          "request": {
+            "name": "Return Examples For A Word",
+            "description": {
+              "content": "Returns real-world example sentences for a word.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "examples"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "includeDuplicates",
+                  "value": "false",
+                  "description": "Show duplicate examples from different sources."
+                },
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                },
+                {
+                  "disabled": false,
+                  "key": "skip",
+                  "value": "0",
+                  "description": "Results to skip."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "5",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to return examples for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "33df0f53-0920-4dfb-9953-572f6c700ae6",
+              "name": "ExampleSearchResults payload containing examples and facets.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "examples"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "includeDuplicates",
+                      "value": "false"
+                    },
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "skip",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to return examples for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"examples\": [\n    {\n      \"documentId\": 8985,\n      \"exampleId\": 9286,\n      \"id\": 1676,\n      \"provider\": {\n        \"id\": 1488,\n        \"name\": \"string\"\n      },\n      \"rating\": 5025.845318203262,\n      \"score\": {\n        \"baseWordScore\": 306.1980662169839,\n        \"docTermCount\": 2649,\n        \"id\": 9310,\n        \"lemma\": \"string\",\n        \"partOfSpeech\": \"string\",\n        \"position\": 7609,\n        \"score\": 7986.366366517304,\n        \"sentenceId\": 2540,\n        \"stopword\": true,\n        \"word\": \"string\",\n        \"wordType\": \"string\"\n      },\n      \"sentence\": {\n        \"display\": \"string\",\n        \"documentMetadataId\": 3579,\n        \"hasScoredWords\": true,\n        \"id\": 2465,\n        \"rating\": 1988,\n        \"scoredWords\": [\n          {\n            \"baseWordScore\": 6016.717042833701,\n            \"docTermCount\": 8110,\n            \"id\": 1563,\n            \"lemma\": \"string\",\n            \"partOfSpeech\": \"string\",\n            \"position\": 8429,\n            \"score\": 9531.947472847209,\n            \"sentenceId\": 3861,\n            \"stopword\": true,\n            \"word\": \"string\",\n            \"wordType\": \"string\"\n          },\n          {\n            \"baseWordScore\": 9778.738873691958,\n            \"docTermCount\": 6704,\n            \"id\": 3408,\n            \"lemma\": \"string\",\n            \"partOfSpeech\": \"string\",\n            \"position\": 2937,\n            \"score\": 1841.620639778221,\n            \"sentenceId\": 124,\n            \"stopword\": false,\n            \"word\": \"string\",\n            \"wordType\": \"string\"\n          }\n        ]\n      },\n      \"text\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"https://Dl.sgvJcavqvN0uvCsL3JITUxi7jQGifIZsuED6FRHVngh8yuvcSlOEHMB\",\n      \"word\": \"string\",\n      \"year\": 8391\n    },\n    {\n      \"documentId\": 3531,\n      \"exampleId\": 9830,\n      \"id\": 7062,\n      \"provider\": {\n        \"id\": 1809,\n        \"name\": \"string\"\n      },\n      \"rating\": 6272.7901707906685,\n      \"score\": {\n        \"baseWordScore\": 3498.9533450610434,\n        \"docTermCount\": 4505,\n        \"id\": 1545,\n        \"lemma\": \"string\",\n        \"partOfSpeech\": \"string\",\n        \"position\": 989,\n        \"score\": 4491.579162574107,\n        \"sentenceId\": 4150,\n        \"stopword\": true,\n        \"word\": \"string\",\n        \"wordType\": \"string\"\n      },\n      \"sentence\": {\n        \"display\": \"string\",\n        \"documentMetadataId\": 7067,\n        \"hasScoredWords\": false,\n        \"id\": 5032,\n        \"rating\": 3045,\n        \"scoredWords\": [\n          {\n            \"baseWordScore\": 8625.846464177086,\n            \"docTermCount\": 2987,\n            \"id\": 9357,\n            \"lemma\": \"string\",\n            \"partOfSpeech\": \"string\",\n            \"position\": 9778,\n            \"score\": 9689.288681548867,\n            \"sentenceId\": 4821,\n            \"stopword\": false,\n            \"word\": \"string\",\n            \"wordType\": \"string\"\n          },\n          {\n            \"baseWordScore\": 140.49911958566642,\n            \"docTermCount\": 6328,\n            \"id\": 4675,\n            \"lemma\": \"string\",\n            \"partOfSpeech\": \"string\",\n            \"position\": 3348,\n            \"score\": 150.38313537348637,\n            \"sentenceId\": 4504,\n            \"stopword\": false,\n            \"word\": \"string\",\n            \"wordType\": \"string\"\n          }\n        ]\n      },\n      \"text\": \"string\",\n      \"title\": \"string\",\n      \"url\": \"http://c.cbunOKa1ZnKOgChzu67f9qb.\",\n      \"word\": \"string\",\n      \"year\": 373\n    }\n  ],\n  \"facets\": [\n    {\n      \"facetValues\": [\n        {\n          \"count\": 937,\n          \"value\": \"string\"\n        },\n        {\n          \"count\": 6586,\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\"\n    },\n    {\n      \"facetValues\": [\n        {\n          \"count\": 7956,\n          \"value\": \"string\"\n        },\n        {\n          \"count\": 2874,\n          \"value\": \"string\"\n        }\n      ],\n      \"name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "aec5bd97-9e79-4606-a4be-08fb039905a8",
+          "name": "Return Word Usage Over Time",
+          "request": {
+            "name": "Return Word Usage Over Time",
+            "description": {
+              "content": "Returns a frequency summary describing how often a word has been used per year.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "frequency"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                },
+                {
+                  "disabled": false,
+                  "key": "startYear",
+                  "value": "1800",
+                  "description": "Starting year."
+                },
+                {
+                  "disabled": false,
+                  "key": "endYear",
+                  "value": "2012",
+                  "description": "Ending year."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to return."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9e00dd00-686a-42ed-a459-5fbfed3ad255",
+              "name": "Frequency summary for the word.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "frequency"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "startYear",
+                      "value": "1800"
+                    },
+                    {
+                      "key": "endYear",
+                      "value": "2012"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to return."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"frequency\": [\n    {\n      \"count\": 5372,\n      \"year\": 1175\n    },\n    {\n      \"count\": 3442,\n      \"year\": 6123\n    }\n  ],\n  \"frequencyString\": \"string\",\n  \"totalCount\": 1445,\n  \"unknownYearCount\": 850,\n  \"word\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbf779e1-cc39-4e7c-a71b-ac05fc139f7e",
+          "name": "Return Syllable Information For A Word",
+          "request": {
+            "name": "Return Syllable Information For A Word",
+            "description": {
+              "content": "Returns the syllabification (hyphenation) data for a word.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "hyphenation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                },
+                {
+                  "disabled": false,
+                  "key": "sourceDictionary",
+                  "value": "<string>",
+                  "description": "Get from a single dictionary. Valid options: ahd-5, century, wiktionary, webster, and wordnet."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to get syllables for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c1e3d3cd-6e65-4f3c-bca5-73423341c0d8",
+              "name": "Array of Syllable objects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "hyphenation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sourceDictionary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to get syllables for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"seq\": 1200,\n    \"text\": \"string\",\n    \"type\": \"stress\"\n  },\n  {\n    \"seq\": 6269,\n    \"text\": \"string\",\n    \"type\": \"stress\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9870d392-9563-461b-9486-28131588d299",
+          "name": "Fetch Bi-gram Phrases For A Word",
+          "request": {
+            "name": "Fetch Bi-gram Phrases For A Word",
+            "description": {
+              "content": "Returns the top bi-gram phrases that include the given word.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "phrases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "5",
+                  "description": "Maximum number of results to return."
+                },
+                {
+                  "disabled": false,
+                  "key": "wlmi",
+                  "value": "0",
+                  "description": "Minimum WLMI for the phrase."
+                },
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to fetch phrases for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a38077fc-7f1f-400c-8060-bfff47fc92a7",
+              "name": "Array of Bigram phrase entries.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "phrases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "5"
+                    },
+                    {
+                      "key": "wlmi",
+                      "value": "0"
+                    },
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to fetch phrases for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"count\": 9603,\n    \"gram1\": \"string\",\n    \"gram2\": \"string\",\n    \"mi\": 3068.980541985793,\n    \"wlmi\": 3014.642842564925\n  },\n  {\n    \"count\": 600,\n    \"gram1\": \"string\",\n    \"gram2\": \"string\",\n    \"mi\": 8691.8315306759,\n    \"wlmi\": 8147.28046110759\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bd50fe60-2a72-494f-aa98-d34a3ef6a584",
+          "name": "Return Text Pronunciations For A Word",
+          "request": {
+            "name": "Return Text Pronunciations For A Word",
+            "description": {
+              "content": "Returns one or more text pronunciations for a given word in any of the supported formats.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "pronunciations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                },
+                {
+                  "disabled": false,
+                  "key": "sourceDictionary",
+                  "value": "<string>",
+                  "description": "Get from a single dictionary."
+                },
+                {
+                  "disabled": false,
+                  "key": "typeFormat",
+                  "value": "<string>",
+                  "description": "Text pronunciation type."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "Maximum number of results to return."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to get pronunciations for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93e92046-d228-431f-b3d0-284377f13c56",
+              "name": "Array of TextPron objects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "pronunciations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "sourceDictionary",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "typeFormat",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to get pronunciations for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"raw\": \"string\",\n    \"rawType\": \"string\",\n    \"seq\": 4906\n  },\n  {\n    \"raw\": \"string\",\n    \"rawType\": \"string\",\n    \"seq\": 9340\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6de3ef0d-a4ae-443c-8f65-3b212ee1c92e",
+          "name": "Return Related Words From The Word Graph",
+          "request": {
+            "name": "Return Related Words From The Word Graph",
+            "description": {
+              "content": "Given a word as a string, returns relationships from the Wordnik Word Graph (synonyms, antonyms, hypernyms, hyponyms, etc.).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "relatedWords"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                },
+                {
+                  "disabled": false,
+                  "key": "relationshipTypes",
+                  "value": "<string>",
+                  "description": "Limits the total results per type of relationship type."
+                },
+                {
+                  "disabled": false,
+                  "key": "limitPerRelationshipType",
+                  "value": "10",
+                  "description": "Restrict to the supplied relationship types."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to fetch relationships for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "92eee8be-cfed-436f-a797-8e492468d1f2",
+              "name": "Array of Related word-group objects.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "relatedWords"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "relationshipTypes",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "limitPerRelationshipType",
+                      "value": "10"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to fetch relationships for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"gram\": \"string\",\n    \"label1\": \"string\",\n    \"label2\": \"string\",\n    \"label3\": \"string\",\n    \"label4\": \"string\",\n    \"relationshipType\": \"synonym\",\n    \"words\": [\n      \"string\",\n      \"string\"\n    ]\n  },\n  {\n    \"gram\": \"string\",\n    \"label1\": \"string\",\n    \"label2\": \"string\",\n    \"label3\": \"string\",\n    \"label4\": \"string\",\n    \"relationshipType\": \"synonym\",\n    \"words\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "909d4a7a-831e-4357-b9e3-b7001a83b500",
+          "name": "Return The Scrabble Score For A Word",
+          "request": {
+            "name": "Return The Scrabble Score For A Word",
+            "description": {
+              "content": "Returns the scrabble score for a given word.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "scrabbleScore"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to get scrabble score for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fbf6b317-f06d-414a-87a6-aea647c54763",
+              "name": "ScrabbleScoreResult containing a single value.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "scrabbleScore"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to get scrabble score for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"value\": 7031\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "285d4a7d-bea8-4238-9480-f40e428b3536",
+          "name": "Return A Top Example For A Word",
+          "request": {
+            "name": "Return A Top Example For A Word",
+            "description": {
+              "content": "Returns a single top example sentence for a given word.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "word.json",
+                ":word",
+                "topExample"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "useCanonical",
+                  "value": "false",
+                  "description": "Return the canonical form of the word."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "word",
+                  "description": "(Required) Word to fetch examples for."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1149a244-29c4-426d-9d53-b76def1d53e9",
+              "name": "A single Example payload.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "word.json",
+                    ":word",
+                    "topExample"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "useCanonical",
+                      "value": "false"
+                    },
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "word",
+                      "description": "(Required) Word to fetch examples for."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"documentId\": 5431,\n  \"exampleId\": 6370,\n  \"id\": 1975,\n  \"provider\": {\n    \"id\": 12,\n    \"name\": \"string\"\n  },\n  \"rating\": 8066.023665388251,\n  \"score\": {\n    \"baseWordScore\": 5639.156375324797,\n    \"docTermCount\": 8272,\n    \"id\": 2166,\n    \"lemma\": \"string\",\n    \"partOfSpeech\": \"string\",\n    \"position\": 8182,\n    \"score\": 9568.109160981296,\n    \"sentenceId\": 756,\n    \"stopword\": true,\n    \"word\": \"string\",\n    \"wordType\": \"string\"\n  },\n  \"sentence\": {\n    \"display\": \"string\",\n    \"documentMetadataId\": 2439,\n    \"hasScoredWords\": true,\n    \"id\": 2507,\n    \"rating\": 3545,\n    \"scoredWords\": [\n      {\n        \"baseWordScore\": 8202.686799579647,\n        \"docTermCount\": 1060,\n        \"id\": 3032,\n        \"lemma\": \"string\",\n        \"partOfSpeech\": \"string\",\n        \"position\": 3550,\n        \"score\": 7661.056166262142,\n        \"sentenceId\": 8965,\n        \"stopword\": false,\n        \"word\": \"string\",\n        \"wordType\": \"string\"\n      },\n      {\n        \"baseWordScore\": 2300.065245668189,\n        \"docTermCount\": 8944,\n        \"id\": 834,\n        \"lemma\": \"string\",\n        \"partOfSpeech\": \"string\",\n        \"position\": 6535,\n        \"score\": 7576.689817226418,\n        \"sentenceId\": 5740,\n        \"stopword\": false,\n        \"word\": \"string\",\n        \"wordType\": \"string\"\n      }\n    ]\n  },\n  \"text\": \"string\",\n  \"title\": \"string\",\n  \"url\": \"http://ZEaOpWXBGKnlQNxQDIAvDlIgInch.vefo5ZzKJyYLsBj\",\n  \"word\": \"string\",\n  \"year\": 6993\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wordnik.com/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1a9911b6-8bf7-45fd-b0f0-991d007f7d07",
+    "name": "Wordnik Account Word API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Wordnik is the world's biggest online English dictionary. The Wordnik API exposes\nword definitions (from five dictionaries), etymologies, real example sentences from\nmillions of sources, audio pronunciations, related-word relationships, frequency data,\nhyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,\nword-of-the-day, and user word lists.\n\nContact Support:\n Name: Wordnik API Team\n Email: apiteam@wordnik.com",
+      "type": "text/plain"
+    }
+  }
+}

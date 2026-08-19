@@ -1,0 +1,397 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wordnik Account Words API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Words",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return A Single Random Word",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/words.json/randomWord",
+            "params": [
+              {
+                "name": "hasDictionaryDef",
+                "value": "",
+                "type": "query",
+                "description": "Only return words with dictionary definitions."
+              },
+              {
+                "name": "includePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "CSV part-of-speech values to include."
+              },
+              {
+                "name": "excludePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "CSV part-of-speech values to exclude."
+              },
+              {
+                "name": "minCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum corpus frequency for terms."
+              },
+              {
+                "name": "maxCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum corpus frequency for terms."
+              },
+              {
+                "name": "minDictionaryCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum dictionary count."
+              },
+              {
+                "name": "maxDictionaryCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum dictionary count."
+              },
+              {
+                "name": "minLength",
+                "value": "",
+                "type": "query",
+                "description": "Minimum word length."
+              },
+              {
+                "name": "maxLength",
+                "value": "",
+                "type": "query",
+                "description": "Maximum word length."
+              }
+            ]
+          },
+          "docs": "Returns a single random WordObject filtered by part of speech, length, dictionary count, and corpus count."
+        },
+        {
+          "info": {
+            "name": "Return An Array Of Random Words",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/words.json/randomWords",
+            "params": [
+              {
+                "name": "hasDictionaryDef",
+                "value": "",
+                "type": "query",
+                "description": "Only return words with dictionary definitions."
+              },
+              {
+                "name": "includePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "CSV part-of-speech values to include."
+              },
+              {
+                "name": "excludePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "CSV part-of-speech values to exclude."
+              },
+              {
+                "name": "minCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum corpus frequency for terms."
+              },
+              {
+                "name": "maxCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum corpus frequency for terms."
+              },
+              {
+                "name": "minDictionaryCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum dictionary count."
+              },
+              {
+                "name": "maxDictionaryCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum dictionary count."
+              },
+              {
+                "name": "minLength",
+                "value": "",
+                "type": "query",
+                "description": "Minimum word length."
+              },
+              {
+                "name": "maxLength",
+                "value": "",
+                "type": "query",
+                "description": "Maximum word length."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Attribute to sort by."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              }
+            ]
+          },
+          "docs": "Returns an array of random WordObjects filtered by part of speech, length, dictionary count, and corpus count."
+        },
+        {
+          "info": {
+            "name": "Reverse Dictionary Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/words.json/reverseDictionary",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "Search term."
+              },
+              {
+                "name": "findSenseForWord",
+                "value": "",
+                "type": "query",
+                "description": "Restricts words and finds closest sense."
+              },
+              {
+                "name": "includeSourceDictionaries",
+                "value": "",
+                "type": "query",
+                "description": "Only include these comma-delimited source dictionaries."
+              },
+              {
+                "name": "excludeSourceDictionaries",
+                "value": "",
+                "type": "query",
+                "description": "Exclude these comma-delimited source dictionaries."
+              },
+              {
+                "name": "includePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "Only include these comma-delimited parts of speech."
+              },
+              {
+                "name": "excludePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "Exclude these comma-delimited parts of speech."
+              },
+              {
+                "name": "minCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum corpus frequency for terms."
+              },
+              {
+                "name": "maxCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum corpus frequency for terms."
+              },
+              {
+                "name": "minLength",
+                "value": "",
+                "type": "query",
+                "description": "Minimum word length."
+              },
+              {
+                "name": "maxLength",
+                "value": "",
+                "type": "query",
+                "description": "Maximum word length."
+              },
+              {
+                "name": "expandTerms",
+                "value": "",
+                "type": "query",
+                "description": "Expand terms."
+              },
+              {
+                "name": "includeTags",
+                "value": "",
+                "type": "query",
+                "description": "Return a closed set of XML tags in response."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Attribute to sort by."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Results to skip."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              }
+            ]
+          },
+          "docs": "Returns the words that best match a natural-language query string."
+        },
+        {
+          "info": {
+            "name": "Search Words",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/words.json/search/:query",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "path",
+                "description": "Search query."
+              },
+              {
+                "name": "allowRegex",
+                "value": "",
+                "type": "query",
+                "description": "Search term is a regular expression."
+              },
+              {
+                "name": "caseSensitive",
+                "value": "",
+                "type": "query",
+                "description": "Search case sensitive."
+              },
+              {
+                "name": "includePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "Only include these comma-delimited parts of speech."
+              },
+              {
+                "name": "excludePartOfSpeech",
+                "value": "",
+                "type": "query",
+                "description": "Exclude these comma-delimited parts of speech."
+              },
+              {
+                "name": "minCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum corpus frequency for terms."
+              },
+              {
+                "name": "maxCorpusCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum corpus frequency for terms."
+              },
+              {
+                "name": "minDictionaryCount",
+                "value": "",
+                "type": "query",
+                "description": "Minimum number of dictionary entries for words returned."
+              },
+              {
+                "name": "maxDictionaryCount",
+                "value": "",
+                "type": "query",
+                "description": "Maximum dictionary definition count."
+              },
+              {
+                "name": "minLength",
+                "value": "",
+                "type": "query",
+                "description": "Minimum word length."
+              },
+              {
+                "name": "maxLength",
+                "value": "",
+                "type": "query",
+                "description": "Maximum word length."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Results to skip."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              }
+            ]
+          },
+          "docs": "Searches for words matching the supplied query (literal or regular expression)."
+        },
+        {
+          "info": {
+            "name": "Return The Word Of The Day",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/words.json/wordOfTheDay",
+            "params": [
+              {
+                "name": "date",
+                "value": "",
+                "type": "query",
+                "description": "Fetches by date in yyyy-MM-dd."
+              }
+            ]
+          },
+          "docs": "Returns the Word of the Day, optionally for a specific date."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

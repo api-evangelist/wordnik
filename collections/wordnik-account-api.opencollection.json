@@ -1,0 +1,135 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wordnik Account API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return API Token Status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/account.json/apiTokenStatus",
+            "headers": [
+              {
+                "name": "api_key",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns the current quota, total requests, and remaining-call status for the supplied API key. Endpoint surface verified from the Wordnik official client SDK (wordnik-clients/java AccountApi)."
+        },
+        {
+          "info": {
+            "name": "Authenticate A User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/account.json/authenticate/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "A confirmed Wordnik username."
+              },
+              {
+                "name": "password",
+                "value": "",
+                "type": "query",
+                "description": "The user's password."
+              }
+            ]
+          },
+          "docs": "Authenticates a Wordnik user using the supplied password and returns an auth token for subsequent user-scoped operations."
+        },
+        {
+          "info": {
+            "name": "Authenticate A User (POST Body)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wordnik.com/v4/account.json/authenticate/:username",
+            "params": [
+              {
+                "name": "username",
+                "value": "",
+                "type": "path",
+                "description": "A confirmed Wordnik username."
+              }
+            ]
+          },
+          "docs": "Same as the GET form, but the password is sent in the request body to avoid logging the credential in URL query strings."
+        },
+        {
+          "info": {
+            "name": "Return The Currently Authenticated User",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/account.json/user",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ]
+          },
+          "docs": "Returns the User profile associated with the supplied auth token."
+        },
+        {
+          "info": {
+            "name": "Return The Authenticated User's Word Lists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/account.json/wordLists",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Results to skip."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of lists to return."
+              }
+            ]
+          },
+          "docs": "Returns all word lists owned by the currently authenticated user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

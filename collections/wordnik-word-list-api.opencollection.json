@@ -1,0 +1,212 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Wordnik Account Word List API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "api_key",
+      "value": "{{api_key}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Word List",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Return A Word List By Permalink",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/wordList.json/:permalink",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "permalink",
+                "value": "",
+                "type": "path",
+                "description": "Permalink of the word list."
+              }
+            ]
+          },
+          "docs": "Returns the WordList identified by the supplied permalink."
+        },
+        {
+          "info": {
+            "name": "Update A Word List",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.wordnik.com/v4/wordList.json/:permalink",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "permalink",
+                "value": "",
+                "type": "path",
+                "description": "Permalink of the word list."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Updates the WordList identified by the supplied permalink."
+        },
+        {
+          "info": {
+            "name": "Delete A Word List",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.wordnik.com/v4/wordList.json/:permalink",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "permalink",
+                "value": "",
+                "type": "path",
+                "description": "Permalink of the word list."
+              }
+            ]
+          },
+          "docs": "Deletes the WordList identified by the supplied permalink."
+        },
+        {
+          "info": {
+            "name": "Return Words In A Word List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.wordnik.com/v4/wordList.json/:permalink/words",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "permalink",
+                "value": "",
+                "type": "path",
+                "description": "Permalink of the word list."
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "Attribute to sort by."
+              },
+              {
+                "name": "sortOrder",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction."
+              },
+              {
+                "name": "skip",
+                "value": "",
+                "type": "query",
+                "description": "Results to skip."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return."
+              }
+            ]
+          },
+          "docs": "Returns the words contained in the WordList identified by the supplied permalink."
+        },
+        {
+          "info": {
+            "name": "Add Words To A Word List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wordnik.com/v4/wordList.json/:permalink/words",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "permalink",
+                "value": "",
+                "type": "path",
+                "description": "Permalink of the word list."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Adds one or more words to the WordList identified by the supplied permalink."
+        },
+        {
+          "info": {
+            "name": "Delete Words From A Word List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.wordnik.com/v4/wordList.json/:permalink/deleteWords",
+            "headers": [
+              {
+                "name": "auth_token",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "permalink",
+                "value": "",
+                "type": "path",
+                "description": "Permalink of the word list."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Removes one or more words from the WordList identified by the supplied permalink."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

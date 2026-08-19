@@ -1,0 +1,157 @@
+{
+  "item": [
+    {
+      "id": "7e327214-5f09-44d5-9806-5765218b4f3c",
+      "name": "Word Lists",
+      "description": {
+        "content": "Create new user word lists.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8120c901-048b-4d70-aadc-b538b9748824",
+          "name": "Create A New Word List",
+          "request": {
+            "name": "Create A New Word List",
+            "description": {
+              "content": "Creates a new word list owned by the authenticated user. Endpoint surface verified from the Wordnik official client SDK (wordnik-clients/java WordListsApi).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "wordLists.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) A valid user auth token.",
+                "key": "auth_token",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7b656f00-c36b-448d-9687-248af36a309f",
+              "name": "The created WordList.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "wordLists.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "api_key",
+                      "value": "<API Key>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "disabled": false,
+                    "description": "(Required) A valid user auth token.",
+                    "key": "auth_token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"<long>\",\n  \"createdAt\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"lastActivityAt\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"numberWordsInList\": \"<long>\",\n  \"permalink\": \"<string>\",\n  \"type\": \"<string>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"userId\": \"<long>\",\n  \"username\": \"<string>\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.wordnik.com/v4",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "api_key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "query"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7ed71501-d2d7-45ac-9f48-a6f9bf946ace",
+    "name": "Wordnik Account Word Lists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Wordnik is the world's biggest online English dictionary. The Wordnik API exposes\nword definitions (from five dictionaries), etymologies, real example sentences from\nmillions of sources, audio pronunciations, related-word relationships, frequency data,\nhyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,\nword-of-the-day, and user word lists.\n\nContact Support:\n Name: Wordnik API Team\n Email: apiteam@wordnik.com",
+      "type": "text/plain"
+    }
+  }
+}
