@@ -184,7 +184,7 @@ apis:
   humanURL: https://developer.wordnik.com
   baseURL: https://api.wordnik.com/v4
   tags:
-  - Word
+  - Words
   tags_raw:
   - Words
   properties:
