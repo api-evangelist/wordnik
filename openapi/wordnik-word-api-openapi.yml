@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Wordnik Account Word API
+  title: Wordnik Word API
   description: 'Wordnik is the world''s biggest online English dictionary. The Wordnik API exposes
 
     word definitions (from five dictionaries), etymologies, real example sentences from
@@ -10,7 +10,7 @@ info:
     hyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,
 
     word-of-the-day, and user word lists.'
-  version: '2.0'
+  version: '4.0'
   contact:
     name: Wordnik API Team
     email: apiteam@wordnik.com
@@ -28,6 +28,7 @@ info:
   x-origin:
   - format: openapi
     url: https://developer.wordnik.com/api-docs/swagger.json
+    version: '2.0'
 servers:
 - url: https://api.wordnik.com/v4
   description: Wordnik v4 production API
@@ -659,115 +660,6 @@ paths:
                 $ref: '#/components/schemas/Example'
 components:
   schemas:
-    Related:
-      type: object
-      properties:
-        gram:
-          type: string
-        label1:
-          type: string
-        label2:
-          type: string
-        label3:
-          type: string
-        label4:
-          type: string
-        relationshipType:
-          type: string
-          example: synonym
-        words:
-          type: array
-          items:
-            type: string
-    Sentence:
-      type: object
-      properties:
-        display:
-          type: string
-        documentMetadataId:
-          type: integer
-          format: int64
-        hasScoredWords:
-          type: boolean
-        id:
-          type: integer
-          format: int64
-        rating:
-          type: integer
-          format: int32
-        scoredWords:
-          type: array
-          items:
-            $ref: '#/components/schemas/ScoredWord'
-    Bigram:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int64
-        gram1:
-          type: string
-        gram2:
-          type: string
-        mi:
-          type: number
-          format: double
-          description: Mutual information score
-        wlmi:
-          type: number
-          format: double
-          description: Word-list mutual information score
-    TextPron:
-      type: object
-      properties:
-        raw:
-          type: string
-        rawType:
-          type: string
-        seq:
-          type: integer
-          format: int32
-    Note:
-      type: object
-      properties:
-        appliesTo:
-          type: array
-          items:
-            type: string
-        noteType:
-          type: string
-        pos:
-          type: integer
-          format: int32
-        value:
-          type: string
-    Citation:
-      type: object
-      properties:
-        cite:
-          type: string
-        source:
-          type: string
-    ContentProvider:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-    ExampleUsage:
-      type: object
-      properties:
-        text:
-          type: string
-    Label:
-      type: object
-      properties:
-        text:
-          type: string
-        type:
-          type: string
     Facet:
       type: object
       properties:
@@ -776,32 +668,6 @@ components:
           items:
             $ref: '#/components/schemas/FacetValue'
         name:
-          type: string
-    Frequency:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int64
-        year:
-          type: integer
-          format: int32
-    FrequencySummary:
-      type: object
-      properties:
-        frequency:
-          type: array
-          items:
-            $ref: '#/components/schemas/Frequency'
-        frequencyString:
-          type: string
-        totalCount:
-          type: integer
-          format: int64
-        unknownYearCount:
-          type: integer
-          format: int32
-        word:
           type: string
     Example:
       type: object
@@ -835,76 +701,59 @@ components:
           type: string
         year:
           type: integer
-    ScrabbleScoreResult:
+    ContentProvider:
       type: object
       properties:
-        value:
-          type: integer
-          format: int64
-    ScoredWord:
-      type: object
-      properties:
-        baseWordScore:
-          type: number
-          format: double
-        docTermCount:
-          type: integer
-          format: int32
         id:
           type: integer
-          format: int64
-        lemma:
-          type: string
-        partOfSpeech:
-          type: string
-        position:
-          type: integer
           format: int32
-        score:
-          type: number
-          format: float
-        sentenceId:
-          type: integer
-          format: int64
-        stopword:
-          type: boolean
-        word:
+        name:
           type: string
-        wordType:
-          type: string
-    Syllable:
-      type: object
-      properties:
-        seq:
-          type: integer
-          format: int32
-        text:
-          type: string
-        type:
-          type: string
-          enum:
-          - stress
-          - secondary
-          - normal
-    ExampleSearchResults:
-      type: object
-      properties:
-        examples:
-          type: array
-          items:
-            $ref: '#/components/schemas/Example'
-        facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/Facet'
-    FacetValue:
+    Bigram:
       type: object
       properties:
         count:
           type: integer
           format: int64
-        value:
+        gram1:
           type: string
+        gram2:
+          type: string
+        mi:
+          type: number
+          format: double
+          description: Mutual information score
+        wlmi:
+          type: number
+          format: double
+          description: Word-list mutual information score
+    Citation:
+      type: object
+      properties:
+        cite:
+          type: string
+        source:
+          type: string
+    Related:
+      type: object
+      properties:
+        gram:
+          type: string
+        label1:
+          type: string
+        label2:
+          type: string
+        label3:
+          type: string
+        label4:
+          type: string
+        relationshipType:
+          type: string
+          example: synonym
+        words:
+          type: array
+          items:
+            type: string
     AudioFile:
       type: object
       required:
@@ -946,6 +795,56 @@ components:
           format: float
         word:
           type: string
+    TextPron:
+      type: object
+      properties:
+        raw:
+          type: string
+        rawType:
+          type: string
+        seq:
+          type: integer
+          format: int32
+    ScoredWord:
+      type: object
+      properties:
+        baseWordScore:
+          type: number
+          format: double
+        docTermCount:
+          type: integer
+          format: int32
+        id:
+          type: integer
+          format: int64
+        lemma:
+          type: string
+        partOfSpeech:
+          type: string
+        position:
+          type: integer
+          format: int32
+        score:
+          type: number
+          format: float
+        sentenceId:
+          type: integer
+          format: int64
+        stopword:
+          type: boolean
+        word:
+          type: string
+        wordType:
+          type: string
+    Frequency:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        year:
+          type: integer
+          format: int32
     Definition:
       type: object
       properties:
@@ -995,6 +894,108 @@ components:
             $ref: '#/components/schemas/TextPron'
         word:
           type: string
+    Sentence:
+      type: object
+      properties:
+        display:
+          type: string
+        documentMetadataId:
+          type: integer
+          format: int64
+        hasScoredWords:
+          type: boolean
+        id:
+          type: integer
+          format: int64
+        rating:
+          type: integer
+          format: int32
+        scoredWords:
+          type: array
+          items:
+            $ref: '#/components/schemas/ScoredWord'
+    ExampleUsage:
+      type: object
+      properties:
+        text:
+          type: string
+    Label:
+      type: object
+      properties:
+        text:
+          type: string
+        type:
+          type: string
+    FrequencySummary:
+      type: object
+      properties:
+        frequency:
+          type: array
+          items:
+            $ref: '#/components/schemas/Frequency'
+        frequencyString:
+          type: string
+        totalCount:
+          type: integer
+          format: int64
+        unknownYearCount:
+          type: integer
+          format: int32
+        word:
+          type: string
+    FacetValue:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        value:
+          type: string
+    Syllable:
+      type: object
+      properties:
+        seq:
+          type: integer
+          format: int32
+        text:
+          type: string
+        type:
+          type: string
+          enum:
+          - stress
+          - secondary
+          - normal
+    ScrabbleScoreResult:
+      type: object
+      properties:
+        value:
+          type: integer
+          format: int64
+    Note:
+      type: object
+      properties:
+        appliesTo:
+          type: array
+          items:
+            type: string
+        noteType:
+          type: string
+        pos:
+          type: integer
+          format: int32
+        value:
+          type: string
+    ExampleSearchResults:
+      type: object
+      properties:
+        examples:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example'
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Facet'
   securitySchemes:
     api_key:
       type: apiKey

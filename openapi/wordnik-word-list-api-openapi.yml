@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Wordnik Account Word List API
+  title: Wordnik Word List API
   description: 'Wordnik is the world''s biggest online English dictionary. The Wordnik API exposes
 
     word definitions (from five dictionaries), etymologies, real example sentences from
@@ -10,7 +10,7 @@ info:
     hyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,
 
     word-of-the-day, and user word lists.'
-  version: '2.0'
+  version: '4.0'
   contact:
     name: Wordnik API Team
     email: apiteam@wordnik.com
@@ -28,6 +28,7 @@ info:
   x-origin:
   - format: openapi
     url: https://developer.wordnik.com/api-docs/swagger.json
+    version: '2.0'
 servers:
 - url: https://api.wordnik.com/v4
   description: Wordnik v4 production API
@@ -270,35 +271,6 @@ paths:
           description: Words removed from the WordList.
 components:
   schemas:
-    WordListWord:
-      type: object
-      required:
-      - id
-      properties:
-        createdAt:
-          type: string
-          format: date-time
-        id:
-          type: integer
-          format: int64
-        numberCommentsOnWord:
-          type: integer
-          format: int64
-        numberLists:
-          type: integer
-          format: int64
-        userId:
-          type: integer
-          format: int64
-        username:
-          type: string
-        word:
-          type: string
-    StringValue:
-      type: object
-      properties:
-        word:
-          type: string
     WordList:
       type: object
       required:
@@ -334,6 +306,35 @@ components:
           type: integer
           format: int64
         username:
+          type: string
+    StringValue:
+      type: object
+      properties:
+        word:
+          type: string
+    WordListWord:
+      type: object
+      required:
+      - id
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        numberCommentsOnWord:
+          type: integer
+          format: int64
+        numberLists:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        username:
+          type: string
+        word:
           type: string
   securitySchemes:
     api_key:

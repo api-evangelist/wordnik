@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Wordnik Account API
   description: 'Wordnik is the world''s biggest online English dictionary. The Wordnik API exposes
@@ -10,7 +10,7 @@ info:
     hyphenation, phrases, scrabble scores, random words, reverse-dictionary lookup,
 
     word-of-the-day, and user word lists.'
-  version: '2.0'
+  version: '4.0'
   contact:
     name: Wordnik API Team
     email: apiteam@wordnik.com
@@ -28,6 +28,7 @@ info:
   x-origin:
   - format: openapi
     url: https://developer.wordnik.com/api-docs/swagger.json
+    version: '2.0'
 servers:
 - url: https://api.wordnik.com/v4
   description: Wordnik v4 production API
@@ -200,6 +201,25 @@ paths:
                   $ref: '#/components/schemas/WordList'
 components:
   schemas:
+    ApiTokenStatus:
+      type: object
+      properties:
+        expiresInMillis:
+          type: integer
+          format: int64
+        remainingCalls:
+          type: integer
+          format: int64
+        resetsInMillis:
+          type: integer
+          format: int64
+        token:
+          type: string
+        totalRequests:
+          type: integer
+          format: int64
+        valid:
+          type: boolean
     WordList:
       type: object
       required:
@@ -236,6 +256,16 @@ components:
           format: int64
         username:
           type: string
+    AuthenticationToken:
+      type: object
+      properties:
+        token:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        userSignature:
+          type: string
     User:
       type: object
       properties:
@@ -258,35 +288,6 @@ components:
         userName:
           type: string
         username:
-          type: string
-    ApiTokenStatus:
-      type: object
-      properties:
-        expiresInMillis:
-          type: integer
-          format: int64
-        remainingCalls:
-          type: integer
-          format: int64
-        resetsInMillis:
-          type: integer
-          format: int64
-        token:
-          type: string
-        totalRequests:
-          type: integer
-          format: int64
-        valid:
-          type: boolean
-    AuthenticationToken:
-      type: object
-      properties:
-        token:
-          type: string
-        userId:
-          type: integer
-          format: int64
-        userSignature:
           type: string
   securitySchemes:
     api_key:
