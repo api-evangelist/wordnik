@@ -271,6 +271,35 @@ paths:
           description: Words removed from the WordList.
 components:
   schemas:
+    StringValue:
+      type: object
+      properties:
+        word:
+          type: string
+    WordListWord:
+      type: object
+      required:
+      - id
+      properties:
+        createdAt:
+          type: string
+          format: date-time
+        id:
+          type: integer
+          format: int64
+        numberCommentsOnWord:
+          type: integer
+          format: int64
+        numberLists:
+          type: integer
+          format: int64
+        userId:
+          type: integer
+          format: int64
+        username:
+          type: string
+        word:
+          type: string
     WordList:
       type: object
       required:
@@ -306,35 +335,6 @@ components:
           type: integer
           format: int64
         username:
-          type: string
-    StringValue:
-      type: object
-      properties:
-        word:
-          type: string
-    WordListWord:
-      type: object
-      required:
-      - id
-      properties:
-        createdAt:
-          type: string
-          format: date-time
-        id:
-          type: integer
-          format: int64
-        numberCommentsOnWord:
-          type: integer
-          format: int64
-        numberLists:
-          type: integer
-          format: int64
-        userId:
-          type: integer
-          format: int64
-        username:
-          type: string
-        word:
           type: string
   securitySchemes:
     api_key:

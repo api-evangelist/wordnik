@@ -530,37 +530,6 @@ paths:
                 $ref: '#/components/schemas/WordOfTheDay'
 components:
   schemas:
-    SimpleExample:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int64
-        text:
-          type: string
-        title:
-          type: string
-        url:
-          type: string
-          format: uri
-    ContentProvider:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-    WordSearchResults:
-      type: object
-      properties:
-        searchResults:
-          type: array
-          items:
-            $ref: '#/components/schemas/WordSearchResult'
-        totalResults:
-          type: integer
-          format: int32
     WordObject:
       type: object
       required:
@@ -581,27 +550,19 @@ components:
           type: string
         word:
           type: string
-    DefinitionSearchResults:
+    SimpleExample:
       type: object
       properties:
-        results:
-          type: array
-          items:
-            $ref: '#/components/schemas/SimpleDefinition'
-        totalResults:
+        id:
           type: integer
-          format: int32
-    SimpleDefinition:
-      type: object
-      properties:
-        note:
-          type: string
-        partOfSpeech:
-          type: string
-        source:
-          type: string
+          format: int64
         text:
           type: string
+        title:
+          type: string
+        url:
+          type: string
+          format: uri
     WordSearchResult:
       type: object
       properties:
@@ -613,6 +574,45 @@ components:
           format: double
         word:
           type: string
+    DefinitionSearchResults:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SimpleDefinition'
+        totalResults:
+          type: integer
+          format: int32
+    ContentProvider:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+    SimpleDefinition:
+      type: object
+      properties:
+        note:
+          type: string
+        partOfSpeech:
+          type: string
+        source:
+          type: string
+        text:
+          type: string
+    WordSearchResults:
+      type: object
+      properties:
+        searchResults:
+          type: array
+          items:
+            $ref: '#/components/schemas/WordSearchResult'
+        totalResults:
+          type: integer
+          format: int32
     WordOfTheDay:
       type: object
       required:

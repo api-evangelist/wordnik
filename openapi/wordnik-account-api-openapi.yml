@@ -201,6 +201,29 @@ paths:
                   $ref: '#/components/schemas/WordList'
 components:
   schemas:
+    User:
+      type: object
+      properties:
+        displayName:
+          type: string
+        email:
+          type: string
+          format: email
+        faceBookId:
+          type: string
+        id:
+          type: integer
+          format: int64
+        password:
+          type: string
+          format: password
+        status:
+          type: integer
+          format: int32
+        userName:
+          type: string
+        username:
+          type: string
     ApiTokenStatus:
       type: object
       properties:
@@ -220,6 +243,16 @@ components:
           format: int64
         valid:
           type: boolean
+    AuthenticationToken:
+      type: object
+      properties:
+        token:
+          type: string
+        userId:
+          type: integer
+          format: int64
+        userSignature:
+          type: string
     WordList:
       type: object
       required:
@@ -254,39 +287,6 @@ components:
         userId:
           type: integer
           format: int64
-        username:
-          type: string
-    AuthenticationToken:
-      type: object
-      properties:
-        token:
-          type: string
-        userId:
-          type: integer
-          format: int64
-        userSignature:
-          type: string
-    User:
-      type: object
-      properties:
-        displayName:
-          type: string
-        email:
-          type: string
-          format: email
-        faceBookId:
-          type: string
-        id:
-          type: integer
-          format: int64
-        password:
-          type: string
-          format: password
-        status:
-          type: integer
-          format: int32
-        userName:
-          type: string
         username:
           type: string
   securitySchemes:
