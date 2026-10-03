@@ -660,94 +660,158 @@ paths:
                 $ref: '#/components/schemas/Example'
 components:
   schemas:
-    FrequencySummary:
+    Citation:
       type: object
       properties:
-        frequency:
-          type: array
-          items:
-            $ref: '#/components/schemas/Frequency'
-        frequencyString:
+        cite:
           type: string
-        totalCount:
-          type: integer
-          format: int64
-        unknownYearCount:
-          type: integer
-          format: int32
-        word:
+        source:
           type: string
-    ExampleSearchResults:
+    ExampleUsage:
       type: object
       properties:
-        examples:
-          type: array
-          items:
-            $ref: '#/components/schemas/Example'
-        facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/Facet'
-    Note:
-      type: object
-      properties:
-        appliesTo:
-          type: array
-          items:
-            type: string
-        noteType:
-          type: string
-        pos:
-          type: integer
-          format: int32
-        value:
-          type: string
-    Example:
-      type: object
-      properties:
-        documentId:
-          type: integer
-          format: int64
-        exampleId:
-          type: integer
-          format: int64
-        id:
-          type: integer
-          format: int64
-        provider:
-          $ref: '#/components/schemas/ContentProvider'
-        rating:
-          type: number
-          format: float
-        score:
-          $ref: '#/components/schemas/ScoredWord'
-        sentence:
-          $ref: '#/components/schemas/Sentence'
         text:
           type: string
-        title:
-          type: string
-        url:
-          type: string
-          format: uri
-        word:
-          type: string
-        year:
-          type: integer
-    Syllable:
+    TextPron:
       type: object
       properties:
+        raw:
+          type: string
+        rawType:
+          type: string
         seq:
           type: integer
           format: int32
+    Label:
+      type: object
+      properties:
         text:
           type: string
         type:
           type: string
-          enum:
-          - stress
-          - secondary
-          - normal
+    FacetValue:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        value:
+          type: string
+    AudioFile:
+      type: object
+      required:
+      - id
+      properties:
+        attributionText:
+          type: string
+        attributionUrl:
+          type: string
+        audioType:
+          type: string
+          example: pronunciation
+        commentCount:
+          type: integer
+          format: int32
+        createdAt:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+        description:
+          type: string
+        duration:
+          type: number
+          format: double
+        fileUrl:
+          type: string
+          format: uri
+        id:
+          type: integer
+          format: int64
+        voteAverage:
+          type: number
+          format: float
+        voteCount:
+          type: integer
+        voteWeightedAverage:
+          type: number
+          format: float
+        word:
+          type: string
+    Facet:
+      type: object
+      properties:
+        facetValues:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetValue'
+        name:
+          type: string
+    ContentProvider:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+    Related:
+      type: object
+      properties:
+        gram:
+          type: string
+        label1:
+          type: string
+        label2:
+          type: string
+        label3:
+          type: string
+        label4:
+          type: string
+        relationshipType:
+          type: string
+          example: synonym
+        words:
+          type: array
+          items:
+            type: string
+    ScrabbleScoreResult:
+      type: object
+      properties:
+        value:
+          type: integer
+          format: int64
+    ScoredWord:
+      type: object
+      properties:
+        baseWordScore:
+          type: number
+          format: double
+        docTermCount:
+          type: integer
+          format: int32
+        id:
+          type: integer
+          format: int64
+        lemma:
+          type: string
+        partOfSpeech:
+          type: string
+        position:
+          type: integer
+          format: int32
+        score:
+          type: number
+          format: float
+        sentenceId:
+          type: integer
+          format: int64
+        stopword:
+          type: boolean
+        word:
+          type: string
+        wordType:
+          type: string
     Definition:
       type: object
       properties:
@@ -797,151 +861,20 @@ components:
             $ref: '#/components/schemas/TextPron'
         word:
           type: string
-    Label:
+    Syllable:
       type: object
       properties:
+        seq:
+          type: integer
+          format: int32
         text:
           type: string
         type:
           type: string
-    AudioFile:
-      type: object
-      required:
-      - id
-      properties:
-        attributionText:
-          type: string
-        attributionUrl:
-          type: string
-        audioType:
-          type: string
-          example: pronunciation
-        commentCount:
-          type: integer
-          format: int32
-        createdAt:
-          type: string
-          format: date-time
-        createdBy:
-          type: string
-        description:
-          type: string
-        duration:
-          type: number
-          format: double
-        fileUrl:
-          type: string
-          format: uri
-        id:
-          type: integer
-          format: int64
-        voteAverage:
-          type: number
-          format: float
-        voteCount:
-          type: integer
-        voteWeightedAverage:
-          type: number
-          format: float
-        word:
-          type: string
-    ExampleUsage:
-      type: object
-      properties:
-        text:
-          type: string
-    Citation:
-      type: object
-      properties:
-        cite:
-          type: string
-        source:
-          type: string
-    Related:
-      type: object
-      properties:
-        gram:
-          type: string
-        label1:
-          type: string
-        label2:
-          type: string
-        label3:
-          type: string
-        label4:
-          type: string
-        relationshipType:
-          type: string
-          example: synonym
-        words:
-          type: array
-          items:
-            type: string
-    ScoredWord:
-      type: object
-      properties:
-        baseWordScore:
-          type: number
-          format: double
-        docTermCount:
-          type: integer
-          format: int32
-        id:
-          type: integer
-          format: int64
-        lemma:
-          type: string
-        partOfSpeech:
-          type: string
-        position:
-          type: integer
-          format: int32
-        score:
-          type: number
-          format: float
-        sentenceId:
-          type: integer
-          format: int64
-        stopword:
-          type: boolean
-        word:
-          type: string
-        wordType:
-          type: string
-    FacetValue:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int64
-        value:
-          type: string
-    ContentProvider:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
-          type: string
-    Bigram:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int64
-        gram1:
-          type: string
-        gram2:
-          type: string
-        mi:
-          type: number
-          format: double
-          description: Mutual information score
-        wlmi:
-          type: number
-          format: double
-          description: Word-list mutual information score
+          enum:
+          - stress
+          - secondary
+          - normal
     Sentence:
       type: object
       properties:
@@ -962,22 +895,98 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ScoredWord'
-    TextPron:
+    FrequencySummary:
       type: object
       properties:
-        raw:
+        frequency:
+          type: array
+          items:
+            $ref: '#/components/schemas/Frequency'
+        frequencyString:
           type: string
-        rawType:
-          type: string
-        seq:
-          type: integer
-          format: int32
-    ScrabbleScoreResult:
-      type: object
-      properties:
-        value:
+        totalCount:
           type: integer
           format: int64
+        unknownYearCount:
+          type: integer
+          format: int32
+        word:
+          type: string
+    ExampleSearchResults:
+      type: object
+      properties:
+        examples:
+          type: array
+          items:
+            $ref: '#/components/schemas/Example'
+        facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Facet'
+    Example:
+      type: object
+      properties:
+        documentId:
+          type: integer
+          format: int64
+        exampleId:
+          type: integer
+          format: int64
+        id:
+          type: integer
+          format: int64
+        provider:
+          $ref: '#/components/schemas/ContentProvider'
+        rating:
+          type: number
+          format: float
+        score:
+          $ref: '#/components/schemas/ScoredWord'
+        sentence:
+          $ref: '#/components/schemas/Sentence'
+        text:
+          type: string
+        title:
+          type: string
+        url:
+          type: string
+          format: uri
+        word:
+          type: string
+        year:
+          type: integer
+    Bigram:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+        gram1:
+          type: string
+        gram2:
+          type: string
+        mi:
+          type: number
+          format: double
+          description: Mutual information score
+        wlmi:
+          type: number
+          format: double
+          description: Word-list mutual information score
+    Note:
+      type: object
+      properties:
+        appliesTo:
+          type: array
+          items:
+            type: string
+        noteType:
+          type: string
+        pos:
+          type: integer
+          format: int32
+        value:
+          type: string
     Frequency:
       type: object
       properties:
@@ -987,15 +996,6 @@ components:
         year:
           type: integer
           format: int32
-    Facet:
-      type: object
-      properties:
-        facetValues:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetValue'
-        name:
-          type: string
   securitySchemes:
     api_key:
       type: apiKey
