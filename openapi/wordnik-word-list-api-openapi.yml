@@ -271,6 +271,11 @@ paths:
           description: Words removed from the WordList.
 components:
   schemas:
+    StringValue:
+      type: object
+      properties:
+        word:
+          type: string
     WordListWord:
       type: object
       required:
@@ -330,11 +335,6 @@ components:
           type: integer
           format: int64
         username:
-          type: string
-    StringValue:
-      type: object
-      properties:
-        word:
           type: string
   securitySchemes:
     api_key:
