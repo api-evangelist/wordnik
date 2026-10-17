@@ -530,35 +530,13 @@ paths:
                 $ref: '#/components/schemas/WordOfTheDay'
 components:
   schemas:
-    WordSearchResult:
+    DefinitionSearchResults:
       type: object
       properties:
-        count:
-          type: integer
-          format: int64
-        lexicality:
-          type: number
-          format: double
-        word:
-          type: string
-    SimpleDefinition:
-      type: object
-      properties:
-        note:
-          type: string
-        partOfSpeech:
-          type: string
-        source:
-          type: string
-        text:
-          type: string
-    WordSearchResults:
-      type: object
-      properties:
-        searchResults:
+        results:
           type: array
           items:
-            $ref: '#/components/schemas/WordSearchResult'
+            $ref: '#/components/schemas/SimpleDefinition'
         totalResults:
           type: integer
           format: int32
@@ -582,13 +560,43 @@ components:
           type: string
         word:
           type: string
-    DefinitionSearchResults:
+    WordSearchResult:
       type: object
       properties:
-        results:
+        count:
+          type: integer
+          format: int64
+        lexicality:
+          type: number
+          format: double
+        word:
+          type: string
+    ContentProvider:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+        name:
+          type: string
+    SimpleDefinition:
+      type: object
+      properties:
+        note:
+          type: string
+        partOfSpeech:
+          type: string
+        source:
+          type: string
+        text:
+          type: string
+    WordSearchResults:
+      type: object
+      properties:
+        searchResults:
           type: array
           items:
-            $ref: '#/components/schemas/SimpleDefinition'
+            $ref: '#/components/schemas/WordSearchResult'
         totalResults:
           type: integer
           format: int32
@@ -640,14 +648,6 @@ components:
           type: string
           format: date
         word:
-          type: string
-    ContentProvider:
-      type: object
-      properties:
-        id:
-          type: integer
-          format: int32
-        name:
           type: string
   securitySchemes:
     api_key:

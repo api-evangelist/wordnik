@@ -201,25 +201,6 @@ paths:
                   $ref: '#/components/schemas/WordList'
 components:
   schemas:
-    ApiTokenStatus:
-      type: object
-      properties:
-        expiresInMillis:
-          type: integer
-          format: int64
-        remainingCalls:
-          type: integer
-          format: int64
-        resetsInMillis:
-          type: integer
-          format: int64
-        token:
-          type: string
-        totalRequests:
-          type: integer
-          format: int64
-        valid:
-          type: boolean
     User:
       type: object
       properties:
@@ -253,6 +234,25 @@ components:
           format: int64
         userSignature:
           type: string
+    ApiTokenStatus:
+      type: object
+      properties:
+        expiresInMillis:
+          type: integer
+          format: int64
+        remainingCalls:
+          type: integer
+          format: int64
+        resetsInMillis:
+          type: integer
+          format: int64
+        token:
+          type: string
+        totalRequests:
+          type: integer
+          format: int64
+        valid:
+          type: boolean
     WordList:
       type: object
       required:
