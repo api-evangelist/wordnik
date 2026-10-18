@@ -41,6 +41,12 @@ x-tier: 2
 x-tier-reason: enriched-from-bulk-public-apis-with-full-openapi-and-capability-pipeline
 tags:
   - Dictionaries
+  - Word Data
+  - English
+  - Lexicography
+  - Public APIs
+tags_raw:
+  - Dictionaries
   - Dictionary
   - Word Data
   - English
